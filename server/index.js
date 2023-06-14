@@ -5,10 +5,15 @@ require("dotenv").config();
 const app = express();
 app.use(express.json());
 app.use(cors());
+
 // Simple Route
 app.get("/", (req, res) => {
   res.send("CycleCity server is running...");
 });
+
+// Routes
+const locationRoute = require("./routes/location");
+app.use("/location", locationRoute);
 
 // synchronizes data models with db tables
 const db = require("./models");
