@@ -15,6 +15,9 @@ app.get("/", (req, res) => {
 const locationRoute = require("./routes/location");
 app.use("/location", locationRoute);
 
+const attractionRoute = require("./routes/attraction");
+app.use("/attraction", attractionRoute);
+
 // synchronizes data models with db tables
 const db = require("./models");
 db.sequelize
