@@ -1,5 +1,5 @@
 import React from "react";
-import logo from "../assets/logoDarkMode.png";
+import logo from "../../assets/logoDarkMode.png";
 import { SlMenu } from "react-icons/sl";
 
 export default function Navbar() {
@@ -65,7 +65,7 @@ export default function Navbar() {
               <div class="hidden sm:flex">
                 <a
                   class="py-2.5 px-5 bg-thistle text-grey hover:text-seashell border border-thistle rounded-lg hover:bg-transparent transition ease-in duration-200 transform hover:-translate-y-1 active:translate-y-0"
-                  href="/"
+                  href="/login"
                 >
                   Login
                 </a>
@@ -73,7 +73,7 @@ export default function Navbar() {
               <div class="hidden sm:flex">
                 <a
                   class="py-2.5 px-5 bg-transparent text-seashell border border-ultraViolet rounded-lg hover:bg-ultraViolet hover:border-transparent transition ease-in duration-200 transform hover:-translate-y-1 active:translate-y-0"
-                  href="/"
+                  href="/login"
                 >
                   Register
                 </a>
