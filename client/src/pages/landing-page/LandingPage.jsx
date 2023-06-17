@@ -1,12 +1,12 @@
 import React from "react";
 import Navbar from "./Navbar";
-import ColourfulText from "./ColourfulText";
+import Tagline from "./Tagline";
 
 export default function LandingPage() {
   return (
     <>
       <Navbar />
-      <ColourfulText />
+      <Tagline />
     </>
   );
 }
