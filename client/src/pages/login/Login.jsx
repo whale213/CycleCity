@@ -10,7 +10,7 @@ const Login = () => {
             <div className="flex">
               <a
                 className="py-2.5 px-5 bg-thistle text-grey hover:text-seashell border border-thistle rounded-lg hover:bg-transparent transition ease-in duration-200 transform hover:-translate-y-1 active:translate-y-0"
-                href="/user"
+                href="/staff"
               >
                 Login
               </a>
@@ -18,7 +18,7 @@ const Login = () => {
             <div className="flex">
               <a
                 className="py-2.5 px-5 bg-transparent text-seashell border border-ultraViolet rounded-lg hover:bg-ultraViolet hover:border-transparent transition ease-in duration-200 transform hover:-translate-y-1 active:translate-y-0"
-                href="/user"
+                href="/staff"
               >
                 Register
               </a>

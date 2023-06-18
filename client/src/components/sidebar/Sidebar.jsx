@@ -4,6 +4,7 @@ import { BiChevronLeft } from "react-icons/bi";
 import SidebarLinks from "./SidebarLinks";
 import UserProfile from "./userProfile";
 import logo from "../../assets/logoDarkMode.png";
+import { Link } from "react-router-dom";
 
 const Sidebar = () => {
   const [toggle, setToggle] = useState(true);
@@ -11,14 +12,16 @@ const Sidebar = () => {
     <div className="w-full h-full flex items-center">
       <div className={`${toggle ? "w-[5.8rem]" : ""} sidebar-container`}>
         <div className="min-w-[3.5rem] h-[3.5rem]">
-          <img
-            src={logo}
-            alt=""
-            className="w-full h-full rounded-full object-cover border"
-            //to do: change the profile picture
-            //rounded-full: to make the enlarged logo less weird
-            //object-cover: to ensure the the logo is not stretched when enlarged
-          />
+          <Link to="/login">
+            <img
+              src={logo}
+              alt=""
+              className="w-full h-full rounded-full object-cover border"
+              //to do: change the profile picture
+              //rounded-full: to make the enlarged logo less weird
+              //object-cover: to ensure the the logo is not stretched when enlarged
+            />
+          </Link>
         </div>
         <div class="relative flex items-center py-5">
           <div class="flex-grow border-t-4 border-lightGrey rounded-lg"></div>

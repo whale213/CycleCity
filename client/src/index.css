@@ -17,6 +17,6 @@
     @apply bg-blush h-[96%] w-[16rem] rounded-3xl ml-6 p-4 transition-all duration-500 border border-solid border-glass relative;
   }
   .sidebar {
-    @apply flex items-center mt-2 p-4 rounded-lg cursor-pointer hover:bg-lightGrey transition-all duration-300;
+    @apply flex items-center mt-2 p-4 rounded-lg cursor-pointer hover:bg-lightGrey transition-all duration-300 focus:bg-blue-600;
   }
 }

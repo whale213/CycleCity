@@ -9,25 +9,30 @@ export const adminIcons = [
     id: 1,
     icon: <RxDashboard />,
     text: "Dashboard",
+    href: "/staff",
   },
   {
     id: 2,
     icon: <HiOutlineMap />,
-    text: "Locations",
+    text: "Itinerary",
+    href: "/staff/itinerary/locations",
   },
   {
     id: 3,
     icon: <BsCalendarWeek />,
     text: "Events",
+    href: "/staff",
   },
   {
     id: 4,
     icon: <FiUsers />,
     text: "Users",
+    href: "/staff",
   },
   {
     id: 5,
     icon: <TbMedal />,
     text: "Achievements",
+    href: "/staff",
   },
 ];
