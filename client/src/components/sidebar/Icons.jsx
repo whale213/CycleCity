@@ -15,7 +15,7 @@ export const adminIcons = [
     id: 2,
     icon: <HiOutlineMap />,
     text: "Itinerary",
-    href: "/staff/itinerary/locations",
+    href: "/itinerary/locations",
   },
   {
     id: 3,
