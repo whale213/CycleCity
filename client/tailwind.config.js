@@ -9,6 +9,8 @@ export default {
         brown: "rgb(30, 30, 17);",
         blush: "rgb(196,98,122)",
         grey: "rgb(45,46,51)",
+        dimGrey: "rgba(87,85,88, 0.4)",
+        fedora: "rgb(87,85,88)",
         lightGrey: "rgba(45, 46, 51, 0.4)",
         lightThistle: "rgba(193,178,204,0.2)",
         thistle: "rgba(193,178,204)",
