@@ -1,27 +1,27 @@
 import React, { useState } from "react";
-import useDarkSide from "./useDarkSide";
+import useDarkMode from "./useDarkMode";
 import { DarkModeSwitch } from "react-toggle-dark-mode";
 
-export default function Switcher() {
-  const [colorTheme, setTheme] = useDarkSide();
-  const [darkSide, setDarkSide] = useState(
+export default function Toggle() {
+  const [colorTheme, setTheme] = useDarkMode();
+  const [darkSide, setDarkMode] = useState(
     colorTheme === "light" ? true : false
   );
 
   const toggleDarkMode = (checked) => {
     setTheme(colorTheme);
-    setDarkSide(checked);
+    setDarkMode(checked);
   };
 
   return (
     <>
-      <div className="m-16 flex flex-col items-center">
+      <div className="flex flex-col items-center">
         <DarkModeSwitch
           checked={darkSide}
           onChange={toggleDarkMode}
-          size={50}
+          size={32}
         />
-        <h3 className="text-gray-800 dark:text-gray-300 pt-4">
+        <h3 className="text-grey text-sm dark:text-gray-300 pt-2">
           {colorTheme === "light" ? "Dark Mode" : "Light Mode"}
         </h3>
       </div>
