@@ -1,6 +1,7 @@
 import React from "react";
 import { Link } from "react-router-dom";
-import DarkModelogo from "../../assets/logoDarkMode.png";
+import DarkModeLogo from "../../assets/logoDarkMode.png";
+import LightModeLogo from "../../assets/logoLightMode.png";
 import Toggle from "../../components/dark-mode/Toggle";
 import { SlMenu } from "react-icons/sl";
 
@@ -11,7 +12,7 @@ export default function Navbar() {
         <div class="flex h-16 items-center justify-between">
           <div class="md:flex md:items-center md:gap-12">
             <a href="/">
-              <img src={DarkModelogo} alt="CycleCity" className="w-20 h-20" />
+              <img src={DarkModeLogo} alt="CycleCity" className="w-20 h-20" />
             </a>
           </div>
           <div class="hidden md:block">
@@ -63,7 +64,7 @@ export default function Navbar() {
           </div>
 
           <div class="flex items-center gap-4">
-            <div className="mt-4 pr-2 flex flex-row-reverse transition duration-200">
+            <div className="hidden md:flex mt-4 pr-2">
               <Toggle />
             </div>
             <div class="sm:flex sm:gap-4">
