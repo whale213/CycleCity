@@ -1,4 +1,5 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
+import http from "../../http";
 
 export default function Locations() {
   if (
@@ -11,31 +12,33 @@ export default function Locations() {
     document.documentElement.classList.remove("dark");
   }
 
+  const [locationList, setLocationList] = useState([]);
+
+  const getLocations = () => {
+    http.get("/location").then((res) => {
+      setLocationList(res.data);
+    });
+  };
+
+  useEffect(() => {
+    getLocations();
+  }, []);
+
   return (
     <div className="text-grey dark:text-seashell m-10">
-      <h1 className="text-2xl divide-solid divide-grey">Locations</h1>
-      <br />
-      <div>
-        Lorem ipsum dolor sit amet consectetur adipisicing elit. Totam deserunt
-        iste reiciendis exercitationem sapiente perspiciatis explicabo eligendi
-        et. Sit exercitationem rem laboriosam veniam nisi laborum at nam iste
-        officia consequuntur.
-      </div>
-
-      <div class="max-w-lg mx-auto p-8">
-        <details
-          class="open:bg-thistle dark:open:bg-ultraViolet open:ring-1 open:ring-grey dark:open:ring-fedora open:shadow-lg p-6 rounded-lg"
-          open
-        >
-          <summary class="text-sm leading-6 text-grey dark:text-seashell select-none">
-            Why do they call it Ovaltine?
-          </summary>
-          <div class="mt-3 text-sm leading-6 text-ultraViolet dark:text-thistle">
-            <p>
-              The mug is round. The jar is round. They should call it Roundtine.
-            </p>
+      <h1 className="text-2xl mb-4">Attractions</h1>
+      <hr />
+      <div className="divide-y-2 divide-pink-300">
+        {locationList.map((location) => (
+          <div key={location.locationId}>
+            <p>{location.locationId}</p>
+            <p>{location.name}</p>
+            <p>{location.postalCode}</p>
+            <p>{location.address}</p>
+            <p>{location.longitude}</p>
+            <p>{location.latitude}</p>
           </div>
-        </details>
+        ))}
       </div>
     </div>
   );

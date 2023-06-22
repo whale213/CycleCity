@@ -1,4 +1,5 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
+import http from "../../http";
 
 export default function Attractions() {
   if (
@@ -11,21 +12,35 @@ export default function Attractions() {
     document.documentElement.classList.remove("dark");
   }
 
+  const [attractionList, setAttractionList] = useState([]);
+
+  const getAttractions = () => {
+    http.get("/attraction").then((res) => {
+      setAttractionList(res.data);
+    });
+  };
+
+  useEffect(() => {
+    getAttractions();
+  }, []);
+
   return (
-    <div className="text-grey dark:text-seashell m-10 divide-y-4 divide-dotted hover:divide-dashed divide-ultraViolet">
+    <div className="text-grey dark:text-seashell m-10">
       <h1 className="text-2xl mb-4">Attractions</h1>
-      <div
-        className="mt-6 first-line:uppercase first-line:tracking-widest
-  first-letter:text-7xl first-letter:font-bold first-letter:text-grey dark:first-letter:text-seashell
-  first-letter:mr-3 first-letter:float-left"
-      >
-        Lorem ipsum dolor sit amet consectetur adipisicing elit. Totam deserunt
-        iste reiciendis exercitationem sapiente perspiciatis explicabo eligendi
-        et. Sit exercitationem rem laboriosam veniam nisi laborum at nam iste
-        officia consequuntur. Lorem ipsum dolor sit, amet consectetur
-        adipisicing elit. Earum cupiditate fuga temporibus distinctio dicta ex
-        aliquid. Impedit sapiente temporibus quaerat provident, veritatis
-        corrupti quasi ea officiis voluptas libero itaque tempora.
+      <hr />
+      <div className="divide-y-2 divide-pink-300">
+        {attractionList.map((attraction) => (
+          <div key={attraction.attractionId}>
+            <p>{attraction.attractionId}</p>
+            <p>{attraction.distance}</p>
+            <p>{attraction.difficulty}</p>
+            <p>{attraction.imageFile}</p>
+            <p>{attraction.locationId}</p>
+            <p>{attraction.location.name}</p>
+            <p>{attraction.location.postalCode}</p>
+            <p>{attraction.location.address}</p>
+          </div>
+        ))}
       </div>
     </div>
   );

@@ -16,7 +16,13 @@ router.get("/", async (req, res) => {
 
 router.get("/:id", async (req, res) => {
   let id = req.params.id;
-  let attraction = await Attraction.findByPk(id);
+  let attraction = await Attraction.findByPk(id, {
+    include: {
+      model: Location,
+      as: "location",
+      attributes: ["name", "postalCode", "address"],
+    },
+  });
 
   // Check id not found
   if (!attraction) {
