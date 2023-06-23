@@ -19,6 +19,13 @@ export default function Itinerary() {
             </a>
           </Link>
         </div>
+        <div className="flex">
+          <Link to="/itinerary/tabs">
+            <a className="py-2.5 px-5 bg-thistle text-grey dark:hover:text-seashell border border-thistle rounded-lg hover:bg-transparent transition ease-in duration-200 transform hover:-translate-y-1 active:translate-y-0">
+              Tabs
+            </a>
+          </Link>
+        </div>
       </div>
       <Outlet />
       <div className="m-10">

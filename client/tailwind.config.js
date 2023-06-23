@@ -12,6 +12,7 @@ export default {
         dimGrey: "rgba(87,85,88, 0.4)",
         fedora: "rgb(87,85,88)",
         lightGrey: "rgba(45, 46, 51, 0.4)",
+        onyx: "#3D3D3D",
         lightThistle: "rgba(193,178,204,0.2)",
         thistle: "rgba(193,178,204)",
         ultraViolet: "#575481",
