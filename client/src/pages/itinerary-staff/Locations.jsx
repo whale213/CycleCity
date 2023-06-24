@@ -21,6 +21,13 @@ export default function Locations() {
     });
   };
 
+  const deleteLocation = (id) => {
+    http.delete(`/location/${id}`).then((res) => {
+      console.log(res.data);
+    });
+    window.location.reload(true);
+  };
+
   useEffect(() => {
     getLocations();
   }, []);
@@ -66,11 +73,17 @@ export default function Locations() {
                         <td class="px-10 py-4 whitespace-nowrap">
                           {location.address}
                         </td>
-                        <td class="px-10 py-4 whitespace-nowrap">
-                          <RiDeleteBin6Line
-                            size={20}
-                            className="invisible group-hover:visible hover:text-red-700"
-                          />
+                        <td class="px-8 py-2 whitespace-nowrap">
+                          <div
+                            key={location.locationId}
+                            onClick={() => deleteLocation(location.locationId)}
+                            className="hover:bg-fedora hover:bg-opacity-70 hover:text-warning rounded-md p-2"
+                          >
+                            <RiDeleteBin6Line
+                              size={20}
+                              className="invisible group-hover:visible"
+                            />
+                          </div>
                         </td>
                       </tr>
                     ))}
@@ -84,7 +97,3 @@ export default function Locations() {
     </div>
   );
 }
-
-// name
-// postalCode
-// address

@@ -21,6 +21,13 @@ export default function Attractions() {
     });
   };
 
+  const deleteAttraction = (id) => {
+    http.delete(`/attraction/${id}`).then((res) => {
+      console.log(res.data);
+    });
+    window.location.reload(true);
+  };
+
   useEffect(() => {
     getAttractions();
   }, []);
@@ -66,11 +73,19 @@ export default function Attractions() {
                         <td class="px-12 py-4 whitespace-nowrap">
                           {attraction.difficulty}
                         </td>
-                        <td class="px-12 py-4 whitespace-nowrap">
-                          <RiDeleteBin6Line
-                            size={20}
-                            className="invisible group-hover:visible hover:text-red-700"
-                          />
+                        <td class="px-10 py-2 whitespace-nowrap">
+                          <div
+                            key={attraction.attractionId}
+                            onClick={() =>
+                              deleteAttraction(attraction.attractionId)
+                            }
+                            className="hover:bg-fedora hover:bg-opacity-70 hover:text-warning rounded-md p-2"
+                          >
+                            <RiDeleteBin6Line
+                              size={20}
+                              className="invisible group-hover:visible"
+                            />
+                          </div>
                         </td>
                       </tr>
                     ))}
