@@ -1,6 +1,8 @@
 import React, { useState, useEffect } from "react";
 import http from "../../http";
 import { RiDeleteBin6Line } from "react-icons/ri";
+import { RxCross2 } from "react-icons/rx";
+import { LuSearch } from "react-icons/lu";
 
 export default function Attractions() {
   if (
@@ -14,11 +16,37 @@ export default function Attractions() {
   }
 
   const [attractionList, setAttractionList] = useState([]);
+  const [search, setSearch] = useState("");
 
   const getAttractions = () => {
     http.get("/attraction").then((res) => {
       setAttractionList(res.data);
     });
+  };
+
+  const searchAttractions = () => {
+    http.get(`/attraction?search=${search}`).then((res) => {
+      setAttractionList(res.data);
+    });
+  };
+
+  const onSearchChange = (e) => {
+    setSearch(e.target.value);
+  };
+
+  const onSearchKeyDown = (e) => {
+    if (e.key === "Enter") {
+      searchAttractions();
+    }
+  };
+
+  const onClickSearch = () => {
+    searchAttractions();
+  };
+
+  const onClickClear = () => {
+    setSearch("");
+    getAttractions();
   };
 
   const deleteAttraction = (id) => {
@@ -37,6 +65,26 @@ export default function Attractions() {
       <h1 className="text-2xl mb-4">Attractions</h1>
       <div class="flex flex-col items-center justify-center w-full min-h-full">
         <h1 class="text-lg text-gray-400 font-medium">Attractions</h1>
+        <div class="w-full mx-auto p-2 text-gray-800 dark:text-seashell/90 relative overflow-hidden min-w-80 max-w-3xl">
+          <div class="relative flex gap-2">
+            <div className="grid place-items-center h-full w-12"></div>
+            <input
+              type="text"
+              id="password"
+              class="w-full pl-3 pr-10 py-2 border-2 bg-fedora border-transparent rounded-xl hover:border-gray-400 focus:outline-none focus:border-thistle/60 transition-colors"
+              value={search}
+              placeholder="Search"
+              onChange={onSearchChange}
+              onKeyDown={onSearchKeyDown}
+            />
+            <button onClick={onClickSearch}>
+              <LuSearch size={35} />
+            </button>
+            <button onClick={onClickClear}>
+              <RxCross2 size={40} />
+            </button>
+          </div>
+        </div>
         <div class="flex flex-col mt-6 shadow-lg">
           <div class="-my-2 overflow-x-auto sm:-mx-6 lg:-mx-8">
             <div class="py-2 align-middle inline-block min-w-full sm:px-6 lg:px-8">
@@ -56,8 +104,11 @@ export default function Attractions() {
                     </tr>
                   </thead>
                   <tbody class="divide-y divide-fedora">
-                    {attractionList.map((attraction) => (
-                      <tr class="hover:bg-onyx group">
+                    {attractionList.map((attraction, key) => (
+                      <tr
+                        class="hover:bg-onyx group"
+                        key={attraction.attractionId}
+                      >
                         <td class="pl-4">{attraction.attractionId}</td>
                         <td class="flex px-12 py-4 whitespace-nowrap">
                           <span class="ml-2 font-medium text-thistle">

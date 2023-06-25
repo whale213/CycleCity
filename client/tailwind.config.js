@@ -13,6 +13,7 @@ export default {
         fedora: "rgb(87,85,88)",
         lightGrey: "rgba(45, 46, 51, 0.4)",
         onyx: "#3D3D3D",
+        silver: "A1A1A1",
         warning: "#c90000",
         lightThistle: "rgba(193,178,204,0.2)",
         thistle: "rgba(193,178,204)",
