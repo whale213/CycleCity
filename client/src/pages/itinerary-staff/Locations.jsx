@@ -58,6 +58,7 @@ export default function Locations() {
   const getValues = (id, name) => {
     locId = id;
     locName = name;
+    console.log(id, name);
   };
 
   const deleteLocation = () => {
@@ -82,7 +83,7 @@ export default function Locations() {
             <input
               type="text"
               id="password"
-              class="w-full pl-3 pr-10 py-2 border-2 bg-fedora border-transparent rounded-xl hover:border-gray-400 focus:outline-none focus:border-thistle/60 transition-colors"
+              class="w-full pl-3 pr-10 py-2 border-2 bg-orange-100 dark:bg-fedora border-transparent rounded-xl hover:border-gray-400 focus:outline-none focus:border-ultraViolet dark:focus:border-thistle/60 transition-colors"
               value={search}
               placeholder="Search"
               onChange={onSearchChange}
@@ -100,8 +101,8 @@ export default function Locations() {
           <div class="-my-2 overflow-x-auto sm:-mx-6 lg:-mx-8">
             <div class="py-2 align-middle inline-block min-w-full sm:px-6 lg:px-8">
               <div class="shadow overflow-hidden sm:rounded-lg">
-                <table class="min-w-full text-sm text-gray-400 divide-y-2 divide-thistle">
-                  <thead class="bg-black bg-opacity-20 text-sm uppercase font-medium">
+                <table class="min-w-full text-sm text-gray-400 divide-y-2 divide-ultraViolet dark:divide-thistle">
+                  <thead class="bg-orange-100 dark:bg-black dark:bg-opacity-20 text-sm uppercase font-medium">
                     <tr>
                       <th></th>
                       <th class="px-10 py-3 text-left tracking-wider">Name</th>
@@ -114,16 +115,19 @@ export default function Locations() {
                       <th class="px-10 py-3 text-left tracking-wider"></th>
                     </tr>
                   </thead>
-                  <tbody class="divide-y divide-fedora">
+                  <tbody class="divide-y divide-thistle dark:divide-fedora">
                     {locationList.map((location) => (
-                      <tr class="hover:bg-onyx group" key={location.locationId}>
+                      <tr
+                        class="hover:bg-orange-100 dark:hover:bg-onyx group"
+                        key={location.locationId}
+                      >
                         <td class="pl-4">{location.locationId}</td>
                         <td class="flex px-10 py-4 whitespace-nowrap">
-                          <span class="ml-2 font-medium text-thistle">
+                          <span class="ml-2 font-medium text-ultraViolet dark:text-thistle">
                             {location.name}
                           </span>
                         </td>
-                        <td class="px-10 py-4 whitespace-nowrap text-seashell">
+                        <td class="px-10 py-4 whitespace-nowrap text-fedora dark:text-seashell">
                           <div className="flex flex-col-2 space-x-1 pl-1">
                             <div className="text-gray-400">SG</div>
                             <div>{location.postalCode}</div>
@@ -134,13 +138,13 @@ export default function Locations() {
                         </td>
                         <td class="px-8 py-2 whitespace-nowrap">
                           <div
-                            // onClick={() => deleteLocation(location.locationId)}
                             onClick={
-                              (getValues(location.locationId, location.name),
+                              (() =>
+                                getValues(location.locationId, location.name),
                               () => setOpen(true))
                             }
                             key={location.locationId}
-                            className="hover:bg-fedora hover:bg-opacity-70 hover:text-warning rounded-md p-2"
+                            className="hover:bg-orange-200 dark:hover:bg-fedora dark:hover:bg-opacity-70 hover:text-warning rounded-md p-2"
                           >
                             <RiDeleteBin6Line
                               size={20}
@@ -161,22 +165,26 @@ export default function Locations() {
         <div className="text-center w-96">
           <BsExclamationCircle size={50} className="mx-auto text-warning" />
           <div className="mx-auto my-4 w-60">
-            <h3 className="text-lg text-seashell">Delete Location</h3>
+            <h3 className="text-lg text-grey dark:text-seashell">
+              Delete Location
+            </h3>
             <div className="text-sm text-gray-400 mt-4">
               <p>Are you sure you want to delete </p>
-              <span className="text-seashell">{locName}?</span>
+              <span className="text-ultraViolet dark:text-seashell">
+                {locName}?
+              </span>
             </div>
           </div>
-          <div className="flex gap-4 w-96">
+          <div className="flex gap-4 w-96 text-seashell dark:text-grey">
             <button
               onClick={() => setOpen(false)}
-              className="border border-fedora hover:bg-fedora w-full rounded-lg p-1"
+              className="border border-fedora hover:bg-fedora text-grey dark:text-seashell hover:text-seashell w-full rounded-lg p-1"
             >
               Cancel
             </button>
             <button
               onClick={() => deleteLocation()}
-              className="bg-warning hover:bg-transparent border border-transparent hover:border-warning hover:text-warning w-full rounded-lg p-1"
+              className="bg-warning hover:bg-transparent border border-transparent hover:border-warning hover:text-warning dark:text-seashell dark:hover:text-warning w-full rounded-lg p-1"
             >
               Delete
             </button>

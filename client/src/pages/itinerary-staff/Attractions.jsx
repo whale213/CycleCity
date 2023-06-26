@@ -71,7 +71,7 @@ export default function Attractions() {
             <input
               type="text"
               id="password"
-              class="w-full pl-3 pr-10 py-2 border-2 bg-fedora border-transparent rounded-xl hover:border-gray-400 focus:outline-none focus:border-thistle/60 transition-colors"
+              class="w-full pl-3 pr-10 py-2 border-2 bg-orange-100 dark:bg-fedora border-transparent rounded-xl hover:border-gray-400 focus:outline-none focus:border-ultraViolet dark:focus:border-thistle/60 transition-colors"
               value={search}
               placeholder="Search"
               onChange={onSearchChange}
@@ -89,8 +89,8 @@ export default function Attractions() {
           <div class="-my-2 overflow-x-auto sm:-mx-6 lg:-mx-8">
             <div class="py-2 align-middle inline-block min-w-full sm:px-6 lg:px-8">
               <div class="shadow overflow-hidden sm:rounded-lg">
-                <table class="min-w-full text-sm text-gray-400 divide-y-2 divide-thistle">
-                  <thead class="bg-black bg-opacity-20 text-sm uppercase font-medium">
+                <table class="min-w-full text-sm text-gray-400 divide-y-2 divide-ultraViolet dark:divide-thistle">
+                  <thead class="bg-orange-100 dark:bg-black dark:bg-opacity-20 text-sm uppercase font-medium">
                     <tr>
                       <th></th>
                       <th class="px-12 py-3 text-left tracking-wider">Name</th>
@@ -103,19 +103,19 @@ export default function Attractions() {
                       <th class="px-12 py-3 text-left tracking-wider"></th>
                     </tr>
                   </thead>
-                  <tbody class="divide-y divide-fedora">
+                  <tbody class="divide-y divide-thistle dark:divide-fedora">
                     {attractionList.map((attraction, key) => (
                       <tr
-                        class="hover:bg-onyx group"
+                        class="hover:bg-orange-100 dark:hover:bg-onyx group"
                         key={attraction.attractionId}
                       >
                         <td class="pl-4">{attraction.attractionId}</td>
                         <td class="flex px-12 py-4 whitespace-nowrap">
-                          <span class="ml-2 font-medium text-thistle">
+                          <span class="ml-2 font-medium text-ultraViolet dark:text-thistle">
                             {attraction.location.name}
                           </span>
                         </td>
-                        <td class="px-12 py-4 whitespace-nowrap text-seashell">
+                        <td class="px-12 py-4 whitespace-nowrap text-fedora dark:text-seashell">
                           <div className="flex flex-col-2 space-x-1 pl-1">
                             <div>{attraction.distance}</div>
                             <div className="text-gray-400">KM</div>
@@ -130,7 +130,7 @@ export default function Attractions() {
                             onClick={() =>
                               deleteAttraction(attraction.attractionId)
                             }
-                            className="hover:bg-fedora hover:bg-opacity-70 hover:text-warning rounded-md p-2"
+                            className="hover:bg-orange-200 dark:hover:bg-fedora dark:hover:bg-opacity-70 hover:text-warning dark:text-seashell dark:hover:text-warning rounded-md p-2"
                           >
                             <RiDeleteBin6Line
                               size={20}

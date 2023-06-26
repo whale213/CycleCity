@@ -55,7 +55,7 @@ export default function Tabs() {
           })}
         </div>
         <span
-          className="absolute bottom-0 block rounded h-[3px] bg-pink-200 transition-all duration-300"
+          className="absolute bottom-0 block rounded h-[3px] bg-ultraViolet dark:bg-pink-200 transition-all duration-300"
           style={{ left: tabUnderlineLeft, width: tabUnderlineWidth }}
         />
       </div>
