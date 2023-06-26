@@ -52,8 +52,16 @@ export default function Locations() {
     getLocations();
   };
 
-  const deleteLocation = (id) => {
-    http.delete(`/location/${id}`).then((res) => {
+  let locId = 0;
+  let locName = "";
+
+  const getValues = (id, name) => {
+    locId = id;
+    locName = name;
+  };
+
+  const deleteLocation = () => {
+    http.delete(`/location/${locId}`).then((res) => {
       console.log(res.data);
     });
     window.location.reload(true);
@@ -127,7 +135,10 @@ export default function Locations() {
                         <td class="px-8 py-2 whitespace-nowrap">
                           <div
                             // onClick={() => deleteLocation(location.locationId)}
-                            onClick={() => setOpen(true)}
+                            onClick={
+                              (getValues(location.locationId, location.name),
+                              () => setOpen(true))
+                            }
                             key={location.locationId}
                             className="hover:bg-fedora hover:bg-opacity-70 hover:text-warning rounded-md p-2"
                           >
@@ -152,9 +163,8 @@ export default function Locations() {
           <div className="mx-auto my-4 w-60">
             <h3 className="text-lg text-seashell">Delete Location</h3>
             <div className="text-sm text-gray-400 mt-4">
-              <p>Are you sure you want to delete?</p>
-              {/* {location.name to be placed before delete}
-              <span className="text-seashell">Location</span>? */}
+              <p>Are you sure you want to delete </p>
+              <span className="text-seashell">{locName}?</span>
             </div>
           </div>
           <div className="flex gap-4 w-96">
@@ -165,7 +175,7 @@ export default function Locations() {
               Cancel
             </button>
             <button
-              // onClick={() => deleteLocation(id)}
+              onClick={() => deleteLocation()}
               className="bg-warning hover:bg-transparent border border-transparent hover:border-warning hover:text-warning w-full rounded-lg p-1"
             >
               Delete
