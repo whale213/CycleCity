@@ -18,6 +18,9 @@ app.use("/location", locationRoute);
 const attractionRoute = require("./routes/attraction");
 app.use("/attraction", attractionRoute);
 
+const userRoute = require("./routes/user");
+app.use("/user", userRoute);
+
 // synchronizes data models with db tables
 const db = require("./models");
 db.sequelize
