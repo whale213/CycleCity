@@ -1,8 +1,10 @@
 import React, { useState, useEffect } from "react";
 import http from "../../http";
 import { RiDeleteBin6Line } from "react-icons/ri";
+import { BsExclamationCircle } from "react-icons/bs";
 import { RxCross2 } from "react-icons/rx";
 import { LuSearch } from "react-icons/lu";
+import Modal from "../../components/confirmation/Modal";
 
 export default function Attractions() {
   if (
@@ -17,6 +19,9 @@ export default function Attractions() {
 
   const [attractionList, setAttractionList] = useState([]);
   const [search, setSearch] = useState("");
+  const [open, setOpen] = useState(false);
+  const [idToDelete, setIdToDelete] = useState(0);
+  const [nameToDelete, setNameToDelete] = useState("");
 
   const getAttractions = () => {
     http.get("/attraction").then((res) => {
@@ -49,8 +54,8 @@ export default function Attractions() {
     getAttractions();
   };
 
-  const deleteAttraction = (id) => {
-    http.delete(`/attraction/${id}`).then((res) => {
+  const deleteAttraction = () => {
+    http.delete(`/attraction/${idToDelete}`).then((res) => {
       console.log(res.data);
     });
     window.location.reload(true);
@@ -104,10 +109,10 @@ export default function Attractions() {
                     </tr>
                   </thead>
                   <tbody class="divide-y divide-thistle dark:divide-fedora">
-                    {attractionList.map((attraction, key) => (
+                    {attractionList.map((attraction, id) => (
                       <tr
                         class="hover:bg-orange-100 dark:hover:bg-onyx group"
-                        key={attraction.attractionId}
+                        key={id}
                       >
                         <td class="pl-4">{attraction.attractionId}</td>
                         <td class="flex px-12 py-4 whitespace-nowrap">
@@ -126,10 +131,11 @@ export default function Attractions() {
                         </td>
                         <td class="px-10 py-2 whitespace-nowrap">
                           <div
-                            key={attraction.attractionId}
-                            onClick={() =>
-                              deleteAttraction(attraction.attractionId)
-                            }
+                            onClick={() => {
+                              setIdToDelete(attraction.attractionId);
+                              setNameToDelete(attraction.location.name);
+                              setOpen(true);
+                            }}
                             className="hover:bg-orange-200 dark:hover:bg-fedora dark:hover:bg-opacity-70 hover:text-warning dark:text-seashell dark:hover:text-warning rounded-md p-2"
                           >
                             <RiDeleteBin6Line
@@ -147,6 +153,36 @@ export default function Attractions() {
           </div>
         </div>
       </div>
+      <Modal open={open} onClose={() => setOpen(false)}>
+        <div className="text-center w-96">
+          <BsExclamationCircle size={50} className="mx-auto text-warning" />
+          <div className="mx-auto my-4 w-60">
+            <h3 className="text-lg text-grey dark:text-seashell">
+              Delete Attraction
+            </h3>
+            <div className="text-sm text-gray-400 mt-4">
+              <p>Are you sure you want to delete </p>
+              <span className="text-ultraViolet dark:text-seashell">
+                {nameToDelete} ?
+              </span>
+            </div>
+          </div>
+          <div className="flex gap-4 w-96 text-seashell dark:text-grey">
+            <button
+              onClick={() => setOpen(false)}
+              className="border border-fedora hover:bg-fedora text-grey dark:text-seashell hover:text-seashell w-full rounded-lg p-1"
+            >
+              Cancel
+            </button>
+            <button
+              onClick={() => deleteAttraction()}
+              className="bg-warning hover:bg-transparent border border-transparent hover:border-warning hover:text-warning dark:text-seashell dark:hover:text-warning w-full rounded-lg p-1"
+            >
+              Delete
+            </button>
+          </div>
+        </div>
+      </Modal>
     </div>
   );
 }

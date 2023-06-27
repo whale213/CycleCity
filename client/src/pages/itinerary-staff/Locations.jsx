@@ -20,6 +20,8 @@ export default function Locations() {
   const [locationList, setLocationList] = useState([]);
   const [search, setSearch] = useState("");
   const [open, setOpen] = useState(false);
+  const [idToDelete, setIdToDelete] = useState(0);
+  const [nameToDelete, setNameToDelete] = useState("");
 
   const getLocations = () => {
     http.get("/location").then((res) => {
@@ -52,17 +54,8 @@ export default function Locations() {
     getLocations();
   };
 
-  let locId = 0;
-  let locName = "";
-
-  const getValues = (id, name) => {
-    locId = id;
-    locName = name;
-    console.log(id, name);
-  };
-
   const deleteLocation = () => {
-    http.delete(`/location/${locId}`).then((res) => {
+    http.delete(`/location/${idToDelete}`).then((res) => {
       console.log(res.data);
     });
     window.location.reload(true);
@@ -116,10 +109,10 @@ export default function Locations() {
                     </tr>
                   </thead>
                   <tbody class="divide-y divide-thistle dark:divide-fedora">
-                    {locationList.map((location) => (
+                    {locationList.map((location, id) => (
                       <tr
                         class="hover:bg-orange-100 dark:hover:bg-onyx group"
-                        key={location.locationId}
+                        key={id}
                       >
                         <td class="pl-4">{location.locationId}</td>
                         <td class="flex px-10 py-4 whitespace-nowrap">
@@ -138,12 +131,11 @@ export default function Locations() {
                         </td>
                         <td class="px-8 py-2 whitespace-nowrap">
                           <div
-                            onClick={
-                              (() =>
-                                getValues(location.locationId, location.name),
-                              () => setOpen(true))
-                            }
-                            key={location.locationId}
+                            onClick={() => {
+                              setIdToDelete(location.locationId);
+                              setNameToDelete(location.name);
+                              setOpen(true);
+                            }}
                             className="hover:bg-orange-200 dark:hover:bg-fedora dark:hover:bg-opacity-70 hover:text-warning rounded-md p-2"
                           >
                             <RiDeleteBin6Line
@@ -171,7 +163,7 @@ export default function Locations() {
             <div className="text-sm text-gray-400 mt-4">
               <p>Are you sure you want to delete </p>
               <span className="text-ultraViolet dark:text-seashell">
-                {locName}?
+                {nameToDelete} ?
               </span>
             </div>
           </div>
