@@ -21,6 +21,24 @@ app.use("/attraction", attractionRoute);
 const userRoute = require("./routes/user");
 app.use("/user", userRoute);
 
+const criteriaRoute = require("./routes/Criteria");
+app.use("/criteria", criteriaRoute);
+
+const leagueRoute = require("./routes/League");
+app.use("/league", leagueRoute);
+
+const questRoute = require("./routes/Quest");
+app.use("/quest", questRoute);
+
+const missionRoute = require("./routes/Mission");
+app.use("/mission", missionRoute);
+
+const userMissionRoute = require("./routes/UserMission");
+app.use("/UserMission", userMissionRoute);
+
+const userQuestRoute = require("./routes/UserQuest");
+app.use("/UserQuest", userQuestRoute);
+
 // synchronizes data models with db tables
 const db = require("./models");
 db.sequelize

@@ -12,6 +12,7 @@ import Sidebar from "./components/sidebar/sidebar";
 import Login from "./pages/login/login";
 import Locations from "./pages/itinerary-staff/Locations";
 import Attractions from "./pages/itinerary-staff/Attractions";
+import Tabs from "./pages/itinerary-staff/Tabs";
 
 // layouts
 import Itinerary from "./layouts/Itinerary";
@@ -25,6 +26,7 @@ const router = createBrowserRouter(
       <Route path="itinerary" element={<Itinerary />}>
         <Route path="locations" element={<Locations />}></Route>
         <Route path="attractions" element={<Attractions />}></Route>
+        <Route path="tabs" element={<Tabs />}></Route>
       </Route>
     </Route>
   )
@@ -32,7 +34,7 @@ const router = createBrowserRouter(
 
 function App() {
   return (
-    <div className="w-full h-screen bg-grey">
+    <div className="w-full min-h-screen bg-seashell dark:bg-grey p-0 m-0">
       <RouterProvider router={router} />
     </div>
   );

@@ -4,7 +4,18 @@ const { Location, Attraction, Sequelize } = require("../models");
 const yup = require("yup");
 
 router.get("/", async (req, res) => {
+  // search function
+  let condition = {};
+  let search = req.query.search;
+  if (search) {
+    condition[Sequelize.Op.or] = [
+      { distance: { [Sequelize.Op.like]: `%${search}%` } },
+      { difficulty: { [Sequelize.Op.like]: `%${search}%` } },
+    ];
+  }
+
   let list = await Attraction.findAll({
+    where: condition,
     include: {
       model: Location,
       as: "location",
@@ -16,7 +27,13 @@ router.get("/", async (req, res) => {
 
 router.get("/:id", async (req, res) => {
   let id = req.params.id;
-  let attraction = await Attraction.findByPk(id);
+  let attraction = await Attraction.findByPk(id, {
+    include: {
+      model: Location,
+      as: "location",
+      attributes: ["name", "postalCode", "address"],
+    },
+  });
 
   // Check id not found
   if (!attraction) {
