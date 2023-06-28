@@ -22,11 +22,12 @@ const router = createBrowserRouter(
     <Route>
       <Route path="/" element={<LandingPage />} />
       <Route path="login" element={<Login />} />
-      <Route path="staff" element={<Sidebar />} />
-      <Route path="itinerary" element={<Itinerary />}>
-        <Route path="locations" element={<Locations />}></Route>
-        <Route path="attractions" element={<Attractions />}></Route>
-        <Route path="tabs" element={<Tabs />}></Route>
+      <Route path="staff" element={<Sidebar />}>
+        <Route path="itinerary" element={<Itinerary />}>
+          <Route path="locations" element={<Locations />}></Route>
+          <Route path="attractions" element={<Attractions />}></Route>
+          <Route path="tabs" element={<Tabs />}></Route>
+        </Route>
       </Route>
     </Route>
   )

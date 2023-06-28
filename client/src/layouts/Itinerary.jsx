@@ -6,21 +6,21 @@ export default function Itinerary() {
     <>
       <div className="flex gap-4 flex-1">
         <div className="flex">
-          <Link to="/itinerary/locations">
+          <Link to="/staff/itinerary/locations">
             <a className="py-2.5 px-5 bg-thistle text-grey dark:hover:text-seashell border border-thistle rounded-lg hover:bg-transparent transition ease-in duration-200 transform hover:-translate-y-1 active:translate-y-0">
               Locations
             </a>
           </Link>
         </div>
         <div className="flex">
-          <Link to="/itinerary/attractions">
+          <Link to="/staff/itinerary/attractions">
             <a className="py-2.5 px-5 bg-ultraViolet text-seashell hover:text-grey dark:hover:text-seashell border border-transparent rounded-lg hover:bg-transparent hover:border-ultraViolet transition ease-in duration-200 transform hover:-translate-y-1 active:translate-y-0">
               Attractions
             </a>
           </Link>
         </div>
         <div className="flex">
-          <Link to="/itinerary/tabs">
+          <Link to="/staff/itinerary/tabs">
             <a className="py-2.5 px-5 bg-thistle text-grey dark:hover:text-seashell border border-thistle rounded-lg hover:bg-transparent transition ease-in duration-200 transform hover:-translate-y-1 active:translate-y-0">
               Tabs
             </a>

@@ -4,7 +4,7 @@ import { BiChevronLeft } from "react-icons/bi";
 import SidebarLinks from "./SidebarLinks";
 import UserProfile from "./userProfile";
 import logo from "../../assets/logoDarkMode.png";
-import { Link } from "react-router-dom";
+import { Link, Outlet } from "react-router-dom";
 
 const Sidebar = () => {
   if (
@@ -51,6 +51,7 @@ const Sidebar = () => {
           />
         </div>
       </div>
+      <Outlet />
     </div>
   );
 };
