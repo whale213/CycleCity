@@ -4,7 +4,7 @@ import { BiChevronLeft } from "react-icons/bi";
 import SidebarLinks from "./SidebarLinks";
 import UserProfile from "./userProfile";
 import logo from "../../assets/logoDarkMode.png";
-import { Link } from "react-router-dom";
+import { Link, Outlet } from "react-router-dom";
 
 const Sidebar = () => {
   if (
@@ -18,7 +18,7 @@ const Sidebar = () => {
   }
   const [toggle, setToggle] = useState(true);
   return (
-    <div className="w-full min-h-screen flex items-center">
+    <div className="h-screen fixed flex items-center">
       <div className={`${toggle ? "w-[5.8rem]" : ""} sidebar-container`}>
         <div className="min-w-[3.5rem] h-[3.5rem]">
           <Link to="/login">
@@ -51,6 +51,7 @@ const Sidebar = () => {
           />
         </div>
       </div>
+      <Outlet />
     </div>
   );
 };

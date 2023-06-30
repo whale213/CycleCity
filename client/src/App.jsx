@@ -12,7 +12,6 @@ import Sidebar from "./components/sidebar/sidebar";
 import Login from "./pages/login/login";
 import Locations from "./pages/itinerary-staff/Locations";
 import Attractions from "./pages/itinerary-staff/Attractions";
-import Tabs from "./pages/itinerary-staff/Tabs";
 
 // layouts
 import Itinerary from "./layouts/Itinerary";
@@ -22,11 +21,11 @@ const router = createBrowserRouter(
     <Route>
       <Route path="/" element={<LandingPage />} />
       <Route path="login" element={<Login />} />
-      <Route path="staff" element={<Sidebar />} />
-      <Route path="itinerary" element={<Itinerary />}>
-        <Route path="locations" element={<Locations />}></Route>
-        <Route path="attractions" element={<Attractions />}></Route>
-        <Route path="tabs" element={<Tabs />}></Route>
+      <Route path="staff" element={<Sidebar />}>
+        <Route path="itinerary" element={<Itinerary />}>
+          <Route path="locations" element={<Locations />}></Route>
+          <Route path="attractions" element={<Attractions />}></Route>
+        </Route>
       </Route>
     </Route>
   )
