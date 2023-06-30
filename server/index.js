@@ -42,6 +42,18 @@ app.use("/UserQuest", userQuestRoute);
 const pelotonRoute = require("./routes/peloton");
 app.use("/peloton", pelotonRoute);
 
+const UserPostRoutes = require("./routes/UserPost.js");
+app.use("/userpost", UserPostRoutes)
+
+const CommentsRoutes = require('./routes/Comments.js');
+app.use("/comments", CommentsRoutes)
+
+const FollowersRoutes = require('./routes/Followers.js');
+app.use("/followers", FollowersRoutes)
+
+const LikesRoutes = require('./routes/likes.js');
+app.use("/likes", LikesRoutes)
+
 // synchronizes data models with db tables
 const db = require("./models");
 db.sequelize
