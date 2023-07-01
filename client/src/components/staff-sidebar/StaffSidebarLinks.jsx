@@ -1,5 +1,5 @@
 import React from "react";
-import { adminIcons } from "./Icons";
+import { adminIcons } from "./StaffIcons";
 import { Link } from "react-router-dom";
 
 const SidebarLinks = ({ toggle }) => {
