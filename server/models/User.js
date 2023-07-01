@@ -51,5 +51,13 @@ module.exports = (sequelize, DataTypes) => {
     },
   });
 
+  User.associate = (models) => {
+    User.belongsTo(models.Peloton, {
+      foreignKey: "pelotonId",
+      as: "peloton",
+      allowNull: false,
+    });
+  };
+
   return User;
 };

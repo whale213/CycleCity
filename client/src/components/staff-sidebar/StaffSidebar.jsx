@@ -1,12 +1,12 @@
 import React from "react";
 import { useState } from "react";
 import { BiChevronLeft } from "react-icons/bi";
-import SidebarLinks from "./SidebarLinks";
+import SidebarLinks from "./StaffSidebarLinks";
 import UserProfile from "./userProfile";
 import logo from "../../assets/logoDarkMode.png";
-import { Link } from "react-router-dom";
+import { Link, Outlet } from "react-router-dom";
 
-const Sidebar = () => {
+const StaffSidebar = () => {
   if (
     localStorage.theme === "dark" ||
     (!("theme" in localStorage) &&
@@ -18,8 +18,10 @@ const Sidebar = () => {
   }
   const [toggle, setToggle] = useState(true);
   return (
-    <div className="w-full min-h-screen flex items-center">
-      <div className={`${toggle ? "w-[5.8rem]" : ""} sidebar-container`}>
+    <div className="h-screen fixed flex items-center">
+      <div
+        className={`${toggle ? "w-[5.8rem]" : ""} sidebar-container bg-blush`}
+      >
         <div className="min-w-[3.5rem] h-[3.5rem]">
           <Link to="/login">
             <img
@@ -33,7 +35,7 @@ const Sidebar = () => {
           </Link>
         </div>
         <div class="relative flex items-center py-5">
-          <div class="flex-grow border-t-4 border-lightGrey rounded-lg"></div>
+          <div class="flex-grow border-t-4 border-grey border-opacity-40 rounded-lg"></div>
         </div>
         <SidebarLinks toggle={toggle} />
         <UserProfile toggle={toggle} />
@@ -51,8 +53,9 @@ const Sidebar = () => {
           />
         </div>
       </div>
+      <Outlet />
     </div>
   );
 };
 
-export default Sidebar;
+export default StaffSidebar;

@@ -8,7 +8,8 @@ import {
 } from "react-router-dom";
 
 // pages
-import Sidebar from "./components/sidebar/sidebar";
+import StaffSidebar from "./components/staff-sidebar/StaffSidebar";
+import UserSidebar from "./components/user-sidebar/UserSidebar";
 import Login from "./pages/login/login";
 import Locations from "./pages/itinerary-staff/Locations";
 import Attractions from "./pages/itinerary-staff/Attractions";
@@ -25,11 +26,12 @@ const router = createBrowserRouter(
     <Route>
       <Route path="/" element={<LandingPage />} />
       <Route path="login" element={<Login />} />
-      <Route path="staff" element={<Sidebar />} />
-      <Route path="itinerary" element={<Itinerary />}>
-        <Route path="locations" element={<Locations />}></Route>
-        <Route path="attractions" element={<Attractions />}></Route>
-        <Route path="tabs" element={<Tabs />}></Route>
+      <Route path="user" element={<UserSidebar />}></Route>
+      <Route path="staff" element={<StaffSidebar />}>
+        <Route path="itinerary" element={<Itinerary />}>
+          <Route path="locations" element={<Locations />}></Route>
+          <Route path="attractions" element={<Attractions />}></Route>
+        </Route>
       </Route>
       <Route path="profiles" element={<Profiles />}>
         <Route path="users" element={<Users />}></Route>

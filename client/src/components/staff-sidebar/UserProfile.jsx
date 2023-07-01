@@ -8,7 +8,7 @@ const UserProfile = ({ toggle }) => {
         //mt-4 is a temporary solution for margin between user profile and last sidebar item
         toggle
           ? "bg-none transition-all duration-300 delay-200"
-          : "bg-lightGrey rounded-xl p-2 flex items-center"
+          : "bg-grey bg-opacity-40 rounded-xl p-2 flex items-center"
       }`}
     >
       <div className="min-w-[3.5rem] h-[3.5rem]">
