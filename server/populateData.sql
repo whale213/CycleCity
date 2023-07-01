@@ -11,7 +11,7 @@
     -
     -
     -
-    
+
     # Missions
     - Criterias
     - Leagues
@@ -30,6 +30,21 @@
        3. Open the script and use SHIFT+CTRL+ENTER or the lightning button to run
 */ 
 
+
+------------------------------
+-- Dropping tables if exist --
+------------------------------
+-- DROP TABLE IF EXISTS attractions;
+-- DROP TABLE IF EXISTS locations;
+-- DROP TABLE IF EXISTS users;
+-- DROP TABLE IF EXISTS usermissions;
+-- DROP TABLE IF EXISTS quests;
+-- DROP TABLE IF EXISTS criterias;
+-- DROP TABLE IF EXISTS missions;
+-- DROP TABLE IF EXISTS leagues;
+-- DROP TABLE IF EXISTS userquests;
+-- DROP TABLE IF EXISTS userposts;
+-- DROP TABLE IF EXISTS pelotons;
 
 ------------------------------------
 -- Adding data to LOCATIONS table --
