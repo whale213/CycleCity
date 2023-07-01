@@ -13,9 +13,12 @@ import Login from "./pages/login/login";
 import Locations from "./pages/itinerary-staff/Locations";
 import Attractions from "./pages/itinerary-staff/Attractions";
 import Tabs from "./pages/itinerary-staff/Tabs";
+import Users from "./pages/acct-management/user/Users";
+import UsersStaff from "./pages/acct-management/user-staff/UsersStaff";
 
 // layouts
 import Itinerary from "./layouts/Itinerary";
+import Profiles from "./layouts/Profiles";
 
 const router = createBrowserRouter(
   createRoutesFromElements(
@@ -27,6 +30,10 @@ const router = createBrowserRouter(
         <Route path="locations" element={<Locations />}></Route>
         <Route path="attractions" element={<Attractions />}></Route>
         <Route path="tabs" element={<Tabs />}></Route>
+      </Route>
+      <Route path="profiles" element={<Profiles />}>
+        <Route path="users" element={<Users />}></Route>
+        <Route path="staff" element={<UsersStaff />}></Route>
       </Route>
     </Route>
   )
