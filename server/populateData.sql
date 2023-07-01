@@ -152,8 +152,145 @@ INSERT INTO users VALUES (29, "Daniel", "daniel@mail.com", 91234595, "Gaming123&
 INSERT INTO users VALUES (30, "Mila", "mila@mail.com", 91234596, "Reading789(((", "Reading is my escape and I devour books", "User", "Diamond", "2025-06-20 06:45:00", true, 3400, "./assets/img34", "2023-06-30 01:30:57", "2023-06-30 01:30:57");
 
 ------------------------------------
--- Adding data to userPOSTS table --
+-- Adding data to UserPost table --
 ------------------------------------
+
+INSERT INTO UserPost VALUES (1, 'Amazing view', './assets/img1.jpg', 1);
+INSERT INTO UserPost VALUES (2, 'Delicious meal', './assets/img2.jpg', 2);
+INSERT INTO UserPost VALUES (3, 'Exciting adventure', './assets/img3.jpg', 3);
+INSERT INTO UserPost VALUES (4, 'Fun with friends', './assets/img4.jpg', 4);
+INSERT INTO UserPost VALUES (5, 'Beautiful sunset', './assets/img5.jpg', 5);
+INSERT INTO UserPost VALUES (6, 'Exploring new places', './assets/img6.jpg', 6);
+INSERT INTO UserPost VALUES (7, 'Adrenaline rush', './assets/img7.jpg', 7);
+INSERT INTO UserPost VALUES (8, 'Cozy evenings', './assets/img8.jpg', 8);
+INSERT INTO UserPost VALUES (9, 'Memorable moments', './assets/img9.jpg', 9);
+INSERT INTO UserPost VALUES (10, 'Nature hike', './assets/img10.jpg', 10);
+INSERT INTO UserPost VALUES (11, 'City skyline', './assets/img11.jpg', 11);
+INSERT INTO UserPost VALUES (12, 'Tasty dessert', './assets/img12.jpg', 12);
+INSERT INTO UserPost VALUES (13, 'Sunrise at the beach', './assets/img13.jpg', 13);
+INSERT INTO UserPost VALUES (14, 'Aerial view', './assets/img14.jpg', 14);
+INSERT INTO UserPost VALUES (15, 'Road trip memories', './assets/img15.jpg', 15);
+INSERT INTO UserPost VALUES (16, 'Coastal paradise', './assets/img16.jpg', 16);
+INSERT INTO UserPost VALUES (17, 'Mountain peak', './assets/img17.jpg', 17);
+INSERT INTO UserPost VALUES (18, 'Serenity in nature', './assets/img18.jpg', 18);
+INSERT INTO UserPost VALUES (19, 'Foodie delights', './assets/img19.jpg', 19);
+INSERT INTO UserPost VALUES (20, 'Urban exploration', './assets/img20.jpg', 20);
+INSERT INTO UserPost VALUES (21, 'Gorgeous architecture', './assets/img21.jpg', 21);
+INSERT INTO UserPost VALUES (22, 'Countryside retreat', './assets/img22.jpg', 22);
+INSERT INTO UserPost VALUES (23, 'Artistic masterpiece', './assets/img23.jpg', 23);
+INSERT INTO UserPost VALUES (24, 'Celebration with loved ones', './assets/img24.jpg', 24);
+INSERT INTO UserPost VALUES (25, 'Magical winter scene', './assets/img25.jpg', 25);
+INSERT INTO UserPost VALUES (26, 'Outdoor adventure', './assets/img26.jpg', 26);
+INSERT INTO UserPost VALUES (27, 'Relaxation by the pool', './assets/img27.jpg', 27);
+INSERT INTO UserPost VALUES (28, 'Lively city streets', './assets/img28.jpg', 28);
+INSERT INTO UserPost VALUES (29, 'Stunning natural wonders', './assets/img29.jpg', 29);
+INSERT INTO UserPost VALUES (30, 'Charming countryside', './assets/img30.jpg', 30);
+
+------------------------------------
+-- Adding data to Comments table --
+------------------------------------
+
+INSERT INTO Comments VALUES (1, 'Great photo!', 1, 1);
+INSERT INTO Comments VALUES (2, 'Looks delicious!', 2, 2);
+INSERT INTO Comments VALUES (3, 'Wow, what an adventure!', 3, 3);
+INSERT INTO Comments VALUES (4, 'Seems like a fun time!', 4, 4);
+INSERT INTO Comments VALUES (5, 'Stunning sunset!', 5, 5);
+INSERT INTO Comments VALUES (6, 'I want to visit there!', 6, 6);
+INSERT INTO Comments VALUES (7, 'That is so thrilling!', 7, 7);
+INSERT INTO Comments VALUES (8, 'Cozy vibes!', 8, 8);
+INSERT INTO Comments VALUES (9, 'Such precious memories!', 9, 9);
+INSERT INTO Comments VALUES (10, 'Beautiful nature!', 10, 10);
+INSERT INTO Comments VALUES (11, 'Love the cityscape!', 11, 11);
+INSERT INTO Comments VALUES (12, 'Yummy!', 12, 12);
+INSERT INTO Comments VALUES (13, 'Breathtaking beach view!', 13, 13);
+INSERT INTO Comments VALUES (14, 'Amazing aerial shot!', 14, 14);
+INSERT INTO Comments VALUES (15, 'Road trips are the best!', 15, 15);
+INSERT INTO Comments VALUES (16, 'Paradise on the coast!', 16, 16);
+INSERT INTO Comments VALUES (17, 'Incredible mountain peak!', 17, 17);
+INSERT INTO Comments VALUES (18, 'Peaceful in nature!', 18, 18);
+INSERT INTO Comments VALUES (19, 'Food looks so tasty!', 19, 19);
+INSERT INTO Comments VALUES (20, 'Exploring the city!', 20, 20);
+INSERT INTO Comments VALUES (21, 'Architectural marvel!', 21, 21);
+INSERT INTO Comments VALUES (22, 'I need a countryside getaway!', 22, 22);
+INSERT INTO Comments VALUES (23, 'Such artistry!', 23, 23);
+INSERT INTO Comments VALUES (24, 'Lovely celebration!', 24, 24);
+INSERT INTO Comments VALUES (25, 'Magical winter scenery!', 25, 25);
+INSERT INTO Comments VALUES (26, 'Thrilling outdoor adventure!', 26, 26);
+INSERT INTO Comments VALUES (27, 'I want to relax there!', 27, 27);
+INSERT INTO Comments VALUES (28, 'Busy city life!', 28, 28);
+INSERT INTO Comments VALUES (29, "Nature's wonders!", 29, 29);
+INSERT INTO Comments VALUES (30, 'Charming countryside!', 30, 30);
+
+------------------------------------
+-- Adding data to Likes table --
+------------------------------------
+
+INSERT INTO Likes VALUES (1, 1, 1);
+INSERT INTO Likes VALUES (2, 2, 2);
+INSERT INTO Likes VALUES (3, 3, 3);
+INSERT INTO Likes VALUES (4, 4, 4);
+INSERT INTO Likes VALUES (5, 5, 5);
+INSERT INTO Likes VALUES (6, 6, 6);
+INSERT INTO Likes VALUES (7, 7, 7);
+INSERT INTO Likes VALUES (8, 8, 8);
+INSERT INTO Likes VALUES (9, 9, 9);
+INSERT INTO Likes VALUES (10, 10, 10);
+INSERT INTO Likes VALUES (11, 11, 11);
+INSERT INTO Likes VALUES (12, 12, 12);
+INSERT INTO Likes VALUES (13, 13, 13);
+INSERT INTO Likes VALUES (14, 14, 14);
+INSERT INTO Likes VALUES (15, 15, 15);
+INSERT INTO Likes VALUES (16, 16, 16);
+INSERT INTO Likes VALUES (17, 17, 17);
+INSERT INTO Likes VALUES (18, 18, 18);
+INSERT INTO Likes VALUES (19, 19, 19);
+INSERT INTO Likes VALUES (20, 20, 20);
+INSERT INTO Likes VALUES (21, 21, 21);
+INSERT INTO Likes VALUES (22, 22, 22);
+INSERT INTO Likes VALUES (23, 23, 23);
+INSERT INTO Likes VALUES (24, 24, 24);
+INSERT INTO Likes VALUES (25, 25, 25);
+INSERT INTO Likes VALUES (26, 26, 26);
+INSERT INTO Likes VALUES (27, 27, 27);
+INSERT INTO Likes VALUES (28, 28, 28);
+INSERT INTO Likes VALUES (29, 29, 29);
+INSERT INTO Likes VALUES (30, 30, 30);
+
+------------------------------------
+-- Adding data to Followers table --
+------------------------------------
+
+INSERT INTO Followers VALUES (1, 1, 30);
+INSERT INTO Followers VALUES (2, 2, 29);
+INSERT INTO Followers VALUES (3, 3, 28);
+INSERT INTO Followers VALUES (4, 4, 27);
+INSERT INTO Followers VALUES (5, 5, 26);
+INSERT INTO Followers VALUES (6, 6, 25);
+INSERT INTO Followers VALUES (7, 7, 24);
+INSERT INTO Followers VALUES (8, 8, 23);
+INSERT INTO Followers VALUES (9, 9, 22);
+INSERT INTO Followers VALUES (10, 10, 21);
+INSERT INTO Followers VALUES (11, 11, 20);
+INSERT INTO Followers VALUES (12, 12, 19);
+INSERT INTO Followers VALUES (13, 13, 18);
+INSERT INTO Followers VALUES (14, 14, 17);
+INSERT INTO Followers VALUES (15, 15, 16);
+INSERT INTO Followers VALUES (16, 16, 15);
+INSERT INTO Followers VALUES (17, 17, 14);
+INSERT INTO Followers VALUES (18, 18, 13);
+INSERT INTO Followers VALUES (19, 19, 12);
+INSERT INTO Followers VALUES (20, 20, 11);
+INSERT INTO Followers VALUES (21, 21, 10);
+INSERT INTO Followers VALUES (22, 22, 9);
+INSERT INTO Followers VALUES (23, 23, 8);
+INSERT INTO Followers VALUES (24, 24, 7);
+INSERT INTO Followers VALUES (25, 25, 6);
+INSERT INTO Followers VALUES (26, 26, 5);
+INSERT INTO Followers VALUES (27, 27, 4);
+INSERT INTO Followers VALUES (28, 28, 3);
+INSERT INTO Followers VALUES (29, 29, 2);
+INSERT INTO Followers VALUES (30, 30, 1);
+
 
 ------------------------------------
 -- Adding data to CRITERIAS table --
