@@ -34,6 +34,26 @@ router.get("/:id", async (req, res) => {
 
 router.post("/", async (req, res) => {
   let data = req.body;
+
+  let validationSchema = yup.object().shape({
+    pelotonId: yup.number().integer().positive().min(1).required(),
+    name: yup.string().min(3).trim().required(),
+    type: yup.string().trim().required(),
+    owner: yup.number().integer().required(),
+    bio: yup.string().min(10).required(),
+  });
+
+  try {
+    await validationSchema.validate(data, { abortEarly: false, strict: true });
+  } catch (err) {
+    console.error(err);
+    res.status(400).json({ errors: err.errors });
+    return;
+  }
+  data.name = data.name.trim();
+  data.type = data.type.trim();
+  data.bio = data.bio.trim();
+
   let result = await Peloton.create(data);
   res.json(result);
 });
@@ -49,6 +69,26 @@ router.put("/:id", async (req, res) => {
   }
 
   let data = req.body;
+
+  let validationSchema = yup.object().shape({
+    pelotonId: yup.number().integer().positive().min(1).required(),
+    name: yup.string().min(3).trim().required(),
+    type: yup.string().trim().required(),
+    owner: yup.number().integer().required(),
+    bio: yup.string().min(10).required(),
+  });
+
+  try {
+    await validationSchema.validate(data, { abortEarly: false, strict: true });
+  } catch (err) {
+    console.error(err);
+    res.status(400).json({ errors: err.errors });
+    return;
+  }
+  data.name = data.name.trim();
+  data.type = data.type.trim();
+  data.bio = data.bio.trim();
+
   let num = await Peloton.update(data, {
     where: { pelotonId: id },
   });
