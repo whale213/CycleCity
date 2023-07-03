@@ -26,7 +26,7 @@ export default function Tabs() {
                   <NavLink to={tab.href}>
                     <button className="pt-2">
                       <div className="px-2">
-                        <div className="flex flex-row hover:bg-fedora py-2 px-2 rounded-lg">
+                        <div className="flex flex-row hover:bg-orange-100 dark:hover:bg-fedora py-2 px-2 rounded-lg">
                           <p className="px-2">{tab.icon}</p>
                           <p className="pr-2">{tab.label}</p>
                         </div>

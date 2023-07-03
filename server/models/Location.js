@@ -12,33 +12,27 @@ module.exports = (sequelize, DataTypes) => {
         allowNull: false,
       },
       postalCode: {
-        type: DataTypes.INTEGER,
+        type: DataTypes.STRING,
         allowNull: false,
       },
       address: {
         type: DataTypes.STRING,
         allowNull: false,
       },
+      imageFile: {
+        type: DataTypes.STRING,
+      },
       longitude: {
-        type: DataTypes.DECIMAL(13, 10),
+        type: DataTypes.DECIMAL(11, 8),
         allowNull: false,
       },
       latitude: {
-        type: DataTypes.DECIMAL(13, 10),
+        type: DataTypes.DECIMAL(11, 8),
         allowNull: false,
       },
     },
-    { timestamps: false }
+    { timestamps: true, createdAt: false }
   );
 
   return Location;
 };
-
-/* 
-locationId
-name
-postalCode
-address
-longitude
-latitude
-*/

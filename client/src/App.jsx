@@ -13,9 +13,11 @@ import UserSidebar from "./components/user-sidebar/UserSidebar";
 import Login from "./pages/login/login";
 import Locations from "./pages/itinerary-staff/Locations";
 import Attractions from "./pages/itinerary-staff/Attractions";
-import Tabs from "./pages/itinerary-staff/Tabs";
 import Users from "./pages/acct-management/user/Users";
 import UsersStaff from "./pages/acct-management/user-staff/UsersStaff";
+import EditLocations from "./pages/itinerary-staff/EditLocations";
+import EditAttractions from "./pages/itinerary-staff/EditAttractions";
+import Error from "./components/Error";
 
 // layouts
 import Itinerary from "./layouts/Itinerary";
@@ -29,14 +31,17 @@ const router = createBrowserRouter(
       <Route path="user" element={<UserSidebar />}></Route>
       <Route path="staff" element={<StaffSidebar />}>
         <Route path="itinerary" element={<Itinerary />}>
-          <Route path="locations" element={<Locations />}></Route>
-          <Route path="attractions" element={<Attractions />}></Route>
+          <Route path="locations" element={<Locations />} />
+          <Route path="attractions" element={<Attractions />} />
         </Route>
+        <Route path="itinerary/locations/:id" element={<EditLocations />} />
+        <Route path="itinerary/attractions/:id" element={<EditAttractions />} />
       </Route>
       <Route path="profiles" element={<Profiles />}>
         <Route path="users" element={<Users />}></Route>
         <Route path="staff" element={<UsersStaff />}></Route>
       </Route>
+      <Route path="*" element={<Error />} />
     </Route>
   )
 );
