@@ -13,6 +13,9 @@ import UserSidebar from "./components/user-sidebar/UserSidebar";
 import Login from "./pages/login/login";
 import Locations from "./pages/itinerary-staff/Locations";
 import Attractions from "./pages/itinerary-staff/Attractions";
+import EditLocations from "./pages/itinerary-staff/EditLocations";
+import EditAttractions from "./pages/itinerary-staff/EditAttractions";
+import Error from "./components/Error";
 
 // layouts
 import Itinerary from "./layouts/Itinerary";
@@ -25,10 +28,13 @@ const router = createBrowserRouter(
       <Route path="user" element={<UserSidebar />}></Route>
       <Route path="staff" element={<StaffSidebar />}>
         <Route path="itinerary" element={<Itinerary />}>
-          <Route path="locations" element={<Locations />}></Route>
-          <Route path="attractions" element={<Attractions />}></Route>
+          <Route path="locations" element={<Locations />} />
+          <Route path="attractions" element={<Attractions />} />
         </Route>
+        <Route path="itinerary/locations/:id" element={<EditLocations />} />
+        <Route path="itinerary/attractions/:id" element={<EditAttractions />} />
       </Route>
+      <Route path="*" element={<Error />} />
     </Route>
   )
 );

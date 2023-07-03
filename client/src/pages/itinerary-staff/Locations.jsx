@@ -5,6 +5,7 @@ import { BsExclamationCircle } from "react-icons/bs";
 import { RxCross2 } from "react-icons/rx";
 import { LuSearch } from "react-icons/lu";
 import Modal from "../../components/confirmation/Modal";
+import { useNavigate } from "react-router-dom";
 
 export default function Locations() {
   if (
@@ -22,6 +23,8 @@ export default function Locations() {
   const [open, setOpen] = useState(false);
   const [idToDelete, setIdToDelete] = useState(0);
   const [nameToDelete, setNameToDelete] = useState("");
+
+  const navigate = useNavigate();
 
   const getLocations = () => {
     http.get("/location").then((res) => {
@@ -69,21 +72,21 @@ export default function Locations() {
     <div className="text-grey dark:text-seashell m-6">
       <div class="flex flex-col items-center justify-center w-full min-h-full">
         <div class="w-full mx-auto p-2 text-gray-800 dark:text-seashell/90 relative overflow-hidden min-w-80 max-w-3xl">
-          <div class="relative flex gap-2">
+          <div class="relative mt-1">
             <input
-              type="text"
-              id="password"
-              class="w-full pl-3 pr-10 py-2 border-2 bg-orange-100 dark:bg-fedora border-transparent rounded-xl hover:border-gray-400 focus:outline-none focus:border-ultraViolet dark:focus:border-thistle/60 transition-colors"
+              type="search"
+              id="search"
+              class="w-full pl-12 pr-10 py-2 border-2 bg-grey border-fedora rounded-xl hover:border-thistle/90 focus:outline-none focus:border-thistle/60 transition-colors"
               value={search}
               placeholder="Search"
               onChange={onSearchChange}
               onKeyDown={onSearchKeyDown}
             />
-            <button onClick={onClickSearch}>
-              <LuSearch size={35} />
-            </button>
-            <button onClick={onClickClear}>
-              <RxCross2 size={40} />
+            <button
+              class="block w-7 h-7 pl-4 text-center text-xl leading-0 absolute top-2 right-2 text-gray-400 focus:outline-none hover:text-thistle/90 transition-colors"
+              onClick={onClickSearch}
+            >
+              <LuSearch size={24} />
             </button>
           </div>
         </div>
@@ -108,8 +111,13 @@ export default function Locations() {
                   <tbody class="divide-y divide-thistle dark:divide-fedora">
                     {locationList.map((location, id) => (
                       <tr
-                        class="hover:bg-orange-100 dark:hover:bg-onyx group"
+                        class="hover:bg-orange-100 dark:hover:bg-onyx group cursor-pointer"
                         key={id}
+                        onClick={() => {
+                          navigate(
+                            `/staff/itinerary/locations/${location.locationId}`
+                          );
+                        }}
                       >
                         <td class="pl-4">{location.locationId}</td>
                         <td class="flex px-10 py-4 whitespace-nowrap">
@@ -128,7 +136,8 @@ export default function Locations() {
                         </td>
                         <td class="px-8 py-2 whitespace-nowrap">
                           <div
-                            onClick={() => {
+                            onClick={(event) => {
+                              event.stopPropagation();
                               setIdToDelete(location.locationId);
                               setNameToDelete(location.name);
                               setOpen(true);
