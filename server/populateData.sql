@@ -298,18 +298,153 @@ INSERT INTO Followers VALUES (30, 30, 1);
 ------------------------------------
 -- Adding data to CRITERIAS table --
 ------------------------------------
+INSERT INTO criterias VALUES (1, "KM", 1);
+INSERT INTO criterias VALUES (2, "KM", 2);
+INSERT INTO criterias VALUES (3, "KM", 3);
+INSERT INTO criterias VALUES (4, "KM", 4);
+INSERT INTO criterias VALUES (5, "KM", 5);
+INSERT INTO criterias VALUES (6, "KM", 6);
+INSERT INTO criterias VALUES (7, "KM", 7);
+INSERT INTO criterias VALUES (8, "KM", 8);
+INSERT INTO criterias VALUES (9, "KM", 9);
+
+INSERT INTO criterias VALUES (10, "KM", 10);
+INSERT INTO criterias VALUES (11, "KM", 11);
+INSERT INTO criterias VALUES (12, "KM", 12);
+INSERT INTO criterias VALUES (13, "KM", 13);
+INSERT INTO criterias VALUES (14, "KM", 14);
+INSERT INTO criterias VALUES (15, "KM", 15);
+INSERT INTO criterias VALUES (16, "KM", 16);
+INSERT INTO criterias VALUES (17, "KM", 17);
+INSERT INTO criterias VALUES (18, "KM", 18);
+INSERT INTO criterias VALUES (19, "KM", 19);
+INSERT INTO criterias VALUES (20, "KM", 20);
+INSERT INTO criterias VALUES (21, "KM", 21);
+INSERT INTO criterias VALUES (22, "KM", 22);
+INSERT INTO criterias VALUES (23, "KM", 23);
+INSERT INTO criterias VALUES (24, "KM", 24);
+INSERT INTO criterias VALUES (25, "KM", 25);
+INSERT INTO criterias VALUES (26, "KM", 26);
+INSERT INTO criterias VALUES (27, "KM", 27);
+INSERT INTO criterias VALUES (28, "KM", 28);
+INSERT INTO criterias VALUES (29, "KM", 29);
+INSERT INTO criterias VALUES (30, "KM", 30);
+
+INSERT INTO criterias VALUES (31, "location", "East Coast Park")
+INSERT INTO criterias VALUES (32, "location", "MacRitchie Reservoir Park")
+INSERT INTO criterias VALUES (33, "location", "Botanic Gardens")
+INSERT INTO criterias VALUES (34, "location", "Pulau Ubin")
+INSERT INTO criterias VALUES (35, "location", "Kallang Riverside Park")
+INSERT INTO criterias VALUES (36, "location", "Coney Island Park")
+INSERT INTO criterias VALUES (37, "location", "Jurong Lake Gardens")
+INSERT INTO criterias VALUES (38, "location", "Punggol Waterway Park")
+INSERT INTO criterias VALUES (39, "location", "HortPark")
+INSERT INTO criterias VALUES (40, "location", "Changi Beach Park")
+INSERT INTO criterias VALUES (41, "location", "Bukit Timah Nature Reserve")
+INSERT INTO criterias VALUES (42, "location", "Labrador Nature Reserve")
+INSERT INTO criterias VALUES (43, "location", "Southern Ridges")
+INSERT INTO criterias VALUES (44, "location", "Lower Seletar Reservoir Park")
+INSERT INTO criterias VALUES (45, "location", "Woodlands Waterfront Park")
+    
+INSERT INTO criterias VALUES (46, "location", "Pulau Hantu")
+INSERT INTO criterias VALUES (47, "location", "Pulau Hantu")
+INSERT INTO criterias VALUES (48, "location", "Pasir Ris Park")
+INSERT INTO criterias VALUES (49, "location", "Sungei Buloh Wetland Reserve")
+INSERT INTO criterias VALUES (50, "location", "Sembawang Park")
+INSERT INTO criterias VALUES (51, "location", "Kranji Reservoir Park")
+INSERT INTO criterias VALUES (52, "location", "Marina Barrage")
+INSERT INTO criterias VALUES (53, "location", "Bishan-Ang Mo Kio Park")
+INSERT INTO criterias VALUES (54, "location", "Bedok Reservoir Park")
+INSERT INTO criterias VALUES (55, "location", "West Coast Park")
+INSERT INTO criterias VALUES (56, "location", "Gardens by the Bay")
+INSERT INTO criterias VALUES (57, "location", "Tanjong Beach")
+INSERT INTO criterias VALUES (58, "location", "Bukit Batok Town Park")
+INSERT INTO criterias VALUES (59, "location", "Fort Silosok")
+INSERT INTO criterias VALUES (60, "location", "Mount Faber Park")
 
 ----------------------------------
 -- Adding data to LEAGUES table --
 ----------------------------------
-
+INSERT INTO leagues VALUES (1, "Wood", 1);
+INSERT INTO leagues VALUES (2, "Wood", 2);
+INSERT INTO leagues VALUES (3, "Wood", 16);
+INSERT INTO leagues VALUES (2, "Stone", 3);
+INSERT INTO leagues VALUES (5, "Stone", 4);
+INSERT INTO leagues VALUES (6, "Stone", 17);
+INSERT INTO leagues VALUES (7, "Stone", 18);
+INSERT INTO leagues VALUES (8, "Iron", 5);
+INSERT INTO leagues VALUES (9, "Iron", 6);
+INSERT INTO leagues VALUES (10, "Iron", 19);
+INSERT INTO leagues VALUES (11, "Iron", 20);
+INSERT INTO leagues VALUES (12, "Iron", 21);
 -----------------------------------
 -- Adding data to MISSIONS table --
 -----------------------------------
-
+INSERT INTO missions VALUES (1, 'Pedal Pioneer: One Kilometer Triumph', "1", "1");
+INSERT INTO missions VALUES (2, 'Double Wheel Dynamo: Two Kilometer Champion', "2", "1");
+INSERT INTO missions VALUES (3, 'Tricycle Trekker: Three Kilometer Conqueror', "3", "2");
+INSERT INTO missions VALUES (4, 'Quad-Cycle Trailblazer: Four Kilometer Adventurer', "4", "2");
+INSERT INTO missions VALUES (5, 'Halfway Hero: Five Kilometer Master', "5", "3");
+INSERT INTO missions VALUES (6, 'Sextuple Spokes Star: Six Kilometer Dynamo', "6", "3");
+INSERT INTO missions VALUES (7, 'Lucky Seven Cyclist: Seven Kilometer Crusader', "7", "4");
+INSERT INTO missions VALUES (8, 'Ocho Speedster: Eight Kilometer Speedster', "8", "4");
+INSERT INTO missions VALUES (9, 'Niner Navigator: Nine Kilometer Voyager', "9", "5");
+INSERT INTO missions VALUES (10, 'Dime Distance Dynamo: Ten Kilometer Achiever', "10", "5");
+INSERT INTO missions VALUES (11, 'Elevenspeed Explorer: Eleven Kilometer Discoverer, "11", "6");
+INSERT INTO missions VALUES (12, 'Dozen Dash Dynamo: Twelve Kilometer Trailblazer', "12", "6");
+INSERT INTO missions VALUES (13, 'Thirteener Thrasher: Thirteen Kilometer Champion', "13", "7");
+INSERT INTO missions VALUES (14, 'Fourteener Flyer: Fourteen Kilometer Whiz', "14", "7");
+INSERT INTO missions VALUES (15, 'Fifteen Milestone Maestro: Fifteen Kilometer Pro', "15", "8");
+    
+INSERT INTO missions VALUES (16, 'Coastal Expedition: Cycling to East Coast Park', "16", "1");
+INSERT INTO missions VALUES (17, 'Nature Escape: Conquering MacRitchie Reservoir Park', "17", "2");
+INSERT INTO missions VALUES (18, 'Garden Trek: Cycling Adventure to Botanic Gardens', "18", "2");
+INSERT INTO missions VALUES (19, 'Island Expedition: Pedaling to Pulau Ubin', "19", "3");
+INSERT INTO missions VALUES (20, 'Riverside Quest: Cycling Adventure to Kallang Riverside Park', "20", "3");
+INSERT INTO missions VALUES (21, 'Island Discovery: Exploring Coney Island Park on Wheels', "21", "3");
+INSERT INTO missions VALUES (22, 'Lake Adventure: Cycling Journey to Jurong Lake Gardens', "22", "4");
+INSERT INTO missions VALUES (23, 'Waterway Expedition: Navigating Punggol Waterway Park', "23", "4");
+INSERT INTO missions VALUES (24, 'Green Oasis Quest: Cycling Adventure to HortPark', "24", "4");
+INSERT INTO missions VALUES (25, 'Coastal Serenity: Cycling Retreat to Changi Beach Park', "25", "4");
+INSERT INTO missions VALUES (26, 'Nature's Peak Challenge: Conquering Bukit Timah Nature Reserve', "26", "5");
+INSERT INTO missions VALUES (27, 'Seaside Exploration: Cycling Adventure to Labrador Nature Reserve', "27", "5");
+INSERT INTO missions VALUES (28, 'Ridge Quest: Cycling Expedition along the Southern Ridges', "28", "5");
+INSERT INTO missions VALUES (29, 'Reservoir Ride: Cycling Adventure to Lower Seletar Reservoir Park', "29", "5");
+INSERT INTO missions VALUES (30, 'Waterfront Escape: Pedaling to Woodlands Waterfront Park', "30", "5");
 ---------------------------------
 -- Adding data to QUESTS table --
 ---------------------------------
+INSERT INTO quests VALUES (1, "Complete 1 km", "10", 1);
+INSERT INTO quests VALUES (2, "Complete 2 km", "20", 2);
+INSERT INTO quests VALUES (3, "Complete 3 km", "30", 3);
+INSERT INTO quests VALUES (4, "Complete 4 km", "40", 4);
+INSERT INTO quests VALUES (5, "Complete 5 km", "50", 5);
+INSERT INTO quests VALUES (6, "Complete 6 km", "60", 6);
+INSERT INTO quests VALUES (7, "Complete 7 km", "70", 7);
+INSERT INTO quests VALUES (8, "Complete 8 km", "80", 8);
+INSERT INTO quests VALUES (9, "Complete 9 km", "90", 9);
+INSERT INTO quests VALUES (10, "Complete 10 km", "100", 10);
+INSERT INTO quests VALUES (11, "Complete 11 km", "110", 11);
+INSERT INTO quests VALUES (12, "Complete 12 km", "120", 12);
+INSERT INTO quests VALUES (13, "Complete 13 km", "130", 13);
+INSERT INTO quests VALUES (14, "Complete 14 km", "140", 14);
+INSERT INTO quests VALUES (15, "Complete 15 km", "150", 15);
+
+INSERT INTO quests VALUES (16, "Visit Pulau Hantu", "150", 46);
+INSERT INTO quests VALUES (17, "Explore Pasir Ris Park", "150", 48);
+INSERT INTO quests VALUES (18, "Discover Sungei Buloh Wetland Reserve", "150", 49);
+INSERT INTO quests VALUES (19, "Adventure in Sembawang Park", "150", 50);
+INSERT INTO quests VALUES (20, "Visit Kranji Reservoir Park", "150", 51);
+INSERT INTO quests VALUES (21, "Explore Marina Barrage", "150", 52);
+INSERT INTO quests VALUES (22, "Discover Bishan-Ang Mo Kio Park", "150", 53);
+INSERT INTO quests VALUES (23, "Adventure in Bedok Reservoir Park", "150", 54);
+INSERT INTO quests VALUES (24, "Visit West Coast Park", "150", 55);
+INSERT INTO quests VALUES (25, "Explore Gardens by the Bay", "150", 56);
+INSERT INTO quests VALUES (26, "Discover Tanjong Beach", "150", 57);
+INSERT INTO quests VALUES (27, "Adventure in Bukit Batok Town Park", "150", 58);
+INSERT INTO quests VALUES (28, "Visit Fort Siloso", "150", 59);
+INSERT INTO quests VALUES (29, "Explore Mount Faber Park", "150", 60);
+INSERT INTO quests VALUES (30, "Discover Pasir Panjang Power Station", "150", 61);
 
 ---------------------------------------
 -- Adding data to userMISSIONS table --
