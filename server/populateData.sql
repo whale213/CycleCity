@@ -365,18 +365,16 @@ INSERT INTO criterias VALUES (60, "location", "Mount Faber Park")
 ----------------------------------
 -- Adding data to LEAGUES table --
 ----------------------------------
-INSERT INTO leagues VALUES (1, "Wood", 1);
-INSERT INTO leagues VALUES (2, "Wood", 2);
-INSERT INTO leagues VALUES (3, "Wood", 16);
-INSERT INTO leagues VALUES (2, "Stone", 3);
-INSERT INTO leagues VALUES (5, "Stone", 4);
-INSERT INTO leagues VALUES (6, "Stone", 17);
-INSERT INTO leagues VALUES (7, "Stone", 18);
-INSERT INTO leagues VALUES (8, "Iron", 5);
-INSERT INTO leagues VALUES (9, "Iron", 6);
-INSERT INTO leagues VALUES (10, "Iron", 19);
-INSERT INTO leagues VALUES (11, "Iron", 20);
-INSERT INTO leagues VALUES (12, "Iron", 21);
+INSERT INTO leagues VALUES (1, "Wood", "");
+INSERT INTO leagues VALUES (2, "Stone", "");
+INSERT INTO leagues VALUES (3, "Iron", "");
+INSERT INTO leagues VALUES (4, "Bronze", "");
+INSERT INTO leagues VALUES (5, "Silver", "");
+INSERT INTO leagues VALUES (6, "Gold", "");
+INSERT INTO leagues VALUES (7, "Platinum", "");
+INSERT INTO leagues VALUES (8, "Diamond", "");
+INSERT INTO leagues VALUES (9, "Grandmaster", "");
+INSERT INTO leagues VALUES (10, "Champion", "");
 -----------------------------------
 -- Adding data to MISSIONS table --
 -----------------------------------
@@ -449,11 +447,69 @@ INSERT INTO quests VALUES (30, "Discover Pasir Panjang Power Station", "150", 61
 ---------------------------------------
 -- Adding data to userMISSIONS table --
 ---------------------------------------
-
+INSERT INTO usermissions VALUES (1, "Not Completed", "1", "1");
+INSERT INTO usermissions VALUES (2, "Not Completed", "1", "2");
+INSERT INTO usermissions VALUES (3, "Not Completed", "1", "3");
+INSERT INTO usermissions VALUES (4, "Not Completed", "1", "4");
+INSERT INTO usermissions VALUES (5, "Not Completed", "1", "5");
+INSERT INTO usermissions VALUES (6, "Not Completed", "1", "6");
+INSERT INTO usermissions VALUES (7, "Not Completed", "1", "7");
+INSERT INTO usermissions VALUES (8, "Not Completed", "1", "8");
+INSERT INTO usermissions VALUES (9, "Not Completed", "1", "9");
+INSERT INTO usermissions VALUES (10, "Not Completed", "1", "10");
+INSERT INTO usermissions VALUES (11, "Not Completed", "1", "11");
+INSERT INTO usermissions VALUES (12, "Not Completed", "1", "12");
+INSERT INTO usermissions VALUES (13, "Not Completed", "1", "13");
+INSERT INTO usermissions VALUES (14, "Not Completed", "1", "14");
+INSERT INTO usermissions VALUES (15, "Not Completed", "1", "15");
+INSERT INTO usermissions VALUES (16, "Not Completed", "1", "16");
+INSERT INTO usermissions VALUES (17, "Not Completed", "1", "17");
+INSERT INTO usermissions VALUES (18, "Not Completed", "1", "18");
+INSERT INTO usermissions VALUES (19, "Not Completed", "1", "19");
+INSERT INTO usermissions VALUES (20, "Not Completed", "1", "20");
+INSERT INTO usermissions VALUES (21, "Not Completed", "1", "21");
+INSERT INTO usermissions VALUES (22, "Not Completed", "1", "22");
+INSERT INTO usermissions VALUES (23, "Not Completed", "1", "23");
+INSERT INTO usermissions VALUES (24, "Not Completed", "1", "24");
+INSERT INTO usermissions VALUES (25, "Not Completed", "1", "25");
+INSERT INTO usermissions VALUES (26, "Not Completed", "1", "26");
+INSERT INTO usermissions VALUES (27, "Not Completed", "1", "27");
+INSERT INTO usermissions VALUES (28, "Not Completed", "1", "28");
+INSERT INTO usermissions VALUES (29, "Not Completed", "1", "29");
+INSERT INTO usermissions VALUES (30, "Not Completed", "1", "30");
 -------------------------------------
 -- Adding data to userQUESTS table --
 -------------------------------------
-
+INSERT INTO userquests VALUES (1, "Not Completed", "1", "1");
+INSERT INTO userquests VALUES (2, "Not Completed", "1", "2");
+INSERT INTO userquests VALUES (3, "Not Completed", "1", "3");
+INSERT INTO userquests VALUES (4, "Not Completed", "1", "4");
+INSERT INTO userquests VALUES (5, "Not Completed", "1", "5");
+INSERT INTO userquests VALUES (6, "Not Completed", "1", "6");
+INSERT INTO userquests VALUES (7, "Not Completed", "1", "7");
+INSERT INTO userquests VALUES (8, "Not Completed", "1", "8");
+INSERT INTO userquests VALUES (9, "Not Completed", "1", "9");
+INSERT INTO userquests VALUES (10, "Not Completed", "1", "10");
+INSERT INTO userquests VALUES (11, "Not Completed", "1", "11");
+INSERT INTO userquests VALUES (12, "Not Completed", "1", "12");
+INSERT INTO userquests VALUES (13, "Not Completed", "1", "13");
+INSERT INTO userquests VALUES (14, "Not Completed", "1", "14");
+INSERT INTO userquests VALUES (15, "Not Completed", "1", "15");
+INSERT INTO userquests VALUES (16, "Not Completed", "1", "16");
+INSERT INTO userquests VALUES (17, "Not Completed", "1", "17");
+INSERT INTO userquests VALUES (18, "Not Completed", "1", "18");
+INSERT INTO userquests VALUES (19, "Not Completed", "1", "19");
+INSERT INTO userquests VALUES (20, "Not Completed", "1", "20");
+INSERT INTO userquests VALUES (21, "Not Completed", "1", "21");
+INSERT INTO userquests VALUES (22, "Not Completed", "1", "22");
+INSERT INTO userquests VALUES (23, "Not Completed", "1", "23");
+INSERT INTO userquests VALUES (24, "Not Completed", "1", "24");
+INSERT INTO userquests VALUES (25, "Not Completed", "1", "25");
+INSERT INTO userquests VALUES (26, "Not Completed", "1", "26");
+INSERT INTO userquests VALUES (27, "Not Completed", "1", "27");
+INSERT INTO userquests VALUES (28, "Not Completed", "1", "28");
+INSERT INTO userquests VALUES (29, "Not Completed", "1", "29");
+INSERT INTO userquests VALUES (30, "Not Completed", "1", "30");
 -----------------------------------
 -- Adding data to PELOTONS table --
 -----------------------------------
