@@ -154,6 +154,18 @@ INSERT INTO users VALUES (28, "Sofia", "sofia@mail.com", 91234594, "Yoga789$$$",
 INSERT INTO users VALUES (29, "Daniel", "daniel@mail.com", 91234595, "Gaming123&&&", "I'm a passionate gamer and play competitive esports", "User", "Diamond", "2025-05-15 13:30:00", true, 3300, "./assets/img33", "2023-06-30 01:30:57", "2023-06-30 01:30:57");
 INSERT INTO users VALUES (30, "Mila", "mila@mail.com", 91234596, "Reading789(((", "Reading is my escape and I devour books", "User", "Diamond", "2025-06-20 06:45:00", true, 3400, "./assets/img34", "2023-06-30 01:30:57", "2023-06-30 01:30:57");
 
+
+--------------------------------
+-- Adding data to STAFF table --
+--------------------------------
+
+INSERT INTO usersstaff VALUES (1, "Staff1", "john@mail.com", 91234567, "Cyclecity123???");
+INSERT INTO usersstaff VALUES (2, "Staff2", "jane@mail.com", 91234568, "Hiking123!!!");
+INSERT INTO usersstaff VALUES (3, "Staff3", "mark@mail.com", 91234569, "Golfing456$$$");
+INSERT INTO usersstaff VALUES (4, "Staff4", "emily@mail.com", 91234570, "Swimming789%%%");
+INSERT INTO usersstaff VALUES (5, "Staff5", "michael@mail.com", 91234571, "Soccer123###");
+
+
 ------------------------------------
 -- Adding data to UserPost table --
 ------------------------------------
