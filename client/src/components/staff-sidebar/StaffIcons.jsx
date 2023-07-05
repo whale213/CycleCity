@@ -27,7 +27,7 @@ export const adminIcons = [
     id: 4,
     icon: <FiUsers />,
     text: "Users",
-    href: "/profiles/users",
+    href: "/staff/profiles/users",
   },
   {
     id: 5,
