@@ -14,14 +14,14 @@ export default function EditLocations() {
   const navigate = useNavigate();
 
   const [location, setLocation] = useState({
-    id: "",
+    // id: "",
     name: "",
     postalCode: "",
     address: "",
     imageFile: "",
     longitude: "",
     latitude: "",
-    updatedAt: "",
+    // updatedAt: "",
   });
 
   const deleteLocation = () => {
@@ -40,10 +40,9 @@ export default function EditLocations() {
   const formik = useFormik({
     initialValues: location,
     enableReinitialize: true,
-    onSubmit: (values) => {
-      console.log(location);
-    },
   });
+
+  console.log("Form Values", formik);
 
   return (
     <div>
@@ -109,6 +108,9 @@ export default function EditLocations() {
                   <input
                     type="text"
                     id="name"
+                    name="name"
+                    onChange={formik.handleChange}
+                    value={formik.values.name}
                     class="w-full pl-4 pr-10 py-3 border-2 bg-grey border-fedora rounded-xl hover:border-thistle/90 focus:outline-none focus:border-thistle/60 transition-colors"
                     placeholder="Name"
                   />
@@ -116,7 +118,9 @@ export default function EditLocations() {
                 <div class="w-full">
                   <input
                     type="text"
-                    id="name"
+                    id="address"
+                    onChange={formik.handleChange}
+                    value={formik.values.address}
                     class="w-full pl-4 pr-10 py-3 border-2 bg-grey border-fedora rounded-xl hover:border-thistle/90 focus:outline-none focus:border-thistle/60 transition-colors"
                     placeholder="Address"
                   />
@@ -124,19 +128,25 @@ export default function EditLocations() {
                 <div class="flex space-x-4">
                   <input
                     type="text"
-                    id="name"
+                    id="postalCode"
+                    onChange={formik.handleChange}
+                    value={formik.values.postalCode}
                     class="w-full pl-4 pr-10 py-3 border-2 bg-grey border-fedora rounded-xl hover:border-thistle/90 focus:outline-none focus:border-thistle/60 transition-colors"
                     placeholder="Postal Code"
                   />
                   <input
                     type="text"
-                    id="name"
+                    id="longitude"
+                    onChange={formik.handleChange}
+                    value={formik.values.longitude}
                     class="w-full pl-4 pr-10 py-3 border-2 bg-grey border-fedora rounded-xl hover:border-thistle/90 focus:outline-none focus:border-thistle/60 transition-colors"
                     placeholder="Longitude"
                   />
                   <input
                     type="text"
-                    id="name"
+                    id="latitude"
+                    onChange={formik.handleChange}
+                    value={formik.values.latitude}
                     class="w-full pl-4 pr-10 py-3 border-2 bg-grey border-fedora rounded-xl hover:border-thistle/90 focus:outline-none focus:border-thistle/60 transition-colors"
                     placeholder="Latitude"
                   />
@@ -154,8 +164,10 @@ export default function EditLocations() {
                         type="file"
                         id="file-upload"
                         class="hidden"
-                        multiple
-                        accept=".png .jpeg"
+                        onChange={formik.handleChange}
+                        value={formik.values.imageFile}
+                        // multiple
+                        // accept=".png .jpeg"
                       />
                       <label
                         for="file-upload"
