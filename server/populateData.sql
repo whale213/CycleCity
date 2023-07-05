@@ -513,3 +513,33 @@ INSERT INTO userquests VALUES (30, "Not Completed", "30", "1");
 -----------------------------------
 -- Adding data to PELOTONS table --
 -----------------------------------
+INSERT INTO pelotons VALUES (1, 'Cycling Squad', 'Cycling', 1001, 'We ride together and conquer the road.', "2023-06-30 01:30:57", "2023-06-30 01:30:57");
+INSERT INTO pelotons VALUES (2, 'Runners United', 'Running', 1002, 'A community of passionate runners.', "2023-06-30 01:30:57", "2023-06-30 01:30:57");
+INSERT INTO pelotons VALUES (3, 'FitFam Spinners', 'Cycling', 1003, 'Join us for intense indoor cycling sessions.', "2023-06-30 01:30:57", "2023-06-30 01:30:57");
+INSERT INTO pelotons VALUES (4, 'Road Warriors', 'Cycling', 1004, 'We explore the world on two wheels.', "2023-06-30 01:30:57", "2023-06-30 01:30:57");
+INSERT INTO pelotons VALUES (5, 'Sprint Squad', 'Running', 1005, 'For those who love to sprint and challenge their limits.', "2023-06-30 01:30:57", "2023-06-30 01:30:57");
+INSERT INTO pelotons VALUES (6, 'Pace Setters', 'Running', 1006, 'Setting the pace and achieving new milestones.', "2023-06-30 01:30:57", "2023-06-30 01:30:57");
+INSERT INTO pelotons VALUES (7, 'Endurance Enthusiasts', 'Cycling', 1007, 'Push your limits with long-distance rides.', "2023-06-30 01:30:57", "2023-06-30 01:30:57");
+INSERT INTO pelotons VALUES (8, 'Trail Blazers', 'Running', 1008, 'Conquer the trails and enjoy nature.', "2023-06-30 01:30:57", "2023-06-30 01:30:57");
+INSERT INTO pelotons VALUES (9, 'Spin Fusion', 'Cycling', 1009, 'A mix of music, motivation, and high-intensity workouts.', "2023-06-30 01:30:57", "2023-06-30 01:30:57");
+INSERT INTO pelotons VALUES (10, 'Sweat and Run', 'Running', 1010, 'Run hard, sweat hard, and achieve your goals.', "2023-06-30 01:30:57", "2023-06-30 01:30:57");
+INSERT INTO pelotons VALUES (11, 'Pedal Power', 'Cycling', 1011, 'Unleash the power of your legs on the bike.', "2023-06-30 01:30:57", "2023-06-30 01:30:57");
+INSERT INTO pelotons VALUES (12, 'Speed Demons', 'Running', 1012, 'Feel the need for speed on every run.', "2023-06-30 01:30:57", "2023-06-30 01:30:57");
+INSERT INTO pelotons VALUES (13, 'Climb and Ride', 'Cycling', 1013, 'Conquer the virtual mountains on your bike.', "2023-06-30 01:30:57", "2023-06-30 01:30:57");
+INSERT INTO pelotons VALUES (14, 'Mile Crushers', 'Running', 1014, 'Crushing mile after mile to become better runners.', "2023-06-30 01:30:57", "2023-06-30 01:30:57");
+INSERT INTO pelotons VALUES (15, 'Spin Sisters', 'Cycling', 1015, 'A supportive sisterhood of spin enthusiasts.', "2023-06-30 01:30:57", "2023-06-30 01:30:57");
+INSERT INTO pelotons VALUES (16, 'Marathoners Club', 'Running', 1016, 'Training together for marathon success.', "2023-06-30 01:30:57", "2023-06-30 01:30:57");
+INSERT INTO pelotons VALUES (17, 'Bike Battalion', 'Cycling', 1017, 'Riding in sync and achieving new challenges.', "2023-06-30 01:30:57", "2023-06-30 01:30:57");
+INSERT INTO pelotons VALUES (18, 'Urban Runners', 'Running', 1018, 'Exploring the city streets one run at a time.', "2023-06-30 01:30:57", "2023-06-30 01:30:57");
+INSERT INTO pelotons VALUES (19, 'Cycle Warriors', 'Cycling', 1019, 'Defending fitness and conquering new territories.', "2023-06-30 01:30:57", "2023-06-30 01:30:57");
+INSERT INTO pelotons VALUES (20, 'Sweat Tribe', 'Running', 1020, 'A tribe that sweats together, stays together.', "2023-06-30 01:30:57", "2023-06-30 01:30:57");
+INSERT INTO pelotons VALUES (21, 'Spin and Shine', 'Cycling', 1021, 'Let the wheels spin and your spirit shine.', "2023-06-30 01:30:57", "2023-06-30 01:30:57");
+INSERT INTO pelotons VALUES (22, 'Running Revolution', 'Running', 1022, 'Revolutionizing the way we run and stay fit.', "2023-06-30 01:30:57", "2023-06-30 01:30:57");
+INSERT INTO pelotons VALUES (23, 'Pedal Prodigies', 'Cycling', 1023, 'Young talents pushing the limits on the bike.', "2023-06-30 01:30:57", "2023-06-30 01:30:57");
+INSERT INTO pelotons VALUES (24, 'Trail Runners Club', 'Running', 1024, 'For those who love the thrill of trail running.', "2023-06-30 01:30:57", "2023-06-30 01:30:57");
+INSERT INTO pelotons VALUES (25, 'Spin Fusion', 'Cycling', 1025, 'Fuse music and spin workouts for a unique experience.', "2023-06-30 01:30:57", "2023-06-30 01:30:57");
+INSERT INTO pelotons VALUES (26, 'RunStrong Nation', 'Running', 1026, 'A nation of strong and dedicated runners.', "2023-06-30 01:30:57", "2023-06-30 01:30:57");
+INSERT INTO pelotons VALUES (27, 'Cycle Studio X', 'Cycling', 1027, 'Unleashing the power of indoor cycling.', "2023-06-30 01:30:57", "2023-06-30 01:30:57");
+INSERT INTO pelotons VALUES (28, 'Fast Feet Club', 'Running', 1028, 'Where speed and agility meet.', "2023-06-30 01:30:57", "2023-06-30 01:30:57");
+INSERT INTO pelotons VALUES (29, 'Pedal and Burn', 'Cycling', 1029, 'Pedal hard, burn calories, and feel the burn.', "2023-06-30 01:30:57", "2023-06-30 01:30:57");
+INSERT INTO pelotons VALUES (30, 'Road Runners', 'Running', 1030, 'Hitting the road and chasing new running goals.', "2023-06-30 01:30:57", "2023-06-30 01:30:57");
