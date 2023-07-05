@@ -391,37 +391,37 @@ INSERT INTO leagues VALUES (10, "Champion", "3000");
 -----------------------------------
 -- Adding data to MISSIONS table --
 -----------------------------------
-INSERT INTO missions VALUES (1, 'Pedal Pioneer: One Kilometer Triumph', "1", "10");
-INSERT INTO missions VALUES (2, 'Double Wheel Dynamo: Two Kilometer Champion', "2", "20");
-INSERT INTO missions VALUES (3, 'Tricycle Trekker: Three Kilometer Conqueror', "3", "30");
-INSERT INTO missions VALUES (4, 'Quad-Cycle Trailblazer: Four Kilometer Adventurer', "4", "40");
-INSERT INTO missions VALUES (5, 'Halfway Hero: Five Kilometer Master', "5", "50");
-INSERT INTO missions VALUES (6, 'Sextuple Spokes Star: Six Kilometer Dynamo', "6", "60");
-INSERT INTO missions VALUES (7, 'Lucky Seven Cyclist: Seven Kilometer Crusader', "7", "70");
-INSERT INTO missions VALUES (8, 'Ocho Speedster: Eight Kilometer Speedster', "8", "80");
-INSERT INTO missions VALUES (9, 'Niner Navigator: Nine Kilometer Voyager', "9", "90");
-INSERT INTO missions VALUES (10, 'Dime Distance Dynamo: Ten Kilometer Achiever', "10", "100");
-INSERT INTO missions VALUES (11, 'Elevenspeed Explorer: Eleven Kilometer Discoverer, "11", "110");
-INSERT INTO missions VALUES (12, 'Dozen Dash Dynamo: Twelve Kilometer Trailblazer', "12", "120");
-INSERT INTO missions VALUES (13, 'Thirteener Thrasher: Thirteen Kilometer Champion', "13", "130");
-INSERT INTO missions VALUES (14, 'Fourteener Flyer: Fourteen Kilometer Whiz', "14", "140");
-INSERT INTO missions VALUES (15, 'Fifteen Milestone Maestro: Fifteen Kilometer Pro', "15", "150");
+INSERT INTO missions VALUES (1, 'Pedal Pioneer: One Kilometer Triumph', "10", "1");
+INSERT INTO missions VALUES (2, 'Double Wheel Dynamo: Two Kilometer Champion', "20", "2");
+INSERT INTO missions VALUES (3, 'Tricycle Trekker: Three Kilometer Conqueror', "30", "3");
+INSERT INTO missions VALUES (4, 'Quad-Cycle Trailblazer: Four Kilometer Adventurer', "40", "4");
+INSERT INTO missions VALUES (5, 'Halfway Hero: Five Kilometer Master', "50", "5");
+INSERT INTO missions VALUES (6, 'Sextuple Spokes Star: Six Kilometer Dynamo', "60", "6");
+INSERT INTO missions VALUES (7, 'Lucky Seven Cyclist: Seven Kilometer Crusader', "70", "7");
+INSERT INTO missions VALUES (8, 'Ocho Speedster: Eight Kilometer Speedster', "80", "8");
+INSERT INTO missions VALUES (9, 'Niner Navigator: Nine Kilometer Voyager', "90", "9");
+INSERT INTO missions VALUES (10, 'Dime Distance Dynamo: Ten Kilometer Achiever', "100", "10");
+INSERT INTO missions VALUES (11, 'Elevenspeed Explorer: Eleven Kilometer Discoverer, "110", "11");
+INSERT INTO missions VALUES (12, 'Dozen Dash Dynamo: Twelve Kilometer Trailblazer', "120", "12");
+INSERT INTO missions VALUES (13, 'Thirteener Thrasher: Thirteen Kilometer Champion', "130", "13");
+INSERT INTO missions VALUES (14, 'Fourteener Flyer: Fourteen Kilometer Whiz', "140", "14");
+INSERT INTO missions VALUES (15, 'Fifteen Milestone Maestro: Fifteen Kilometer Pro', "150", "15");
     
-INSERT INTO missions VALUES (16, 'Coastal Expedition: Cycling to East Coast Park', "16", "10");
-INSERT INTO missions VALUES (17, 'Nature Escape: Conquering MacRitchie Reservoir Park', "17", "20");
-INSERT INTO missions VALUES (18, 'Garden Trek: Cycling Adventure to Botanic Gardens', "18", "30");
-INSERT INTO missions VALUES (19, 'Island Expedition: Pedaling to Pulau Ubin', "19", "40");
-INSERT INTO missions VALUES (20, 'Riverside Quest: Cycling Adventure to Kallang Riverside Park', "20", "50");
-INSERT INTO missions VALUES (21, 'Island Discovery: Exploring Coney Island Park on Wheels', "21", "60");
-INSERT INTO missions VALUES (22, 'Lake Adventure: Cycling Journey to Jurong Lake Gardens', "22", "70");
-INSERT INTO missions VALUES (23, 'Waterway Expedition: Navigating Punggol Waterway Park', "23", "80");
-INSERT INTO missions VALUES (24, 'Green Oasis Quest: Cycling Adventure to HortPark', "24", "90");
-INSERT INTO missions VALUES (25, 'Coastal Serenity: Cycling Retreat to Changi Beach Park', "25", "100");
-INSERT INTO missions VALUES (26, 'Nature's Peak Challenge: Conquering Bukit Timah Nature Reserve', "26", "110");
-INSERT INTO missions VALUES (27, 'Seaside Exploration: Cycling Adventure to Labrador Nature Reserve', "27", "120");
-INSERT INTO missions VALUES (28, 'Ridge Quest: Cycling Expedition along the Southern Ridges', "28", "130");
-INSERT INTO missions VALUES (29, 'Reservoir Ride: Cycling Adventure to Lower Seletar Reservoir Park', "29", "140");
-INSERT INTO missions VALUES (30, 'Waterfront Escape: Pedaling to Woodlands Waterfront Park', "30", "150`");
+INSERT INTO missions VALUES (16, 'Coastal Expedition: Cycling to East Coast Park', "10", "1");
+INSERT INTO missions VALUES (17, 'Nature Escape: Conquering MacRitchie Reservoir Park', "20", "2");
+INSERT INTO missions VALUES (18, 'Garden Trek: Cycling Adventure to Botanic Gardens', "30", "3");
+INSERT INTO missions VALUES (19, 'Island Expedition: Pedaling to Pulau Ubin', "40", "4");
+INSERT INTO missions VALUES (20, 'Riverside Quest: Cycling Adventure to Kallang Riverside Park', "50", "5");
+INSERT INTO missions VALUES (21, 'Island Discovery: Exploring Coney Island Park on Wheels', "60", "6");
+INSERT INTO missions VALUES (22, 'Lake Adventure: Cycling Journey to Jurong Lake Gardens', "70", "7");
+INSERT INTO missions VALUES (23, 'Waterway Expedition: Navigating Punggol Waterway Park', "80", "8");
+INSERT INTO missions VALUES (24, 'Green Oasis Quest: Cycling Adventure to HortPark', "90", "9");
+INSERT INTO missions VALUES (25, 'Coastal Serenity: Cycling Retreat to Changi Beach Park', "100", "10");
+INSERT INTO missions VALUES (26, 'Nature's Peak Challenge: Conquering Bukit Timah Nature Reserve', "110", "11");
+INSERT INTO missions VALUES (27, 'Seaside Exploration: Cycling Adventure to Labrador Nature Reserve', "120", "12");
+INSERT INTO missions VALUES (28, 'Ridge Quest: Cycling Expedition along the Southern Ridges', "130", "13");
+INSERT INTO missions VALUES (29, 'Reservoir Ride: Cycling Adventure to Lower Seletar Reservoir Park', "140", "14");
+INSERT INTO missions VALUES (30, 'Waterfront Escape: Pedaling to Woodlands Waterfront Park', "150", "15");
 ---------------------------------
 -- Adding data to QUESTS table --
 ---------------------------------
