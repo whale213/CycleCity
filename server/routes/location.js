@@ -38,7 +38,12 @@ router.post("/", async (req, res) => {
 
   let validationSchema = yup.object().shape({
     name: yup.string().trim().min(6).required(),
-    postalCode: yup.number().positive().min(100000).required(),
+    postalCode: yup
+      .string()
+      .required()
+      .matches(/^[0-9]+$/, "Must be only digits")
+      .min(5, "Must be exactly 5 digits")
+      .max(5, "Must be exactly 5 digits"),
     address: yup.string().trim().min(6).max(100).required(),
   });
 

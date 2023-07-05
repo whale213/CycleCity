@@ -15,11 +15,8 @@ module.exports = (sequelize, DataTypes) => {
         type: DataTypes.STRING,
         allowNull: false,
       },
-      imageFile: {
-        type: DataTypes.STRING,
-      },
     },
-    { timestamps: false }
+    { timestamps: true, createdAt: false }
   );
 
   Attraction.associate = (models) => {
