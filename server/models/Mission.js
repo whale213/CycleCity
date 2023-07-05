@@ -1,23 +1,27 @@
 module.exports = (sequelize, DataTypes) => {
-  const Mission = sequelize.define("Mission", {
-    id: {
-      type: DataTypes.INTEGER,
-      allowNull: false,
-      primaryKey: true,
+  const Mission = sequelize.define(
+    "Mission",
+    {
+      id: {
+        type: DataTypes.INTEGER,
+        allowNull: false,
+        primaryKey: true,
+      },
+      name: {
+        type: DataTypes.STRING,
+        allowNull: false,
+      },
+      exp: {
+        type: DataTypes.INTEGER,
+        allowNull: false,
+      },
     },
-    name: {
-      type: DataTypes.STRING,
-      allowNull: false,
-    },
-    criteria: {
-      type: DataTypes.TEXT,
-      allowNull: false,
-    },
-  });
+    { timestamps: false }
+  );
   Mission.associate = (models) => {
-    Mission.belongsTo(models.League, {
-      foreignKey: "leagueId",
-      as: "league",
+    Mission.belongsTo(models.Criterias, {
+      foreignKey: "criteriaId",
+      as: "criteria",
       allowNull: false,
     });
   };

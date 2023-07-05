@@ -1,19 +1,25 @@
 module.exports = (sequelize, DataTypes) => {
-  const UserQuest = sequelize.define("UserQuest", {
-    id: {
-      type: DataTypes.INTEGER,
-      allowNull: false,
-      primaryKey: true,
+  const UserQuest = sequelize.define(
+    "UserQuest",
+    {
+      status: {
+        type: DataTypes.STRING,
+        allowNull: false,
+      },
     },
-    userId: {
-      type: DataTypes.INTEGER,
+    { timestamps: false }
+  );
+  UserQuest.associate = (models) => {
+    UserQuest.belongsTo(models.User, {
+      foreignKey: "userId",
+      as: "useruser",
       allowNull: false,
-      foreignKey: true,
-    },
-    status: {
-      type: DataTypes.STRING,
+    });
+    UserQuest.belongsTo(models.Quest, {
+      foreignKey: "questId",
+      as: "quest",
       allowNull: false,
-    },
-  });
+    });
+  };
   return UserQuest;
 };

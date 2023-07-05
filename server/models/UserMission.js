@@ -1,19 +1,25 @@
 module.exports = (sequelize, DataTypes) => {
-  const UserMission = sequelize.define("UserMission", {
-    id: {
-      type: DataTypes.INTEGER,
-      allowNull: false,
-      primaryKey: true,
+  const UserMission = sequelize.define(
+    "UserMission",
+    {
+      status: {
+        type: DataTypes.STRING,
+        allowNull: false,
+      },
     },
-    userId: {
-      type: DataTypes.INTEGER,
+    { timestamps: false }
+  );
+  UserMission.associate = (models) => {
+    UserMission.belongsTo(models.User, {
+      foreignKey: "UserId",
+      as: "useruser",
       allowNull: false,
-      foreignKey: true,
-    },
-    status: {
-      type: DataTypes.STRING,
+    });
+    UserMission.belongsTo(models.Mission, {
+      foreignKey: "missionId",
+      as: "mission",
       allowNull: false,
-    },
-  });
+    });
+  };
   return UserMission;
 };
