@@ -78,7 +78,7 @@ export default function Navbar() {
               </div>
               <div class="hidden sm:flex">
                 <Link
-                  to="/login"
+                  to="/register"
                   class="py-2.5 px-5 bg-transparent text-grey dark:text-seashell border border-ultraViolet rounded-lg hover:bg-ultraViolet hover:text-seashell hover:border-transparent transition ease-in duration-200 transform hover:-translate-y-1 active:translate-y-0"
                 >
                   Register

@@ -18,6 +18,9 @@ app.use("/location", locationRoute);
 const attractionRoute = require("./routes/attraction");
 app.use("/attraction", attractionRoute);
 
+const staffRoute = require("./routes/staff");
+app.use("/staff", staffRoute);
+
 const userRoute = require("./routes/user");
 app.use("/user", userRoute);
 
