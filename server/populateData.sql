@@ -38,8 +38,8 @@
 -- DROP TABLE IF EXISTS locations;
 -- DROP TABLE IF EXISTS usermissions;
 -- DROP TABLE IF EXISTS quests;
--- DROP TABLE IF EXISTS criterias;
 -- DROP TABLE IF EXISTS missions;
+-- DROP TABLE IF EXISTS criterias;
 -- DROP TABLE IF EXISTS leagues;
 -- DROP TABLE IF EXISTS userquests;
 -- DROP TABLE IF EXISTS comments;

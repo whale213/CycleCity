@@ -16,6 +16,7 @@ import Attractions from "./pages/itinerary-staff/Attractions";
 import Users from "./pages/acct-management/user/Users";
 import UsersStaff from "./pages/acct-management/user-staff/UsersStaff";
 import EditLocations from "./pages/itinerary-staff/EditLocations";
+import AddLocations from "./pages/itinerary-staff/AddLocations";
 import EditAttractions from "./pages/itinerary-staff/EditAttractions";
 import Error from "./components/Error";
 
@@ -35,6 +36,7 @@ const router = createBrowserRouter(
           <Route path="attractions" element={<Attractions />} />
         </Route>
         <Route path="itinerary/locations/:id" element={<EditLocations />} />
+        <Route path="itinerary/locations/add" element={<AddLocations />} />
         <Route path="itinerary/attractions/:id" element={<EditAttractions />} />
       </Route>
       <Route path="profiles" element={<Profiles />}>

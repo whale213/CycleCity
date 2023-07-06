@@ -15,8 +15,8 @@ export default function Error() {
   const navigate = useNavigate();
   return (
     <div>
-      <div class="grid grid-rows-2 justify-items-center h-screen px-4 place-content-center">
-        <h1 class="tracking-widest text-3xl text-gray-500 uppercase mt-48">
+      <div className="grid grid-rows-2 justify-items-center h-screen px-4 place-content-center">
+        <h1 className="tracking-widest text-3xl text-gray-500 uppercase mt-48">
           404 | Not Found
         </h1>
         <Link to={navigate(1)}>
