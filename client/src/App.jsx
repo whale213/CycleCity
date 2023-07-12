@@ -16,6 +16,7 @@ import Locations from "./pages/itinerary-staff/Locations";
 import Attractions from "./pages/itinerary-staff/Attractions";
 import Users from "./pages/acct-management/Users";
 import Staff from "./pages/acct-management/Staff";
+import EditStaff from "./pages/acct-management/EditStaff";
 import EditLocations from "./pages/itinerary-staff/EditLocations";
 import EditAttractions from "./pages/itinerary-staff/EditAttractions";
 import Error from "./components/Error";
@@ -43,8 +44,8 @@ const router = createBrowserRouter(
         <Route path="profiles" element={<Profiles />}>
           <Route path="users" element={<Users />}></Route>
           <Route path="staff" element={<Staff />}></Route>
-          <Route path="profiles/staff/:id" element={<EditStaffs />} />
         </Route>
+        <Route path="profiles/staff/:id" element={<EditStaff />} />
       </Route>
       <Route path="*" element={<Error />} />
     </Route>

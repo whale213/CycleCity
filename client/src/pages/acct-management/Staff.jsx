@@ -121,7 +121,7 @@ export default function Staff() {
                         class="hover:bg-orange-100 dark:hover:bg-onyx group cursor-pointer"
                         key={id}
                         onClick={() => {
-                          navigate(`/staff/profiles/staffs/${staff.staffId}`);
+                          navigate(`/staff/profiles/staff/${staff.staffId}`);
                         }}
                       >
                         <td class="pl-4">{staff.staffId}</td>

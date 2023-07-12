@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
+import http from "../../http";
 import { useFormik } from "formik";
 import * as yup from "yup";
 
@@ -49,10 +50,16 @@ export default function Register() {
       bio: "",
     },
     validationSchema,
-    onSubmit: (values) => {
-      console.log(values);
-      // Perform registration logic here
-      navigate("/");
+    onSubmit: (data) => {
+      data.name = data.name.trim();
+      data.email = data.email.trim();
+      data.password = data.password.trim();
+      data.passwordConfirmation = data.passwordConfirmation.trim();
+      data.bio = data.bio.trim();
+      http.post("/user", data).then((res) => {
+        console.log(res.data);
+        navigate("/");
+      });
     },
   });
 
@@ -261,7 +268,8 @@ export default function Register() {
                     <div>
                       <button
                         className="py-2.5 px-5 bg-thistle text-grey dark:hover:text-seashell border-2 border-thistle rounded-lg hover:bg-transparent transition ease-in duration-200 transform hover:-translate-y-1 active:translate-y-0"
-                        type="submit">
+                        type="submit"
+                      >
                         Sign Up
                       </button>
                     </div>

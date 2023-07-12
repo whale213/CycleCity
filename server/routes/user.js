@@ -58,7 +58,7 @@ router.post("/", async (req, res) => {
   });
 
   try {
-    await validationSchema.validate(data, { abortEarly: false, strict: true });
+    await validationSchema.validate(data, { abortEarly: false });
   } catch (err) {
     console.error(err);
     res.status(400).json({ errors: err.errors });
@@ -67,6 +67,12 @@ router.post("/", async (req, res) => {
   data.name = data.name.trim();
   data.email = data.email.trim();
   data.password = data.password.trim();
+  data.role = "User";
+  data.exp = 0;
+  data.profileImage = "null";
+  data.isVerified = true;
+  data.lastLoginTime = "2023-01-25T16:50:00Z";
+  data.rank = "Wood";
 
   let result = await User.create(data);
   res.json(result);
