@@ -37,24 +37,25 @@ router.post("/", async (req, res) => {
   let data = req.body;
 
   let validationSchema = yup.object().shape({
-    name: yup.string().trim().min(6).required(),
+    name: yup.string().trim().min(3).required(),
     postalCode: yup
       .string()
       .required()
-      .matches(/^[0-9]+$/, "Must be only digits")
-      .min(5, "Must be exactly 5 digits")
-      .max(5, "Must be exactly 5 digits"),
+      .matches(/^[0-9]+$/)
+      .min(6)
+      .max(6),
     address: yup.string().trim().min(6).max(100).required(),
   });
 
   try {
-    await validationSchema.validate(data, { abortEarly: false, strict: true });
+    await validationSchema.validate(data, { abortEarly: false });
   } catch (err) {
     console.error(err);
     res.status(400).json({ errors: err.errors });
     return;
   }
   data.name = data.name.trim();
+  data.postalCode = data.postalCode.trim();
   data.address = data.address.trim();
 
   let result = await Location.create(data);
@@ -75,12 +76,12 @@ router.put("/:id", async (req, res) => {
 
   let validationSchema = yup.object().shape({
     name: yup.string().trim().min(6).required(),
-    postalCode: yup.number().positive().min(100000).required(),
+    postalCode: yup.string().min(6).required(),
     address: yup.string().trim().min(6).max(100).required(),
   });
 
   try {
-    await validationSchema.validate(data, { abortEarly: false, strict: true });
+    await validationSchema.validate(data, { abortEarly: false });
   } catch (err) {
     console.error(err);
     res.status(400).json({ errors: err.errors });

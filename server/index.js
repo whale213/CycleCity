@@ -4,6 +4,8 @@ require("dotenv").config();
 
 const app = express();
 app.use(express.json());
+app.use(express.urlencoded({ extended: false }));
+app.use(express.static("public"));
 app.use(cors());
 
 // Simple Route
@@ -11,16 +13,23 @@ app.get("/", (req, res) => {
   res.send("CycleCity server is running...");
 });
 
-// Routes
+// === Routes ===
+// File
+const fileRoute = require("./routes/file");
+app.use("/file", fileRoute);
+
+// Itinerary
 const locationRoute = require("./routes/location");
 app.use("/location", locationRoute);
 
 const attractionRoute = require("./routes/attraction");
 app.use("/attraction", attractionRoute);
 
+// Account Management
 const userRoute = require("./routes/user");
 app.use("/user", userRoute);
 
+// Achievements/Missions
 const criteriaRoute = require("./routes/Criteria");
 app.use("/criteria", criteriaRoute);
 
@@ -39,6 +48,7 @@ app.use("/UserMission", userMissionRoute);
 const userQuestRoute = require("./routes/UserQuest");
 app.use("/UserQuest", userQuestRoute);
 
+// Pelotons
 const pelotonRoute = require("./routes/peloton");
 app.use("/peloton", pelotonRoute);
 
