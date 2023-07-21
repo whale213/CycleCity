@@ -1,5 +1,5 @@
 import { TabsData } from "./TabsData";
-import { Link, NavLink, Outlet } from "react-router-dom";
+import { NavLink, Outlet } from "react-router-dom";
 
 export default function Tabs() {
   if (
@@ -14,7 +14,7 @@ export default function Tabs() {
 
   return (
     <>
-      <div className="text-grey dark:text-seashell m-10">
+      <div className="text-grey dark:text-seashell m-8">
         <h1 className="text-2xl text-ultraViolet dark:text-thistle m-2 flex">
           Itinerary
         </h1>

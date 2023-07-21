@@ -1,24 +1,14 @@
 import React, { useState, useEffect } from "react";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import http from "../../http";
+import Modal from "../../components/modal/Modal";
+
+// icons
 import { RiDeleteBin6Line } from "react-icons/ri";
 import { BsExclamationCircle } from "react-icons/bs";
-import { RxCross2 } from "react-icons/rx";
-import { LuSearch } from "react-icons/lu";
-import Modal from "../../components/confirmation/Modal";
-import { useNavigate } from "react-router-dom";
+import { LuSearch, LuAlertCircle, LuInfo } from "react-icons/lu";
 
 export default function Locations() {
-  if (
-    localStorage.theme === "dark" ||
-    (!("theme" in localStorage) &&
-      window.matchMedia("(prefers-color-scheme: dark)").matches)
-  ) {
-    document.documentElement.classList.add("dark");
-  } else {
-    document.documentElement.classList.remove("dark");
-  }
-
   const [locationList, setLocationList] = useState([]);
   const [search, setSearch] = useState("");
   const [open, setOpen] = useState(false);
