@@ -54,36 +54,36 @@
 -- Adding data to LOCATIONS table --
 ------------------------------------
 
-INSERT INTO locations VALUES (1, "East Coast Park", "449876", "East Coast Park Service Rd, Singapore 449876", "./assets/locations/img1", 103.929558, 1.304219, "2023-06-30 01:30:57");
-INSERT INTO locations VALUES (2, "MacRitchie Reservoir Park", "298717", "MacRitchie Reservoir, Singapore 298717", "./assets/locations/img2", 103.822830, 1.340596, "2023-06-30 01:30:57");
-INSERT INTO locations VALUES (3, "Botanic Gardens", "259569", "1 Cluny Rd, Singapore 259569", "./assets/locations/img3", 103.815280, 1.313839, "2023-06-30 01:30:57");
-INSERT INTO locations VALUES (4, "Pulau Ubin", "508297", "Pulau Ubin, Singapore 508297", "./assets/locations/img4", 103.967678, 1.413669, "2023-06-30 01:30:57");
-INSERT INTO locations VALUES (5, "Kallang Riverside Park", "339348", "Kallang Riverside Park, Singapore 339348", "./assets/locations/img5", 103.865387, 1.305491, "2023-06-30 01:30:57");
-INSERT INTO locations VALUES (6, "Coney Island Park", "539837", "Coney Island, Singapore 539837", "./assets/locations/img6", 103.921152, 1.412308, "2023-06-30 01:30:57");
-INSERT INTO locations VALUES (7, "Jurong Lake Gardens", "649853", "25 Yuan Ching Rd, Singapore 649853", "./assets/locations/img7", 103.724527, 1.340415, "2023-06-30 01:30:57");
-INSERT INTO locations VALUES (8, "Punggol Waterway Park", "829325", "10 Sentul Cres, Singapore 829325", "./assets/locations/img8", 103.905092, 1.402877, "2023-06-30 01:30:57");
-INSERT INTO locations VALUES (9, "HortPark", "139653", "33 Hyderabad Rd, Singapore 139653", "./assets/locations/img9", 103.790888, 1.279829, "2023-06-30 01:30:57");
-INSERT INTO locations VALUES (10, "Changi Beach Park", "499982", "Changi Coast Rd, Singapore 499982", "./assets/locations/img10", 103.989120, 1.390614, "2023-06-30 01:30:57");
-INSERT INTO locations VALUES (11, "Bukit Timah Nature Reserve", "589968", "Bukit Timah Nature Reserve, Singapore 589968", "./assets/locations/img11", 103.776921, 1.354882, "2023-06-30 01:30:57");
-INSERT INTO locations VALUES (12, "Labrador Nature Reserve", "119187", "Labrador Villa Rd, Singapore 119187", "./assets/locations/img12", 103.811036, 1.272066, "2023-06-30 01:30:57");
-INSERT INTO locations VALUES (13, "Southern Ridges", "109918", "Henderson Rd, Singapore 109918", "./assets/locations/img13", 103.812958, 1.281540, "2023-06-30 01:30:57");
-INSERT INTO locations VALUES (14, "Lower Seletar Reservoir Park", "769298", "Lower Seletar Reservoir Park, Singapore 769298", "./assets/locations/img14", 103.827617, 1.396000, "2023-06-30 01:30:57");
-INSERT INTO locations VALUES (15, "Woodlands Waterfront Park", "738909", "Woodlands Waterfront Park, Singapore 738909", "./assets/locations/img15", 103.792725, 1.450504, "2023-06-30 01:30:57");
-INSERT INTO locations VALUES (16, "Pulau Hantu", "099984", "Pulau Hantu, Singapore 099984", "./assets/locations/img16", 103.764937, 1.200242, "2023-06-30 01:30:57");
-INSERT INTO locations VALUES (17, "Kent Ridge Park", "119275", "Kent Ridge Park, Singapore 119275", "./assets/locations/img17", 103.781637, 1.281799, "2023-06-30 01:30:57");
-INSERT INTO locations VALUES (18, "Pasir Ris Park", "519756", "125 Elias Rd, Singapore 519756", "./assets/locations/img18", 103.955200, 1.379000, "2023-06-30 01:30:57");
-INSERT INTO locations VALUES (19, "Sungei Buloh Wetland Reserve", "689150", "301 Neo Tiew Cres, Singapore 689150", "./assets/locations/img19", 103.729162, 1.446394, "2023-06-30 01:30:57");
-INSERT INTO locations VALUES (20, "Sembawang Park", "759580", "Sembawang Park, Singapore 759580", "./assets/locations/img20", 103.819715, 1.444230, "2023-06-30 01:30:57");
-INSERT INTO locations VALUES (21, "Kranji Reservoir Park", "739167", "Kranji Reservoir Park, Singapore 739167", "./assets/locations/img21", 103.755958, 1.434243, "2023-06-30 01:30:57");
-INSERT INTO locations VALUES (22, "Marina Barrage", "018951", "8 Marina Gardens Dr, Singapore 018951", "./assets/locations/img22", 103.871330, 1.279816, "2023-06-30 01:30:57");
-INSERT INTO locations VALUES (23, "Bishan-Ang Mo Kio Park", "569931", "1384 Ang Mo Kio Ave 1, Singapore 569931", "./assets/locations/img23", 103.849637, 1.365656, "2023-06-30 01:30:57");
-INSERT INTO locations VALUES (24, "Bedok Reservoir Park", "479244", "Bedok Reservoir Rd, Singapore 479244", "./assets/locations/img24", 103.934600, 1.337000, "2023-06-30 01:30:57");
-INSERT INTO locations VALUES (25, "West Coast Park", "612345", "West Coast Park, Singapore 612345", "./assets/locations/img25", 103.759503, 1.292267, "2023-06-30 01:30:57");
-INSERT INTO locations VALUES (26, "Gardens by the Bay", "018953", "18 Marina Gardens Dr, Singapore 018953", "./assets/locations/img26", 103.865608, 1.281689, "2023-06-30 01:30:57");
-INSERT INTO locations VALUES (27, "Tanjong Beach", "098942", "Sentosa Island, Singapore 098942", "./assets/locations/img27", 103.824402, 1.251625, "2023-06-30 01:30:57");
-INSERT INTO locations VALUES (28, "Bukit Batok Town Park", "659908", "Bukit Batok Central, Singapore 659908", "./assets/locations/img28", 103.749507, 1.355359, "2023-06-30 01:30:57");
-INSERT INTO locations VALUES (29, "Fort Siloso", "099981", "33 Allanbrooke Rd, Singapore 099981", "./assets/locations/img29", 103.807999, 1.250275, "2023-06-30 01:30:57");
-INSERT INTO locations VALUES (30, "Mount Faber Park", "099203", "Mount Faber Rd, Singapore 099203", "./assets/locations/img30", 103.819836, 1.271876, "2023-06-30 01:30:57");
+INSERT INTO locations VALUES (1, "East Coast Park", "449876", "East Coast Park Service Rd, Singapore 449876", "Z43WyDDrMJ.jpg", 103.929558, 1.304219, "2023-06-30 01:30:57");
+INSERT INTO locations VALUES (2, "MacRitchie Reservoir Park", "298717", "MacRitchie Reservoir, Singapore 298717", "Z43WyDDrMJ.jpg", 103.822830, 1.340596, "2023-06-30 01:30:57");
+INSERT INTO locations VALUES (3, "Botanic Gardens", "259569", "1 Cluny Rd, Singapore 259569", "Z43WyDDrMJ.jpg", 103.815280, 1.313839, "2023-06-30 01:30:57");
+INSERT INTO locations VALUES (4, "Pulau Ubin", "508297", "Pulau Ubin, Singapore 508297", "Z43WyDDrMJ.jpg", 103.967678, 1.413669, "2023-06-30 01:30:57");
+INSERT INTO locations VALUES (5, "Kallang Riverside Park", "339348", "Kallang Riverside Park, Singapore 339348", "Z43WyDDrMJ.jpg", 103.865387, 1.305491, "2023-06-30 01:30:57");
+INSERT INTO locations VALUES (6, "Coney Island Park", "539837", "Coney Island, Singapore 539837", "Z43WyDDrMJ.jpg", 103.921152, 1.412308, "2023-06-30 01:30:57");
+INSERT INTO locations VALUES (7, "Jurong Lake Gardens", "649853", "25 Yuan Ching Rd, Singapore 649853", "Z43WyDDrMJ.jpg", 103.724527, 1.340415, "2023-06-30 01:30:57");
+INSERT INTO locations VALUES (8, "Punggol Waterway Park", "829325", "10 Sentul Cres, Singapore 829325", "Z43WyDDrMJ.jpg", 103.905092, 1.402877, "2023-06-30 01:30:57");
+INSERT INTO locations VALUES (9, "HortPark", "139653", "33 Hyderabad Rd, Singapore 139653", "Z43WyDDrMJ.jpg", 103.790888, 1.279829, "2023-06-30 01:30:57");
+INSERT INTO locations VALUES (10, "Changi Beach Park", "499982", "Changi Coast Rd, Singapore 499982", "Z43WyDDrMJ.jpg", 103.989120, 1.390614, "2023-06-30 01:30:57");
+INSERT INTO locations VALUES (11, "Bukit Timah Nature Reserve", "589968", "Bukit Timah Nature Reserve, Singapore 589968", "Z43WyDDrMJ.jpg", 103.776921, 1.354882, "2023-06-30 01:30:57");
+INSERT INTO locations VALUES (12, "Labrador Nature Reserve", "119187", "Labrador Villa Rd, Singapore 119187", "Z43WyDDrMJ.jpg", 103.811036, 1.272066, "2023-06-30 01:30:57");
+INSERT INTO locations VALUES (13, "Southern Ridges", "109918", "Henderson Rd, Singapore 109918", "Z43WyDDrMJ.jpg", 103.812958, 1.281540, "2023-06-30 01:30:57");
+INSERT INTO locations VALUES (14, "Lower Seletar Reservoir Park", "769298", "Lower Seletar Reservoir Park, Singapore 769298", "Z43WyDDrMJ.jpg", 103.827617, 1.396000, "2023-06-30 01:30:57");
+INSERT INTO locations VALUES (15, "Woodlands Waterfront Park", "738909", "Woodlands Waterfront Park, Singapore 738909", "Z43WyDDrMJ.jpg", 103.792725, 1.450504, "2023-06-30 01:30:57");
+INSERT INTO locations VALUES (16, "Pulau Hantu", "099984", "Pulau Hantu, Singapore 099984", "Z43WyDDrMJ.jpg", 103.764937, 1.200242, "2023-06-30 01:30:57");
+INSERT INTO locations VALUES (17, "Kent Ridge Park", "119275", "Kent Ridge Park, Singapore 119275", "Z43WyDDrMJ.jpg", 103.781637, 1.281799, "2023-06-30 01:30:57");
+INSERT INTO locations VALUES (18, "Pasir Ris Park", "519756", "125 Elias Rd, Singapore 519756", "Z43WyDDrMJ.jpg", 103.955200, 1.379000, "2023-06-30 01:30:57");
+INSERT INTO locations VALUES (19, "Sungei Buloh Wetland Reserve", "689150", "301 Neo Tiew Cres, Singapore 689150", "Z43WyDDrMJ.jpg", 103.729162, 1.446394, "2023-06-30 01:30:57");
+INSERT INTO locations VALUES (20, "Sembawang Park", "759580", "Sembawang Park, Singapore 759580", "Z43WyDDrMJ.jpg", 103.819715, 1.444230, "2023-06-30 01:30:57");
+INSERT INTO locations VALUES (21, "Kranji Reservoir Park", "739167", "Kranji Reservoir Park, Singapore 739167", "Z43WyDDrMJ.jpg", 103.755958, 1.434243, "2023-06-30 01:30:57");
+INSERT INTO locations VALUES (22, "Marina Barrage", "018951", "8 Marina Gardens Dr, Singapore 018951", "Z43WyDDrMJ.jpg", 103.871330, 1.279816, "2023-06-30 01:30:57");
+INSERT INTO locations VALUES (23, "Bishan-Ang Mo Kio Park", "569931", "1384 Ang Mo Kio Ave 1, Singapore 569931", "Z43WyDDrMJ.jpg", 103.849637, 1.365656, "2023-06-30 01:30:57");
+INSERT INTO locations VALUES (24, "Bedok Reservoir Park", "479244", "Bedok Reservoir Rd, Singapore 479244", "Z43WyDDrMJ.jpg", 103.934600, 1.337000, "2023-06-30 01:30:57");
+INSERT INTO locations VALUES (25, "West Coast Park", "612345", "West Coast Park, Singapore 612345", "Z43WyDDrMJ.jpg", 103.759503, 1.292267, "2023-06-30 01:30:57");
+INSERT INTO locations VALUES (26, "Gardens by the Bay", "018953", "18 Marina Gardens Dr, Singapore 018953", "Z43WyDDrMJ.jpg", 103.865608, 1.281689, "2023-06-30 01:30:57");
+INSERT INTO locations VALUES (27, "Tanjong Beach", "098942", "Sentosa Island, Singapore 098942", "Z43WyDDrMJ.jpg", 103.824402, 1.251625, "2023-06-30 01:30:57");
+INSERT INTO locations VALUES (28, "Bukit Batok Town Park", "659908", "Bukit Batok Central, Singapore 659908", "Z43WyDDrMJ.jpg", 103.749507, 1.355359, "2023-06-30 01:30:57");
+INSERT INTO locations VALUES (29, "Fort Siloso", "099981", "33 Allanbrooke Rd, Singapore 099981", "Z43WyDDrMJ.jpg", 103.807999, 1.250275, "2023-06-30 01:30:57");
+INSERT INTO locations VALUES (30, "Mount Faber Park", "099203", "Mount Faber Rd, Singapore 099203", "Z43WyDDrMJ.jpg", 103.819836, 1.271876, "2023-06-30 01:30:57");
 
 --------------------------------------
 -- Adding data to ATTRACTIONS table --
