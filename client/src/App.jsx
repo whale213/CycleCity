@@ -7,17 +7,24 @@ import {
   Route,
 } from "react-router-dom";
 
-// pages
+// components
 import StaffSidebar from "./components/staff-sidebar/StaffSidebar";
 import UserSidebar from "./components/user-sidebar/UserSidebar";
+
+//// pages ////
+// login
 import Login from "./pages/login/login";
-import Locations from "./pages/itinerary-staff/Locations";
-import Attractions from "./pages/itinerary-staff/Attractions";
+// account management
 import Users from "./pages/acct-management/user/Users";
 import Staff from "./pages/acct-management/staff/Staff";
+// itinerary
+import Locations from "./pages/itinerary-staff/Locations";
+import Attractions from "./pages/itinerary-staff/Attractions";
 import EditLocations from "./pages/itinerary-staff/EditLocations";
 import AddLocations from "./pages/itinerary-staff/AddLocations";
 import EditAttractions from "./pages/itinerary-staff/EditAttractions";
+import AddAttraction from "./pages/itinerary-staff/AddAttraction";
+// error
 import Error from "./components/Error";
 
 // layouts
@@ -38,6 +45,7 @@ const router = createBrowserRouter(
         <Route path="itinerary/locations/:id" element={<EditLocations />} />
         <Route path="itinerary/locations/add" element={<AddLocations />} />
         <Route path="itinerary/attractions/:id" element={<EditAttractions />} />
+        <Route path="itinerary/attractions/add" element={<AddAttraction />} />
 
         <Route path="profiles" element={<Profiles />}>
           <Route path="users" element={<Users />}></Route>
