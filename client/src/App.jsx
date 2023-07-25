@@ -24,6 +24,10 @@ import EditLocations from "./pages/itinerary-staff/EditLocations";
 import AddLocations from "./pages/itinerary-staff/AddLocations";
 import EditAttractions from "./pages/itinerary-staff/EditAttractions";
 import AddAttraction from "./pages/itinerary-staff/AddAttraction";
+// social media
+import Posts from "./pages/social-media/Posts";
+import Comments from "./pages/social-media/Comments";
+import AddPost from "./pages/social-media/AddPost";
 // error
 import Error from "./components/Error";
 
@@ -36,7 +40,14 @@ const router = createBrowserRouter(
     <Route>
       <Route path="/" element={<LandingPage />} />
       <Route path="login" element={<Login />} />
-      <Route path="user" element={<UserSidebar />}></Route>
+      <Route path="user" element={<UserSidebar />}>
+        <Route path = "comments/:id" element={<Comments />} />
+        <Route path = "addpost" element = {<AddPost />} />
+        <Route path = "userpost" element={<Posts />} />
+        
+          
+
+      </Route>
       <Route path="staff" element={<StaffSidebar />}>
         <Route path="itinerary" element={<Itinerary />}>
           <Route path="locations" element={<Locations />} />
