@@ -26,7 +26,7 @@ export const userIcons = [
     id: 4,
     icon: <FaRegCompass />,
     text: "Feed",
-    href: "/user",
+    href: "/user/userpost",
   },
   {
     id: 5,
