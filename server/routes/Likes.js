@@ -1,39 +1,37 @@
 const express = require('express')
-const { User, Followers } = require('../models');
+const { UserPost, Likes } = require('../models');
 
 const router = express.Router();
 
 router.post("/", async (req, res) => {
-    // try {
+    try {
         // Extract data from the request body
-        let { followeruserID, followeduserID } = req.body;
+        let { userId, postID } = req.body;
     
         // Create a new user in the database
-        let newFollower = await Followers.create({ followeruserID, followeduserID });
+        let newLike = await Likes.create({ userId, postID });
     
         // Send the newly created user as the response
-        res.json(newFollower);  
-      // } catch (error) {
-      //   // Handle any errors that occurred during the database query
-      //   res.status(500).json({ error: 'An error occurred while creating the user.' });
-      // }
+        res.json(newLike);
+      } catch (error) {
+        // Handle any errors that occurred during the database query
+        res.status(500).json({ error: 'An error occurred while creating the user.' });
+      }
 });
 
 router.get("/:id", async (req, res) => {
     try {
         // Fetch all users from the database
         let id = req.params.id;
-        
-        let followers = await Followers.findAll({
-          where: { followeduserID: id },
-          include: { model: User, as: "followeduserID_desc", attributes: ['userId', 'name']}
+        let post_likes = await Likes.findAll({
+          where: { postID: id },
+          include: { model: UserPost, as: "post_likes" }
         })
-
         
-        res.json(followers);
+        res.json(post_likes);
       } catch (error) {
         // Handle any errors that occurred during the database query
-        res.status(500).json({ error: 'An error occurred while fetching followes.' });
+        res.status(500).json({ error: 'An error occurred while fetching likes.' });
       }
 });
 
@@ -41,8 +39,8 @@ router.delete("/:id", async (req, res) => {
 
     let id = req.params.id;
     // Check id not found
-    let unfollow = await Followers.findByPk(id);
-    if (!unfollow) {
+    let like = await Likes.findByPk(id);
+    if (!like) {
         res.sendStatus(404);
         return;
     }
@@ -54,12 +52,12 @@ router.delete("/:id", async (req, res) => {
     //     return;
     // }
 
-    let num = await Followers.destroy({
-        where: { followerID: id }
+    let num = await Likes.destroy({
+        where: { likeID: id }
     })
     if (num == 1) {
         res.json({
-            message: "Unfollowed successfully."
+            message: "Unliked successfully."
         });
     }
 });
