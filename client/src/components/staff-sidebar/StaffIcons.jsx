@@ -33,6 +33,6 @@ export const adminIcons = [
     id: 5,
     icon: <TbMedal />,
     text: "Achievements",
-    href: "/staff",
+    href: "/staff/achievements/quests",
   },
 ];
