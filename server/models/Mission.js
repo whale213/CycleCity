@@ -2,9 +2,9 @@ module.exports = (sequelize, DataTypes) => {
   const Mission = sequelize.define(
     "Mission",
     {
-      id: {
+      missionId: {
         type: DataTypes.INTEGER,
-        allowNull: false,
+        autoIncrement: true,
         primaryKey: true,
       },
       name: {
@@ -19,7 +19,7 @@ module.exports = (sequelize, DataTypes) => {
     { timestamps: false }
   );
   Mission.associate = (models) => {
-    Mission.belongsTo(models.Criterias, {
+    Mission.belongsTo(models.Criteria, {
       foreignKey: "criteriaId",
       as: "criteria",
       allowNull: false,

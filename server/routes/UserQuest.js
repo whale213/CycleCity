@@ -5,10 +5,10 @@ const router = express.Router();
 
 router.post("/", async (req, res) => {
   let data = req.body;
-  // Validate request body
   let validationSchema = yup.object().shape({
-    title: yup.string().trim().min(3).max(100).required(),
-    description: yup.string().trim().min(3).max(500).required(),
+    status: yup.string().max(100).trim().required(),
+    userId: yup.number().integer().positive().required(),
+    questId: yup.number().integer().positive().required(),
   });
   try {
     await validationSchema.validate(data, { abortEarly: false, strict: true });
@@ -17,9 +17,10 @@ router.post("/", async (req, res) => {
     res.status(400).json({ errors: err.errors });
     return;
   }
-  data.title = data.title.trim();
-  data.description = data.description.trim();
-  let result = await UserQuest.create(data);
+
+  data.status = data.status.trim();
+
+  let result = await UserMission.create(data);
   res.json(result);
 });
 
@@ -28,21 +29,20 @@ router.get("/", async (req, res) => {
   let search = req.query.search;
   if (search) {
     condition[Sequelize.Op.or] = [
-      { title: { [Sequelize.Op.like]: `%${search}%` } },
-      { description: { [Sequelize.Op.like]: `%${search}%` } },
+      { status: { [Sequelize.Op.like]: `%${search}%` } },
+      { userID: { [Sequelize.Op.like]: `%${search}%` } },
+      { questId: { [Sequelize.Op.like]: `%${search}%` } },
     ];
   }
-  let list = await UserQuest.findAll({
+  let list = await UserMission.findAll({
     where: condition,
-    order: [["createdAt", "DESC"]],
   });
   res.json(list);
 });
 
 router.get("/:id", async (req, res) => {
   let id = req.params.id;
-  let userQuest = await UserQuest.findByPk(id);
-  // Check id not found
+  let userQuest = await UserMission.findByPk(id);
   if (!userQuest) {
     res.sendStatus(404);
     return;
@@ -52,19 +52,39 @@ router.get("/:id", async (req, res) => {
 
 router.put("/:id", async (req, res) => {
   let id = req.params.id;
+
   // Check id not found
-  let userQuest = await UserQuest.findByPk(id);
+  let userQuest = await UserMission.findByPk(id);
   if (!userQuest) {
     res.sendStatus(404);
     return;
   }
+
   let data = req.body;
-  let num = await UserQuest.update(data, {
+
+  let validationSchema = yup.object().shape({
+    userQuestId: yup.number().integer().positive().required(),
+    status: yup.string().max(100).trim().required(),
+    userId: yup.number().integer().positive().required(),
+    questId: yup.number().integer().positive().required(),
+  });
+
+  try {
+    await validationSchema.validate(data, { abortEarly: false, strict: true });
+  } catch (err) {
+    console.error(err);
+    res.status(400).json({ errors: err.errors });
+    return;
+  }
+
+  data.status = data.status.trim();
+
+  let num = await UserMission.update(data, {
     where: { userQuestId: id },
   });
   if (num == 1) {
     res.json({
-      message: "UserQuest was updated successfully.",
+      message: "UserMission was updated successfully.",
     });
   } else {
     res.status(400).json({
@@ -75,12 +95,12 @@ router.put("/:id", async (req, res) => {
 
 router.delete("/:id", async (req, res) => {
   let id = req.params.id;
-  let num = await UserQuest.destroy({
+  let num = await UserMission.destroy({
     where: { userQuestId: id },
   });
   if (num == 1) {
     res.json({
-      message: "UserQuest was deleted successfully.",
+      message: "UserMission was deleted successfully.",
     });
   } else {
     res.status(400).json({

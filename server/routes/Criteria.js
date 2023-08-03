@@ -5,10 +5,9 @@ const router = express.Router();
 
 router.post("/", async (req, res) => {
   let data = req.body;
-  // Validate request body
   let validationSchema = yup.object().shape({
-    title: yup.string().trim().min(3).max(100).required(),
-    description: yup.string().trim().min(3).max(500).required(),
+    type: yup.string().max(50).trim().required(),
+    value: yup.string().min(10).max(50).required(),
   });
   try {
     await validationSchema.validate(data, { abortEarly: false, strict: true });
@@ -17,8 +16,9 @@ router.post("/", async (req, res) => {
     res.status(400).json({ errors: err.errors });
     return;
   }
-  data.title = data.title.trim();
-  data.description = data.description.trim();
+
+  data.type = data.type.trim();
+  data.value = data.value.trim();
   let result = await Criteria.create(data);
   res.json(result);
 });
@@ -28,13 +28,12 @@ router.get("/", async (req, res) => {
   let search = req.query.search;
   if (search) {
     condition[Sequelize.Op.or] = [
-      { title: { [Sequelize.Op.like]: `%${search}%` } },
-      { description: { [Sequelize.Op.like]: `%${search}%` } },
+      { type: { [Sequelize.Op.like]: `%${search}%` } },
+      { value: { [Sequelize.Op.like]: `%${search}%` } },
     ];
   }
   let list = await Criteria.findAll({
     where: condition,
-    order: [["createdAt", "DESC"]],
   });
   res.json(list);
 });
@@ -51,13 +50,33 @@ router.get("/:id", async (req, res) => {
 
 router.put("/:id", async (req, res) => {
   let id = req.params.id;
+
   // Check id not found
   let criteria = await Criteria.findByPk(id);
   if (!criteria) {
     res.sendStatus(404);
     return;
   }
+
   let data = req.body;
+
+  let validationSchema = yup.object().shape({
+    criteriaId: yup.number().integer().positive().min(1).required(),
+    type: yup.string().max(50).trim().required(),
+    value: yup.string().min(10).max(50).required(),
+  });
+
+  try {
+    await validationSchema.validate(data, { abortEarly: false, strict: true });
+  } catch (err) {
+    console.error(err);
+    res.status(400).json({ errors: err.errors });
+    return;
+  }
+
+  data.type = data.type.trim();
+  data.value = data.value.trim();
+
   let num = await Criteria.update(data, {
     where: { criteriaId: id },
   });
@@ -67,7 +86,7 @@ router.put("/:id", async (req, res) => {
     });
   } else {
     res.status(400).json({
-      message: `Cannot update league with id ${id}.`,
+      message: `Cannot update criteria with id ${id}.`,
     });
   }
 });
