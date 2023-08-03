@@ -1,43 +1,16 @@
-import React, { useState, useEffect } from "react";
-import { useParams, Link, useNavigate } from "react-router-dom";
+import React, { useState } from "react";
+import { Link, useNavigate } from "react-router-dom";
 import http from "../../http";
 import { useFormik } from "formik";
 import * as yup from "yup";
-import dayjs from "dayjs";
-import global from "../../global";
 
 // icons
 import { MdOutlineKeyboardDoubleArrowRight } from "react-icons/md";
 import { BsImage } from "react-icons/bs";
-import { LuClock4 } from "react-icons/lu";
 
-export default function EditLocations() {
-  const { id } = useParams();
+export default function AddLocations() {
+  const [imageFile, setImageFile] = useState(null);
   const navigate = useNavigate();
-
-  const [imageFile, setImageFile] = useState("");
-  const [location, setLocation] = useState({
-    name: "",
-    postalCode: "",
-    address: "",
-    imageFile: "",
-    longitude: "",
-    latitude: "",
-  });
-
-  const deleteLocation = () => {
-    http.delete(`/location/${id}`).then((res) => {
-      console.log(res.data);
-      navigate("/staff/itinerary/locations");
-    });
-  };
-
-  useEffect(() => {
-    http.get(`/location/${id}`).then((res) => {
-      setLocation(res.data);
-      setImageFile(res.data.imageFile);
-    });
-  }, []);
 
   const validationSchema = yup.object().shape({
     name: yup
@@ -90,8 +63,13 @@ export default function EditLocations() {
   });
 
   const formik = useFormik({
-    initialValues: location,
-    enableReinitialize: true,
+    initialValues: {
+      name: "",
+      postalCode: "",
+      address: "",
+      longitude: "",
+      latitude: "",
+    },
     validationSchema,
     onSubmit: (data) => {
       if (imageFile) {
@@ -101,7 +79,7 @@ export default function EditLocations() {
       data.postalCode = data.postalCode.trim();
       data.address = data.address.trim();
       data.imageFile = data.imageFile.trim();
-      http.put(`/location/${id}`, data).then((res) => {
+      http.post("/location", data).then((res) => {
         console.log(res.data);
         navigate("/staff/itinerary/locations");
       });
@@ -142,34 +120,11 @@ export default function EditLocations() {
             <MdOutlineKeyboardDoubleArrowRight size={30} />
           </div>
 
-          <Link className="text-grey dark:text-thistle">
-            {formik.values.name}
-          </Link>
+          <Link className="text-grey dark:text-thistle">New Location </Link>
         </div>
-        <div className="overflow-hidden rounded-3xl shadow transition hover:shadow-lg">
-          <img
-            alt="Cycling"
-            src={`${import.meta.env.VITE_FILE_BASE_URL}${imageFile}`}
-            // src="https://thesmartlocal.com/wp-content/uploads/2021/01/west-coast-park_17.jpg"
-            className="h-40 w-full object-cover"
-          />
-
-          <div className="bg-seashell dark:bg-grey border border-glass p-4 sm:p-6 md:h-[340px] h-56">
-            <div className="flex justify-between">
-              <h1 className="text-lg md:text-2xl font-medium text-ultraViolet dark:text-thistle">
-                {formik.values.name}
-              </h1>
-              <div className="flex space-x-2 text-ultraViolet dark:text-thistle p-2">
-                <LuClock4 />
-                <div className="hidden md:block text-xs text-gray-500">
-                  Last Modified:
-                </div>
-                <div className="block text-xs text-gray-500">
-                  {dayjs(formik.values.updatedAt).format(global.datetimeFormat)}
-                </div>
-              </div>
-            </div>
-            <div className="w-full mt-4 flex justify-center text-grey dark:text-seashell h-56 overflow-auto">
+        <div className="overflow-hidden">
+          <div className="bg-seashell dark:bg-grey p-4 sm:p-6 md:h-[500px]">
+            <div className="w-full mt-4 flex justify-center text-grey dark:text-seashell h-full overflow-auto">
               <form className="w-3/4 space-y-8" onSubmit={formik.handleSubmit}>
                 <div className="w-full relative mt-2">
                   <input
@@ -304,7 +259,7 @@ export default function EditLocations() {
                   <div className="flex flex-col items-center justify-center w-full h-auto">
                     <div className="mt-4 mb-4 text-center">
                       <h2 className="text-2xl font-semibold mb-2">
-                        Change Image
+                        Upload Image
                       </h2>
                       <p className="text-xs text-gray-500">
                         All image formats are supported
@@ -339,16 +294,15 @@ export default function EditLocations() {
                       id="submit"
                       type="submit"
                     >
-                      Update
+                      Create
                     </button>
                   </div>
                   <div>
-                    <button
-                      className="py-2.5 px-5 bg-warning text-seashell hover:text-grey dark:hover:text-warning border-2 border-transparent rounded-lg hover:bg-transparent hover:border-warning transition ease-in duration-200 transform hover:-translate-y-1 active:translate-y-0"
-                      onClick={deleteLocation}
-                    >
-                      Delete
-                    </button>
+                    <Link to={"/staff/itinerary/locations"}>
+                      <button className="py-2.5 px-5 bg-warning text-seashell hover:text-grey dark:hover:text-warning border-2 border-transparent rounded-lg hover:bg-transparent hover:border-warning transition ease-in duration-200 transform hover:-translate-y-1 active:translate-y-0">
+                        Cancel
+                      </button>
+                    </Link>
                   </div>
                 </div>
               </form>

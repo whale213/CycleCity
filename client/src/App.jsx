@@ -7,16 +7,28 @@ import {
   Route,
 } from "react-router-dom";
 
-// pages
+// components
 import StaffSidebar from "./components/staff-sidebar/StaffSidebar";
 import UserSidebar from "./components/user-sidebar/UserSidebar";
+
+//// pages ////
+// login
 import Login from "./pages/login/login";
-import Locations from "./pages/itinerary-staff/Locations";
-import Attractions from "./pages/itinerary-staff/Attractions";
+// account management
 import Users from "./pages/acct-management/user/Users";
 import Staff from "./pages/acct-management/staff/Staff";
+// itinerary
+import Locations from "./pages/itinerary-staff/Locations";
+import Attractions from "./pages/itinerary-staff/Attractions";
 import EditLocations from "./pages/itinerary-staff/EditLocations";
+import AddLocations from "./pages/itinerary-staff/AddLocations";
 import EditAttractions from "./pages/itinerary-staff/EditAttractions";
+import AddAttraction from "./pages/itinerary-staff/AddAttraction";
+// social media
+import Posts from "./pages/social-media/Posts";
+import Comments from "./pages/social-media/Comments";
+import AddPost from "./pages/social-media/AddPost";
+// error
 import Error from "./components/Error";
 import Quests from "./pages/achievements-staff/Quests";
 import Missions from "./pages/achievements-staff/Missions";
@@ -41,14 +53,21 @@ const router = createBrowserRouter(
     <Route>
       <Route path="/" element={<LandingPage />} />
       <Route path="login" element={<Login />} />
-      <Route path="user" element={<UserSidebar />}></Route>
+      <Route path="user" element={<UserSidebar />}>
+        <Route path="comments/:id" element={<Comments />} />
+        <Route path="addpost" element={<AddPost />} />
+        <Route path="userpost" element={<Posts />} />
+      </Route>
       <Route path="staff" element={<StaffSidebar />}>
         <Route path="itinerary" element={<Itinerary />}>
           <Route path="locations" element={<Locations />} />
           <Route path="attractions" element={<Attractions />} />
         </Route>
         <Route path="itinerary/locations/:id" element={<EditLocations />} />
+        <Route path="itinerary/locations/add" element={<AddLocations />} />
         <Route path="itinerary/attractions/:id" element={<EditAttractions />} />
+        <Route path="itinerary/attractions/add" element={<AddAttraction />} />
+
         <Route path="achievements" element={<Achievements />}>
           <Route path="quests" element={<Quests />} />
           <Route path="missions" element={<Missions />} />
@@ -69,6 +88,7 @@ const router = createBrowserRouter(
           element={<EditCriterias />}
         />
         <Route path="achievements/EditLeagues/:id" element={<EditLeagues />} />
+
         <Route path="profiles" element={<Profiles />}>
           <Route path="users" element={<Users />}></Route>
           <Route path="staff" element={<Staff />}></Route>

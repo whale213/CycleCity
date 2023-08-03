@@ -8,7 +8,7 @@ module.exports = (sequelize, DataTypes) => {
         primaryKey: true,
       },
       distance: {
-        type: DataTypes.DECIMAL(7, 3),
+        type: DataTypes.DECIMAL(6, 3),
         allowNull: false,
       },
       difficulty: {
@@ -21,9 +21,12 @@ module.exports = (sequelize, DataTypes) => {
 
   Attraction.associate = (models) => {
     Attraction.belongsTo(models.Location, {
-      foreignKey: "locationId",
+      foreignKey: {
+        name: "locationId",
+        allowNull: false,
+        onDelete: "RESTRICT", // Prevent deletion if referenced
+      },
       as: "location",
-      allowNull: false,
     });
   };
 

@@ -34,8 +34,8 @@ const StaffSidebar = () => {
             />
           </Link>
         </div>
-        <div class="relative flex items-center py-5">
-          <div class="flex-grow border-t-4 border-grey border-opacity-40 rounded-lg"></div>
+        <div className="relative flex items-center py-5">
+          <div className="flex-grow border-t-4 border-grey border-opacity-40 rounded-lg"></div>
         </div>
         <SidebarLinks toggle={toggle} />
         <UserProfile toggle={toggle} />
