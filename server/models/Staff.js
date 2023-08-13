@@ -1,8 +1,8 @@
 module.exports = (sequelize, DataTypes) => {
-  const League = sequelize.define(
-    "League",
+  const Staff = sequelize.define(
+    "Staff",
     {
-      leagueId: {
+      staffId: {
         type: DataTypes.INTEGER,
         autoIncrement: true,
         primaryKey: true,
@@ -11,15 +11,25 @@ module.exports = (sequelize, DataTypes) => {
         type: DataTypes.STRING,
         allowNull: false,
       },
-      explimit: {
+      email: {
+        type: DataTypes.STRING,
+        allowNull: false,
+      },
+      phoneNumber: {
         type: DataTypes.INTEGER,
         allowNull: false,
       },
-      imageFile: {
+      password: {
         type: DataTypes.STRING,
+        allowNull: false,
+      },
+      staffType: {
+        type: DataTypes.STRING,
+        allowNull: false,
       },
     },
     { timestamps: false }
   );
-  return League;
+
+  return Staff;
 };

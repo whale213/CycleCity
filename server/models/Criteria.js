@@ -1,10 +1,10 @@
 module.exports = (sequelize, DataTypes) => {
-  const Criterias = sequelize.define(
-    "Criterias",
+  const Criteria = sequelize.define(
+    "Criteria",
     {
-      id: {
+      criteriaId: {
         type: DataTypes.INTEGER,
-        allowNull: false,
+        autoIncrement: true,
         primaryKey: true,
       },
       type: {
@@ -18,5 +18,5 @@ module.exports = (sequelize, DataTypes) => {
     },
     { timestamps: false }
   );
-  return Criterias;
+  return Criteria;
 };

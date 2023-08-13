@@ -32,6 +32,6 @@ export const userIcons = [
     id: 5,
     icon: <AiOutlineUser />,
     text: "Profile",
-    href: "/user",
+    href: "/user/profile",
   },
 ];
