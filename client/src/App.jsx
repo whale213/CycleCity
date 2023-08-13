@@ -28,6 +28,15 @@ import AddAttraction from "./pages/itinerary-staff/AddAttraction";
 import Posts from "./pages/social-media/Posts";
 import Comments from "./pages/social-media/Comments";
 import AddPost from "./pages/social-media/AddPost";
+import EditPost from "./pages/social-media/EditPost";
+import PostProfile from "./pages/social-media/PostProfile";
+
+//Spotify
+import SpotifyHome from "./pages/Spotify/SpotifyHome";
+// import SpotifyLibrary from "./pages/Spotify/SpotifyLibrary";
+
+
+
 // error
 import Error from "./components/Error";
 
@@ -41,11 +50,19 @@ const router = createBrowserRouter(
       <Route path="/" element={<LandingPage />} />
       <Route path="login" element={<Login />} />
       <Route path="user" element={<UserSidebar />}>
-        <Route path = "comments/:id" element={<Comments />} />
-        <Route path = "addpost" element = {<AddPost />} />
-        <Route path = "userpost" element={<Posts />} />
-        
-          
+        <Route path="comments/:id" element={<Comments />} />
+        <Route path="addpost" element={<AddPost />} />
+        <Route path="editpost/:id" element={<EditPost />} />
+        <Route path="userpost" element={<Posts />} />
+        <Route path="postprofile/:id" element={<PostProfile />} />
+
+        {/* spotify */}
+        <Route path="spotify" element={<SpotifyHome />}></Route>
+        {/* <Route path="library" element={<SpotifyLibrary />} /> */}
+
+
+
+
 
       </Route>
       <Route path="staff" element={<StaffSidebar />}>

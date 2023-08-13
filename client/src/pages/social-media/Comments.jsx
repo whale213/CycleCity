@@ -1,120 +1,206 @@
 import React from "react";
 import { useState, useEffect } from "react";
-import { useParams } from "react-router-dom"
+import { Link, useParams } from "react-router-dom"
 // import AspectRatio from "@mui/joy/AspectRatio";
 import http from "../../http";
+import { useFormik } from "formik";
+import { FiHeart } from "react-icons/fi"
+import { FaHeart } from "react-icons/fa"
 
 
 
 export default function Comments() {
-    // const post = {
-    //     postID: 2,
-    //     caption: "AWAWDAWDAWDAWDAWD",
-    //     post: "HELLLOOOO",
-    //     createdAt: "2023-07-05",
-    //     updatedAt: "2023-07-03 19:57:32",
-    //     userId: 2
-    // }
   const [commentsList, setCommentsList] = useState([]);
   const [likeList, setLikeList] = useState([]);
-
-
+  const [Post, setPost] = useState();
   const postID = useParams();
- 
+  const [showImage, setShowImage] = useState(false);
+
+  const myUserId = 2;
+
+
+
+  const formik = useFormik({
+    initialValues: {
+      comment: "",
+      userId: myUserId,
+      postID: postID.id
+    },
+    onSubmit: (data) => {
+      data.comment = data.comment.trim();
+      http.post("/comments", data).then((res) => {
+        console.log(res.data);
+        window.location.reload();
+        navigate(`/user/comments/${postID.id}`);
+
+      });
+    },
+  });
+
+
+
+
 
   const getComments = () => {
-    http.get(`/comments/${postID}`).then((res) => {
+    http.get(`/comments/${postID.id}`).then((res) => {
       console.log(res.data);
+      console.log(postID)
       setCommentsList(res.data);
     });
   };
-  
+
   const getLikes = () => {
-    http.get(`/likes/${postID}`).then((res) => {
+    http.get(`/likes/${postID.id}`).then((res) => {
       console.log(res.data);
       setLikeList(res.data);
     });
   };
 
+  const getPost = () => {
+    http.get(`/post/${postID.id}`).then((res) => {
+      console.log("Fetched post data:", res.data);
+      setPost(res.data);
+    });
+  };
+
 
   useEffect(() => {
+    console.log("Running useEffect");
     getComments();
     getLikes();
+    getPost();
   }, []);
 
 
+  const handleDislike = (idToDislike) => {
+    console.log("DISLIKE", idToDislike)
+    http.delete(`/likes/${idToDislike}`).then((res) => {
+      console.log(res.data);
+    });
+    window.location.reload(true);
+  };
+
+  const handleLike = () => {
+    const data = {}
+    data.userId = myUserId;
+    data.postID = Post.postID;
+    http.post(`/likes/`, data).then((res) => {
+      console.log(res.data);
+    });
+    window.location.reload(true);
+  };
+
+  console.log("HELLO", Post)
+
+
+
+  useEffect(() => {
+    // Other useEffect code...
+
+    // Set a timeout to show the image after half a second (500 milliseconds)
+    const timer = setTimeout(() => {
+      setShowImage(true);
+    }, 115);
+
+    // Clear the timeout if the component unmounts before the delay is completed
+    return () => clearTimeout(timer);
+  }, []);
+
+  const isLiked = likeList.some(item => item.userId === myUserId);
+
+
   return (
-        <div class="bg-white m-4 rounded-2xl overflow-hidden shadow-none">
-            <div class="grid grid-cols-3 min-w-full">
-
-                <div class="col-span-2 w-full">
-                    <img class="w-full max-w-full min-w-full"
-                        src="https://images.unsplash.com/photo-1542156822-6924d1a71ace?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=500&q=60"
-                        alt="Description"/>
-                </div>
-
-                <div class="col-span-1 relative pl-4">
-                    <header class="border-b border-grey-400">
-                        <a href="#" class="block cursor-pointer py-4 flex items-center text-sm outline-none focus:outline-none focus:border-gray-300 transition duration-150 ease-in-out">
-                            <img src="https://images.pexels.com/photos/614810/pexels-photo-614810.jpeg?auto=compress&cs=tinysrgb&h=750&w=1260" class="h-9 w-9 rounded-full object-cover"
-                            alt="user" />
-                            {/* <p class="block ml-2 font-bold">{post.user_post_desc.name}</p> */}
-                            <p class="block ml-2 font-bold">Sharan</p>
-                        </a>
-                    </header>
-
-                    <div >
-                        {commentsList.map((comment, i) => 
-                            <div class="text-sm mb-2 flex flex-start items-center">
-                                <div>
-                                    <a href="#" class="cursor-pointer flex items-center text-sm border-2 border-transparent rounded-full focus:outline-none focus:border-gray-300 transition duration-150 ease-in-out">
-                                        <img class="h-8 w-8 rounded-full object-cover"
-                                        src="https://images.unsplash.com/photo-1542156822-6924d1a71ace?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=500&q=60"
-                                        alt="" />
-                                    </a>
-                                </div>
-                                <p class="font-bold ml-2">
-                                    <a class="cursor-pointer">
-                                        {comment.name}
-                                        </a>
-                                    <span class="text-gray-700 font-medium ml-1">
-                                        {comment.comment}
-                                    </span>
-                                </p>
-                            </div>
-                            
-                        )}
-                    </div>
-
-                    <div class="absolute bottom-0 left-0 right-0 pl-4">
-                        <div class="pt-4">
-                            <div class="mb-2">
-                                <div class="flex items-center">
-                                    <span class="mr-3 inline-flex items-center cursor-pointer">
-                                        <svg class="fill-heart text-gray-700 inline-block h-7 w-7 heart" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z" />
-                                        </svg>
-                                    </span>
-                                    <span class="mr-3 inline-flex items-center cursor-pointer">
-                                        <svg class="text-gray-700 inline-block h-7 w-7 " xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 12h.01M12 12h.01M16 12h.01M21 12c0 4.418-4.03 8-9 8a9.863 9.863 0 01-4.255-.949L3 20l1.395-3.72C3.512 15.042 3 13.574 3 12c0-4.418 4.03-8 9-8s9 3.582 9 8z" />
-                                        </svg>
-                                    </span>
-                                </div>
-                                <span class="text-gray-600 text-sm font-bold">{likeList.length} Likes</span>
-                            </div>
-                            <span class="block ml-2 text-xs text-gray-600">{likeList.createdAt}</span>
-                        </div>
-
-                        <div class="pt-4 pb-1 pr-3">    
-                            <div class="flex items-start">
-                                <textarea class="w-full resize-none outline-none appearance-none" aria-label="Agrega un comentario..." placeholder="Enter Comment"  autocomplete="off" autocorrect="off"></textarea>
-                                <button class="mb-2 focus:outline-none border-none bg-transparent text-blue-600">Enter</button>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
+    <div className="w-screen h-full">
+      <div className="bg-fedora/20 rounded-md flex justify-center m-8 divide-x divide-fedora w-[90%] h-[90%] drop-shadow-xl max-w-screen-lg">
+        <div className="w-2/3 flex items-stretch">
+          {showImage && Post?.post && (
+            <img
+              src={`${import.meta.env.VITE_FILE_BASE_URL}${Post.post}`}
+              alt=""
+              className="object-center rounded-md self-center mx-auto"
+            />
+          )}
         </div>
+        <div className="w-1/3">
+          <header className="border-b border-fedora px-4">
+            <Link
+              to="#"
+              className="cursor-pointer py-4 flex items-center text-sm outline-none focus:outline-none focus:border-gray-300 transition duration-150 ease-in-out"
+            >
+              <img
+                src={`${import.meta.env.VITE_FILE_BASE_URL}${Post?.user_post_desc.profileImage}`}
+                className="h-9 w-9 rounded-full object-cover"
+                alt="user"
+              />
+              {Post?.user_post_desc?.name && (
+                <p className="block ml-2 font-semibold text-thistle">{Post.user_post_desc.name}</p>
+              )}
+            </Link>
+          </header>
+          <div className="overflow-y-auto h-[60%]">
+            <div className="p-3">
+              {commentsList.map((comment, i) => (
+                <div key={comment.commentID} className="text-sm mb-2 flex flex-start items-center">
+                  <div>
+                    <Link
+                      to="#"
+                      className="cursor-pointer flex items-center text-sm border-2 border-transparent rounded-full focus:outline-none focus:border-gray-300 transition duration-150 ease-in-out"
+                    >
+                      <img
+                        className="h-8 w-8 rounded-full object-cover"
+                        src={`${import.meta.env.VITE_FILE_BASE_URL}${comment.user_comment_desc.profileImage}`}
+                        alt=""
+                      />
+                    </Link>
+                  </div>
+                  <p className="font-bold ml-2">
+                    <Link to="#" className="cursor-pointer text-silver">
+                      {comment.user_comment_desc.name}
+                    </Link>
+                    <span className="text-seashell font-medium ml-1 truncate">
+                      {comment.comment}
+                    </span>
+                  </p>
+                </div>
+              ))}
+            </div>
+          </div>
+          <div className="pl-4">
+            <div className="pt-4">
+              <div className="mb-2">
+                <div className="flex items-center">
+                  <span className="mr-3 inline-flex items-center cursor-pointer text-silver">
+                    {isLiked ? (
+                      <FaHeart size={30} onClick={() => handleDislike(likeList.find(item => item.userId === myUserId).likeID)} />
+                    ) : (
+                      <FiHeart size={30} onClick={() => handleLike()} />
+                    )}
+
+                  </span>
+                </div>
+                <span className="text-gray-400 text-sm">{likeList.length} Likes</span>
+              </div>
+              <span className="block ml-2 text-xs text-gray-600"></span>
+            </div>
+            <div>
+              <div className="border-t pt-4 border-fedora">
+                <form onSubmit={formik.handleSubmit} className="flex">
+                  <input
+                    id="comment"
+                    onChange={formik.handleChange}
+                    value={formik.values.comment}
+                    className="w-5/6 h-[2.5rem] resize-none outline-none appearance-none bg-grey/20 text-seashell"
+                    placeholder="Comment"
+                  />
+                  <button className="m-2 focus:outline-none border-none bg-transparent text-blue-600 hover:text-blue-400">
+                    Enter
+                  </button>
+                </form>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
   )
 };
