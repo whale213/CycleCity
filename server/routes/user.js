@@ -1,7 +1,11 @@
 const express = require("express");
 const router = express.Router();
 const { User, Sequelize } = require("../models");
+const bcrypt = require("bcrypt");
 const yup = require("yup");
+const { sign } = require("jsonwebtoken");
+const { validateToken } = require("../middlewares/auth");
+require("dotenv").config();
 
 router.get("/", async (req, res) => {
   let condition = {};
@@ -9,6 +13,7 @@ router.get("/", async (req, res) => {
   if (search) {
     condition[Sequelize.Op.or] = [
       { name: { [Sequelize.Op.like]: `%${search}%` } },
+      { email: { [Sequelize.Op.like]: `%${search}%` } },
     ];
   }
 
@@ -16,6 +21,22 @@ router.get("/", async (req, res) => {
     where: condition,
   });
   res.json(list);
+});
+
+router.get("/auth", validateToken, (req, res) => {
+  let userInfo = {
+    id: req.user.id,
+    email: req.user.email,
+    name: req.user.name,
+    phoneNumber: req.user.phoneNumber,
+    bio: req.user.bio,
+    rank: req.user.rank,
+    // exp: req.user.exp,
+    profileImage: req.user.profileImage,
+  };
+  res.json({
+    user: userInfo,
+  });
 });
 
 router.get("/:id", async (req, res) => {
@@ -74,8 +95,52 @@ router.post("/", async (req, res) => {
   data.lastLoginTime = "2023-01-25T16:50:00Z";
   data.rank = "Wood";
 
+  // Hash passowrd
+  data.password = await bcrypt.hash(data.password, 10);
+
   let result = await User.create(data);
   res.json(result);
+});
+
+router.post("/login", async (req, res) => {
+  let data = req.body;
+
+  // Trim string values
+  data.email = data.email.trim().toLowerCase();
+  data.password = data.password.trim();
+
+  // Check email and password
+  let errorMsg = "Incorrect email or password.";
+  let user = await User.findOne({
+    where: { email: data.email },
+  });
+  if (!user) {
+    res.status(400).json({ message: errorMsg });
+    return;
+  }
+  let match = await bcrypt.compare(data.password, user.password);
+  if (!match) {
+    res.status(400).json({ message: errorMsg });
+    return;
+  }
+
+  // Return user info
+  let userInfo = {
+    id: user.userId,
+    name: user.name,
+    email: user.email,
+    phoneNumber: user.phoneNumber,
+    bio: user.bio,
+    rank: user.rank,
+    // exp: 100,
+    profileImage: user.profileImage,
+  };
+
+  let accessToken = sign(userInfo, process.env.APP_SECRET);
+  res.json({
+    accessToken: accessToken,
+    user: userInfo,
+  });
 });
 
 router.put("/:id", async (req, res) => {

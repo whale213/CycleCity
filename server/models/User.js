@@ -25,7 +25,7 @@ module.exports = (sequelize, DataTypes) => {
       },
       bio: {
         type: DataTypes.TEXT,
-        allowNull: false,
+        allowNull: true,
       },
       role: {
         type: DataTypes.STRING,
