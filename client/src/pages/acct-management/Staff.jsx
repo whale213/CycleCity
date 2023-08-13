@@ -118,7 +118,7 @@ export default function Staff() {
                   <tbody class="divide-y divide-thistle dark:divide-fedora">
                     {staffList.map((staff, id) => (
                       <tr
-                        class="hover:bg-orange-100 dark:hover:bg-onyx group cursor-pointer"
+                        class="hover:bg-orange-100 dark:hover:bg-onyx cursor-pointer"
                         key={id}
                         onClick={() => {
                           navigate(`/staff/profiles/staff/${staff.staffId}`);
@@ -149,10 +149,7 @@ export default function Staff() {
                             }}
                             className="hover:bg-orange-200 dark:hover:bg-fedora dark:hover:bg-opacity-70 hover:text-warning rounded-md p-2"
                           >
-                            <RiDeleteBin6Line
-                              size={20}
-                              className="invisible group-hover:visible"
-                            />
+                            <RiDeleteBin6Line size={20} className="visible" />
                           </div>
                         </td>
                       </tr>
