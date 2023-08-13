@@ -24,7 +24,6 @@ import ViewUser from "./pages/acct-management/ViewUser";
 import Staff from "./pages/acct-management/Staff";
 import EditStaff from "./pages/acct-management/EditStaff";
 import UserProfile from "./pages/acct-management/UserProfile";
-import UserEditProfile from "./pages/acct-management/UserEditProfile";
 // itinerary
 import Locations from "./pages/itinerary-staff/Locations";
 import Attractions from "./pages/itinerary-staff/Attractions";
