@@ -18,17 +18,40 @@ import UsersStaff from "./pages/acct-management/user-staff/UsersStaff";
 import EditLocations from "./pages/itinerary-staff/EditLocations";
 import EditAttractions from "./pages/itinerary-staff/EditAttractions";
 import Error from "./components/Error";
+import Peloton from "./pages/peloton/Peloton";
+import PelotonStaff from "./pages/peloton/PelotonStaff";
+import AddPeloton from "./pages/peloton/AddPeloton";
+import EditPeloton from "./pages/peloton/EditPeloton";
+import AddPelotonStaff from "./pages/peloton/AddPelotonStaff";
+import EditPelotonStaff from "./pages/peloton/EditPelotonStaff";
 
 // layouts
 import Itinerary from "./layouts/Itinerary";
 import Profiles from "./layouts/Profiles";
+import PelotonJoin from "./pages/peloton/PelotonJoin";
+import PelotonsList from "./pages/peloton/PelotonsList";
+import PelotonsListStaff from "./pages/peloton/PelotonsListStaff";
 
 const router = createBrowserRouter(
   createRoutesFromElements(
     <Route>
       <Route path="/" element={<LandingPage />} />
       <Route path="login" element={<Login />} />
-      <Route path="user" element={<UserSidebar />}></Route>
+      <Route path="user" element={<UserSidebar />}>
+        <Route path="peloton" element={<Peloton />}>
+          <Route path="add" element={<AddPeloton />}></Route>
+          <Route path="edit/:id" element={<EditPeloton />}></Route>
+          <Route path="join" element={<PelotonJoin />}></Route>
+          <Route path="list" element={<PelotonsList />}></Route>
+        </Route>
+      </Route>
+      <Route path="staff" element={<StaffSidebar />}>
+        <Route path="peloton" element={<PelotonStaff />}>
+          <Route path="add" element={<AddPelotonStaff />}></Route>
+          <Route path="edit/:id" element={<EditPelotonStaff />}></Route>
+          <Route path="list" element={<PelotonsListStaff />}></Route>
+        </Route>
+      </Route>
       <Route path="staff" element={<StaffSidebar />}>
         <Route path="itinerary" element={<Itinerary />}>
           <Route path="locations" element={<Locations />} />
