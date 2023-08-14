@@ -20,7 +20,7 @@ export const userIcons = [
     id: 3,
     icon: <HiOutlineUserGroup />,
     text: "Pelotons",
-    href: "/user",
+    href: "/user/peloton",
   },
   {
     id: 4,

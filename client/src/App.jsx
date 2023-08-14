@@ -58,6 +58,15 @@ import EditLeagues from "./pages/achievements-staff/EditLeagues";
 
 // error
 import Error from "./components/Error";
+import Peloton from "./pages/peloton/Peloton";
+import PelotonStaff from "./pages/peloton/PelotonStaff";
+import AddPeloton from "./pages/peloton/AddPeloton";
+import EditPeloton from "./pages/peloton/EditPeloton";
+import AddPelotonStaff from "./pages/peloton/AddPelotonStaff";
+import EditPelotonStaff from "./pages/peloton/EditPelotonStaff";
+import PelotonJoin from "./pages/peloton/PelotonJoin";
+import PelotonsList from "./pages/peloton/PelotonsList";
+import PelotonsListStaff from "./pages/peloton/PelotonsListStaff";
 
 // layouts
 import Itinerary from "./layouts/Itinerary";
@@ -75,14 +84,19 @@ const router = createBrowserRouter(
         // user profile
         <Route path="profile" element={<UserProfile />} />
         <Route path="profile/edit" element={<UserEditProfile />} />
-
+        // peloton
+        <Route path="peloton" element={<Peloton />}>
+          <Route path="add" element={<AddPeloton />}></Route>
+          <Route path="edit/:id" element={<EditPeloton />}></Route>
+          <Route path="join" element={<PelotonJoin />}></Route>
+          <Route path="list" element={<PelotonsList />}></Route>
+        </Route>
         // social media
         <Route path="comments/:id" element={<Comments />} />
         <Route path="addpost" element={<AddPost />} />
         <Route path="editpost/:id" element={<EditPost />} />
         <Route path="userpost" element={<Posts />} />
         <Route path="postprofile/:id" element={<PostProfile />} />
-
         {/* spotify */}
         <Route path="spotify" element={<SpotifyHome />}></Route>
         {/* <Route path="library" element={<SpotifyLibrary />} /> */}
@@ -97,6 +111,12 @@ const router = createBrowserRouter(
         <Route path="itinerary/locations/add" element={<AddLocations />} />
         <Route path="itinerary/attractions/:id" element={<EditAttractions />} />
         <Route path="itinerary/attractions/add" element={<AddAttraction />} />
+
+        <Route path="peloton" element={<PelotonStaff />}>
+          <Route path="add" element={<AddPelotonStaff />}></Route>
+          <Route path="edit/:id" element={<EditPelotonStaff />}></Route>
+          <Route path="list" element={<PelotonsListStaff />}></Route>
+        </Route>
 
         <Route path="achievements" element={<Achievements />}>
           <Route path="quests" element={<Quests />} />
