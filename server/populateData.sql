@@ -123,7 +123,7 @@ INSERT INTO attractions VALUES (30, 7.3, "Hard", "2023-06-30 01:30:57", 30);
 -- Adding data to USERS table --
 --------------------------------
 
-INSERT INTO users VALUES (1, "John", "john@mail.com", 91234567, "Cyclecity123???", "I love cycling with my friends and touching people", "User", "Bronze", "2023-01-25 16:50:00", true, 500, "./assets/img5", "2023-06-30 01:30:57", "2023-06-30 01:30:57");
+INSERT INTO users VALUES (1, "John", "john@mail.com", 91234567, "Cyclecity123???", "I love cycling with my friends and touching people", "User", "Bronze", "2023-01-25 16:50:00", true, 500, "./assets/img5", 1);
 INSERT INTO users VALUES (2, "Jane", "jane@mail.com", 91234568, "Hiking123!!!", "I enjoy hiking in the mountains", "User", "Bronze", "2023-02-10 09:15:00", true, 600, "./assets/img6", "2023-06-30 01:30:57", "2023-06-30 01:30:57");
 INSERT INTO users VALUES (3, "Mark", "mark@mail.com", 91234569, "Golfing456$$$", "I'm a passionate golfer and love playing on weekends", "User", "Silver", "2023-03-05 14:20:00", true, 700, "./assets/img7", "2023-06-30 01:30:57", "2023-06-30 01:30:57");
 INSERT INTO users VALUES (4, "Emily", "emily@mail.com", 91234570, "Swimming789%%%", "Swimming is my favorite sport, and I swim every day", "User", "Silver", "2023-04-15 18:30:00", true, 800, "./assets/img8", "2023-06-30 01:30:57", "2023-06-30 01:30:57");
