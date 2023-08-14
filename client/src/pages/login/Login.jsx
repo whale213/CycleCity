@@ -66,7 +66,8 @@ const Login = () => {
           window.location.reload();
         })
         .catch(function (err) {
-          console.log("Error", err.response);
+          console.log(err.response.data.message);
+          window.alert(err.response.data.message);
         });
     },
   });
