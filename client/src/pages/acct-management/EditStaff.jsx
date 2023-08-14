@@ -5,6 +5,8 @@ import { useFormik } from "formik";
 import * as yup from "yup";
 // import dayjs from "dayjs";
 // import global from "../../global";
+import Modal from "../../components/modal/Modal";
+import { BsExclamationCircle } from "react-icons/bs";
 
 // icons
 import { MdOutlineKeyboardDoubleArrowRight } from "react-icons/md";
@@ -12,6 +14,12 @@ import { BsImage } from "react-icons/bs";
 import { LuClock4 } from "react-icons/lu";
 
 export default function EditStaff() {
+  const [staffList, setStaffList] = useState([]);
+  const [search, setSearch] = useState("");
+  const [open, setOpen] = useState(false);
+  const [idToDelete, setIdToDelete] = useState(0);
+  const [nameToDelete, setNameToDelete] = useState("");
+
   const { id } = useParams();
   const navigate = useNavigate();
 
@@ -25,6 +33,10 @@ export default function EditStaff() {
     http.delete(`/staff/${id}`).then((res) => {
       console.log(res.data);
       navigate("/staff/profiles/staff");
+
+      setIdToDelete(id);
+      setNameToDelete(formik.values.name);
+      setOpen(true);
     });
   };
 
@@ -94,17 +106,32 @@ export default function EditStaff() {
                   <input
                     type="text"
                     id="name"
+                    name="name"
                     onChange={formik.handleChange}
+                    onBlur={formik.handleBlur}
                     value={formik.values.name}
-                    className="peer pl-4 pr-10 py-3 w-full border-2 bg-grey border-fedora placeholder-transparent rounded-xl hover:border-thistle/90 focus:outline-none focus:border-thistle/60 transition-colors"
-                    placeholder="Latitude"
+                    className={`peer pl-4 pr-10 py-3 w-full border-2 bg-grey border-fedora placeholder-transparent rounded-xl hover:border-thistle/90 focus:outline-none focus:border-thistle/60 transition-colors ${
+                      formik.touched.name && formik.errors.name
+                        ? "border-red-500"
+                        : ""
+                    }`}
+                    placeholder="Name"
                   />
                   <label
-                    for="name"
-                    className="absolute left-0 ml-4 px-1 rounded -top-2.5 text-fedora bg-grey text-sm transition-all peer-placeholder-shown:text-base peer-placeholder-shown:text-gray-400 peer-placeholder-shown:top-3.5 peer-focus:-top-2.5 peer-focus:text-thistle/80 peer-hover:text-thistle peer-focus:text-sm"
+                    htmlFor="name"
+                    className={`absolute left-0 ml-4 px-1 rounded -top-2.5 text-fedora bg-grey text-sm transition-all peer-placeholder-shown:text-base peer-placeholder-shown:text-gray-400 peer-placeholder-shown:top-3.5 peer-focus:-top-2.5 peer-focus:text-thistle/80 peer-hover:text-thistle peer-focus:text-sm ${
+                      formik.touched.name && formik.errors.name
+                        ? "text-red-500"
+                        : ""
+                    }`}
                   >
                     Name
                   </label>
+                  {formik.touched.name && formik.errors.name && (
+                    <div className="text-red-500 text-sm mt-1">
+                      {formik.errors.name}
+                    </div>
+                  )}
                 </div>
                 <div className="w-full relative">
                   <input
@@ -125,7 +152,7 @@ export default function EditStaff() {
                 <div className="flex space-x-4">
                   <div className="w-full relative">
                     <input
-                      type="text"
+                      type="number"
                       id="phoneNumber"
                       onChange={formik.handleChange}
                       value={formik.values.phoneNumber}
@@ -186,10 +213,44 @@ export default function EditStaff() {
                   </div>
                   <div>
                     <a className="py-2.5 px-5 bg-warning text-seashell hover:text-grey dark:hover:text-warning border-2 border-transparent rounded-lg hover:bg-transparent hover:border-warning transition ease-in duration-200 transform hover:-translate-y-1 active:translate-y-0">
-                      Delete
+                      <button onClick={() => deleteStaff()}>Delete</button>
                     </a>
                   </div>
                 </div>
+
+                <Modal open={open} onClose={() => setOpen(false)}>
+                  <div className="text-center w-96">
+                    <BsExclamationCircle
+                      size={50}
+                      className="mx-auto text-warning"
+                    />
+                    <div className="mx-auto my-4 w-60">
+                      <h3 className="text-lg text-grey dark:text-seashell">
+                        Delete Staff
+                      </h3>
+                      <div className="text-sm text-gray-400 mt-4">
+                        <p>Are you sure you want to delete </p>
+                        <span className="text-ultraViolet dark:text-seashell">
+                          {nameToDelete} ?
+                        </span>
+                      </div>
+                    </div>
+                    <div className="flex gap-4 w-96 text-seashell dark:text-grey">
+                      <button
+                        onClick={() => setOpen(false)}
+                        className="border border-fedora hover:bg-fedora text-grey dark:text-seashell hover:text-seashell w-full rounded-lg p-1"
+                      >
+                        Cancel
+                      </button>
+                      <button
+                        onClick={() => deleteStaff()}
+                        className="bg-warning hover:bg-transparent border border-transparent hover:border-warning hover:text-warning dark:text-seashell dark:hover:text-warning w-full rounded-lg p-1"
+                      >
+                        Delete
+                      </button>
+                    </div>
+                  </div>
+                </Modal>
               </form>
             </div>
           </div>
