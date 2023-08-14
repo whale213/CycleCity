@@ -25,6 +25,7 @@ import Staff from "./pages/acct-management/Staff";
 import EditStaff from "./pages/acct-management/EditStaff";
 import UserProfile from "./pages/acct-management/UserProfile";
 import UserEditProfile from "./pages/acct-management/UserEditProfile";
+import UserChangePassword from "./pages/acct-management/UserChangePassword";
 // itinerary
 import Locations from "./pages/itinerary-staff/Locations";
 import Attractions from "./pages/itinerary-staff/Attractions";
@@ -65,12 +66,11 @@ const router = createBrowserRouter(
       <Route path="login" element={<Login />} />
       <Route path="register" element={<Register />} />
 
-
       <Route path="user" element={<UserSidebar />}>
         // user profile
         <Route path="profile" element={<UserProfile />} />
         <Route path="profile/edit" element={<UserEditProfile />} />
-
+        <Route path="profile/edit/password" element={<UserChangePassword />} />
         // social media
         <Route path="comments/:id" element={<Comments />} />
         <Route path="addpost" element={<AddPost />} />
