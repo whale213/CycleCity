@@ -55,13 +55,13 @@ module.exports = (sequelize, DataTypes) => {
     { timestamps: false }
   );
 
-  User.associate = (models) => {
-    User.belongsTo(models.Peloton, {
-      foreignKey: "pelotonId",
-      as: "peloton",
-      allowNull: false,
-    });
-  };
+  // User.associate = (models) => {
+  //   User.belongsTo(models.Peloton, {
+  //     foreignKey: "pelotonId",
+  //     as: "peloton",
+  //     allowNull: true,
+  //   });
+  // };
 
   return User;
 };

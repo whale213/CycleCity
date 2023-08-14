@@ -8,12 +8,14 @@ const { validateToken } = require("../middlewares/auth");
 require("dotenv").config();
 
 router.get("/", async (req, res) => {
+  //search
   let condition = {};
   let search = req.query.search;
   if (search) {
     condition[Sequelize.Op.or] = [
       { name: { [Sequelize.Op.like]: `%${search}%` } },
       { email: { [Sequelize.Op.like]: `%${search}%` } },
+      { phoneNumber: { [Sequelize.Op.like]: `%${search}%` } },
     ];
   }
 
@@ -66,7 +68,7 @@ router.post("/", async (req, res) => {
     password: yup
       .string()
       .min(8, "Password must have at least 8 characters.")
-      .max(50)
+      .max(200)
       .matches(
         /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*\W)/,
         "Password must contain at least one lowercase letter, one uppercase letter, one number, and one symbol."
@@ -94,6 +96,17 @@ router.post("/", async (req, res) => {
   data.isVerified = true;
   data.lastLoginTime = "2023-01-25T16:50:00Z";
   data.rank = "Wood";
+
+  // Check email
+  let user = await User.findOne({
+    where: { email: data.email },
+  });
+  if (user) {
+    res
+      .status(400)
+      .json({ message: "An account with this email already exists." });
+    return;
+  }
 
   // Hash passowrd
   data.password = await bcrypt.hash(data.password, 10);
@@ -167,7 +180,7 @@ router.put("/:id", async (req, res) => {
     password: yup
       .string()
       .min(8, "Password must have at least 8 characters.")
-      .max(50)
+      .max(200)
       .matches(
         /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*\W)/,
         "Password must contain at least one lowercase letter, one uppercase letter, one number, and one symbol."

@@ -9,6 +9,8 @@ router.get("/", async (req, res) => {
   if (search) {
     condition[Sequelize.Op.or] = [
       { name: { [Sequelize.Op.like]: `%${search}%` } },
+      { email: { [Sequelize.Op.like]: `%${search}%` } },
+      { phoneNumber: { [Sequelize.Op.like]: `%${search}%` } },
     ];
   }
 
