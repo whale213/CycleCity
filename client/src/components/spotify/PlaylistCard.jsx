@@ -7,13 +7,18 @@ import apiClient, { loginEndpoint, setClientToken } from "../../spotify";
 
 function PlaylistCard({ playlist }) {
 
+    const navigate = useNavigate();
+
+    const playPlaylist = (id) => {
+        navigate("/user/spotify/player", { state: { id: id } });
+    };
 
 
     return (
         <div
             className="relative w-40 h-45 border-opacity-18 bg-gradient-to-br p-[1%] mb-[2%] cursor-pointer transition-transform transform duration-300 hover:scale-110 hover:opacity-90 hover:duration-400"
             key={playlist.id}
-        // onClick={() => playPlaylist(playlist.id)}
+            onClick={() => playPlaylist(playlist.id)}
         >
             <img
                 src={playlist.images[0].url}
@@ -27,11 +32,11 @@ function PlaylistCard({ playlist }) {
             <p className="playlist-subtitle font-normal text-xs text-gray-300">{playlist.tracks.total} Songs</p>
 
 
-            {/* <div className="playlist-fade absolute right-0 bottom-0 opacity-0 w-84 h-34 bg-gradient-to-tl from-transparent to-blue-600 flex items-end justify-end p-8 transition duration-500">
+            <div className="playlist-fade absolute right-0 bottom-0 opacity-0 w-84 h-34 bg-gradient-to-tl from-transparent to-blue-600 flex items-end justify-end p-8 transition duration-500">
                 <IconContext.Provider value={{ size: "50px", color: "#E99D72" }}>
                     <AiFillPlayCircle />
                 </IconContext.Provider>
-            </div> */}
+            </div>
 
         </div>
 

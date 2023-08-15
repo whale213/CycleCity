@@ -24,7 +24,6 @@ import ViewUser from "./pages/acct-management/ViewUser";
 import Staff from "./pages/acct-management/Staff";
 import EditStaff from "./pages/acct-management/EditStaff";
 import UserProfile from "./pages/acct-management/UserProfile";
-import UserEditProfile from "./pages/acct-management/UserEditProfile";
 // itinerary
 import Locations from "./pages/itinerary-staff/Locations";
 import Attractions from "./pages/itinerary-staff/Attractions";
@@ -42,6 +41,7 @@ import PostProfile from "./pages/social-media/PostProfile";
 //Spotify
 import SpotifyHome from "./pages/Spotify/SpotifyHome";
 // import SpotifyLibrary from "./pages/Spotify/SpotifyLibrary";
+import SpotifyPlayer from "./pages/Spotify/SpotifyPlayer";
 
 // achievements
 import Quests from "./pages/achievements-staff/Quests";
@@ -75,7 +75,7 @@ const router = createBrowserRouter(
       <Route path="user" element={<UserSidebar />}>
         // user profile
         <Route path="profile" element={<UserProfile />} />
-        <Route path="profile/edit" element={<UserEditProfile />} />
+        {/* <Route path="profile/edit" element={<UserEditProfile />} /> */}
 
         // social media
         <Route path="comments/:id" element={<Comments />} />
@@ -85,7 +85,10 @@ const router = createBrowserRouter(
         <Route path="postprofile/:id" element={<PostProfile />} />
 
         {/* spotify */}
-        <Route path="spotify" element={<SpotifyHome />}></Route>
+        <Route path="spotify" element={<SpotifyHome />} />
+        <Route path="spotify/player" element={<SpotifyPlayer />} />
+
+
         {/* <Route path="library" element={<SpotifyLibrary />} /> */}
       </Route>
 
