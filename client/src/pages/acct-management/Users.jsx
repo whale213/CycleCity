@@ -143,7 +143,7 @@ export default function Users() {
                           >
                             <RiDeleteBin6Line
                               size={20}
-                              className="invisible group-hover:visible"
+                              className="group-hover:visible"
                             />
                           </div>
                         </td>
