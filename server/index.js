@@ -29,6 +29,10 @@ app.use("/attraction", attractionRoute);
 const userRoute = require("./routes/user");
 app.use("/user", userRoute);
 
+// Account Management
+const staffRoute = require("./routes/staff");
+app.use("/staff", staffRoute);
+
 // Achievements/Missions
 const criteriaRoute = require("./routes/Criteria");
 app.use("/criteria", criteriaRoute);
