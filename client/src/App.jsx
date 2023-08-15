@@ -24,21 +24,31 @@ import EditLocations from "./pages/itinerary-staff/EditLocations";
 import AddLocations from "./pages/itinerary-staff/AddLocations";
 import EditAttractions from "./pages/itinerary-staff/EditAttractions";
 import AddAttraction from "./pages/itinerary-staff/AddAttraction";
+
 // error
 import Error from "./components/Error";
 
 // layouts
-import Itinerary from "./layouts/Itinerary";
+import UserItinerary from "./layouts/UserItinerary";
+import StaffItinerary from "./layouts/Itinerary";
 import Profiles from "./layouts/Profiles";
+
+import Map from "./pages/itinerary-user/Map";
+import Directions from "./pages/itinerary-user/Directions";
 
 const router = createBrowserRouter(
   createRoutesFromElements(
     <Route>
       <Route path="/" element={<LandingPage />} />
       <Route path="login" element={<Login />} />
-      <Route path="user" element={<UserSidebar />}></Route>
+      <Route path="user" element={<UserSidebar />}>
+        <Route path="itinerary" element={<UserItinerary />}></Route>
+      </Route>
+      <Route path="user/itinerary/map" element={<Map />} />
+      <Route path="user/itinerary/directions" element={<Directions />} />
+
       <Route path="staff" element={<StaffSidebar />}>
-        <Route path="itinerary" element={<Itinerary />}>
+        <Route path="itinerary" element={<StaffItinerary />}>
           <Route path="locations" element={<Locations />} />
           <Route path="attractions" element={<Attractions />} />
         </Route>

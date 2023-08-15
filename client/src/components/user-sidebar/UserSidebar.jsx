@@ -20,9 +20,8 @@ const UserSidebar = () => {
   return (
     <div className="h-screen fixed flex items-center">
       <div
-        className={`${
-          toggle ? "w-[5.8rem]" : ""
-        } sidebar-container bg-ultraViolet`}
+        className={`${toggle ? "w-[5.8rem]" : ""
+          } sidebar-container bg-ultraViolet`}
       >
         <div className="min-w-[3.5rem] h-[3.5rem]">
           <Link to="/login">
@@ -30,9 +29,9 @@ const UserSidebar = () => {
               src={logo}
               alt=""
               className="w-full h-full rounded-full object-cover border"
-              //to do: change the profile picture
-              //rounded-full: to make the enlarged logo less weird
-              //object-cover: to ensure the the logo is not stretched when enlarged
+            //to do: change the profile picture
+            //rounded-full: to make the enlarged logo less weird
+            //object-cover: to ensure the the logo is not stretched when enlarged
             />
           </Link>
         </div>
@@ -48,9 +47,8 @@ const UserSidebar = () => {
           }}
         >
           <BiChevronLeft
-            className={`${
-              toggle ? "rotate-180" : ""
-            } text-3xl transition-all duration-300`}
+            className={`${toggle ? "rotate-180" : ""
+              } text-3xl transition-all duration-300`}
             color="seashell"
           />
         </div>
