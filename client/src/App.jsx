@@ -24,6 +24,7 @@ import ViewUser from "./pages/acct-management/ViewUser";
 import Staff from "./pages/acct-management/Staff";
 import EditStaff from "./pages/acct-management/EditStaff";
 import UserProfile from "./pages/acct-management/UserProfile";
+import UserChangePassword from "./pages/acct-management/UserChangePassword";
 // itinerary
 import Locations from "./pages/itinerary-staff/Locations";
 import Attractions from "./pages/itinerary-staff/Attractions";
@@ -84,6 +85,8 @@ const router = createBrowserRouter(
         // user profile
         <Route path="profile" element={<UserProfile />} />
         <Route path="profile/edit" element={<UserEditProfile />} />
+        <Route path="profile/edit/password" element={<UserChangePassword />} />
+
         // peloton
         <Route path="peloton" element={<Peloton />}>
           <Route path="add" element={<AddPeloton />}></Route>
@@ -91,6 +94,7 @@ const router = createBrowserRouter(
           <Route path="join" element={<PelotonJoin />}></Route>
           <Route path="list" element={<PelotonsList />}></Route>
         </Route>
+
         // social media
         <Route path="comments/:id" element={<Comments />} />
         <Route path="addpost" element={<AddPost />} />

@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import ToastProvider from "../../components/toast/ToastProvider";
 import { Link } from "react-router-dom";
 import { useNavigate } from "react-router-dom";
 import http from "../../http";
@@ -8,9 +9,11 @@ import * as yup from "yup";
 import DarkModeLogo from "../../assets/logoDarkMode.png";
 import { BsEyeSlash, BsEye } from "react-icons/bs";
 import { RxArrowLeft } from "react-icons/rx";
-import { BsImage } from "react-icons/bs";
 
-import { MdOutlineKeyboardDoubleArrowRight } from "react-icons/md";
+import { useToast } from "../../components/toast/ToastService";
+
+import { BsImage } from "react-icons/bs";
+import { FiAlertCircle } from "react-icons/fi";
 
 const Register = () => {
   const [showPassword, setShowPassword] = useState(false);
@@ -31,6 +34,7 @@ const Register = () => {
 
   const [imageFile, setImageFile] = useState(null);
   const navigate = useNavigate();
+  const toast = useToast();
 
   const validationSchema = yup.object().shape({
     name: yup.string().trim().min(3).required("Name is required"),
@@ -50,7 +54,7 @@ const Register = () => {
     password: yup
       .string()
       .min(8, "Password must have at least 8 characters.")
-      .max(50)
+      .max(200)
       .matches(
         /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*\W)/,
         "Password must contain at least one lowercase letter, one uppercase letter, one number, and one symbol."
@@ -87,10 +91,17 @@ const Register = () => {
       if (imageFile) {
         data.profileImage = imageFile;
       }
-      http.post("/user", data).then((res) => {
-        console.log(res.data);
-        navigate("/login");
-      });
+      http
+        .post("/user", data)
+        .then((res) => {
+          console.log(res.data);
+          navigate("/login");
+          window.alert("Account registration successful!");
+        })
+        .catch(function (err) {
+          console.log(err.response.data.message);
+          window.alert(err.response.data.message);
+        });
     },
   });
 
@@ -418,12 +429,12 @@ const Register = () => {
                     </button>
                   </div>
                   {/* <div>
-                      <Link to={"/"}>
-                        <button className="py-2.5 px-5 bg-warning text-seashell hover:text-grey dark:hover:text-warning border-2 border-transparent rounded-lg hover:bg-transparent hover:border-warning">
-                          Back
-                        </button>
-                      </Link>
-                    </div> */}
+                        <Link to={"/"}>
+                          <button className="py-2.5 px-5 bg-warning text-seashell hover:text-grey dark:hover:text-warning border-2 border-transparent rounded-lg hover:bg-transparent hover:border-warning">
+                            Back
+                          </button>
+                        </Link>
+                      </div> */}
                 </div>
               </form>
             </div>
@@ -434,4 +445,10 @@ const Register = () => {
   );
 };
 
-export default Register;
+const RegisterWithToast = () => (
+  <ToastProvider>
+    <Register />
+  </ToastProvider>
+);
+
+export default RegisterWithToast;

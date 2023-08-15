@@ -5,7 +5,7 @@ import { RiDeleteBin6Line } from "react-icons/ri";
 import { BsExclamationCircle } from "react-icons/bs";
 import { RxCross2 } from "react-icons/rx";
 import { LuSearch } from "react-icons/lu";
-import Modal from "../../components/confirmation/Modal";
+import Modal from "../../components/modal/Modal";
 import { useNavigate } from "react-router-dom";
 
 export default function Leagues() {

@@ -4,7 +4,6 @@ import Modal from "../../components/modal/Modal";
 import http from "../../http";
 import { Link, useNavigate } from "react-router-dom";
 
-
 // icons
 import { BiDotsHorizontalRounded } from "react-icons/bi";
 import { AiOutlineHeart } from "react-icons/ai";
@@ -14,8 +13,6 @@ import { BiShare } from "react-icons/bi";
 import { BsExclamationCircle } from "react-icons/bs";
 import { RiDeleteBin6Line, RiEditLine } from "react-icons/ri";
 
-
-
 function Post({ post }) {
   const [idToDelete, setIdToDelete] = useState(0);
   const [open, setOpen] = useState(false);
@@ -23,7 +20,6 @@ function Post({ post }) {
   const [likeList, setLikeList] = useState([]);
   const [commentList, setCommentList] = useState([]);
   const navigate = useNavigate();
-
 
   const getComments = () => {
     http.get(`/comments/${post.postID}`).then((res) => {
@@ -34,7 +30,7 @@ function Post({ post }) {
 
   const onClick = () => {
     navigate(`user/comments/${post.postID}`);
-  }
+  };
 
   const getLikes = () => {
     http.get(`/likes/${post.postID}`).then((res) => {
@@ -56,29 +52,35 @@ function Post({ post }) {
     window.location.reload(true);
   };
 
-
   return (
-    <div class="flex bg-ultraViolet shadow-lg rounded-lg mx-4 md:mx-auto my-56 max-w-md md:max-w-2xl min-w-[98%]" >
+    <div class="flex bg-ultraViolet shadow-lg rounded-lg mx-4 md:mx-auto my-56 max-w-md md:max-w-2xl min-w-[98%]">
       <div class="flex items-start px-4 py-6">
         {/* <img class="w-12 h-12 rounded-full object-cover mr-4 shadow" src="https://images.unsplash.com/photo-1542156822-6924d1a71ace?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=500&q=60" alt="avatar"/>*/}
         <img src="post.user_post_desc.profileImage" alt="" />
         <div class="">
           <div class="flex items-center justify-between">
-            <Link to={`http://localhost:5173/user/postprofile/${post.user_post_desc.userId}`}>
-              <h2 class="text-lg font-semibold text-seashell -mt-1">{post.user_post_desc.name}</h2>
+            <Link
+              to={`http://localhost:5173/user/postprofile/${post.user_post_desc.userId}`}
+            >
+              <h2 class="text-lg font-semibold text-seashell -mt-1">
+                {post.user_post_desc.name}
+              </h2>
             </Link>
 
             <p>{post.postID}</p>
           </div>
           <p class="text-seashell">{post.createdAt}</p>
           <p class="mt-3 text-seashell text-sm min-w-full">
-            <a href={`http://localhost:5173/user/comments/${post.postID}`}>{post.caption}</a>
+            <a href={`http://localhost:5173/user/comments/${post.postID}`}>
+              {post.caption}
+            </a>
           </p>
           {post.post && (
             <img
               src={`${import.meta.env.VITE_FILE_BASE_URL}${post.post}`}
               alt=""
-              class="rounded-md mx-auto" />
+              class="rounded-md mx-auto"
+            />
           )}
           <img src="" alt="" />
           {/* <div class="mt-4 flex items-center">
@@ -103,36 +105,19 @@ function Post({ post }) {
                 }}
                 className="hover:bg-orange-200 dark:hover:bg-fedora dark:hover:bg-opacity-70 hover:text-warning dark:text-grey dark:hover:text-warning rounded-md p-2 max-w-fit max-h-fit"
               >
-                <RiDeleteBin6Line
-                  size={20}
-                  className="visible"
-                />
-
-
+                <RiDeleteBin6Line size={20} className="visible" />
               </div>
             )}
             <div>
               {post.user_post_desc.userId === 2 && (
-
                 <Link to={`http://localhost:5173/user/editpost/${post.postID}`}>
-                  <div
-                    className="hover:bg-blue-200 dark:hover:bg-fedora dark:hover:bg-opacity-70 dark:text-grey dark:hover:text-seashell rounded-md p-2 max-w-fit max-h-fit"
-                  >
-                    <RiEditLine
-                      size={20}
-                      className="visible"
-                    />
-
+                  <div className="hover:bg-blue-200 dark:hover:bg-fedora dark:hover:bg-opacity-70 dark:text-grey dark:hover:text-seashell rounded-md p-2 max-w-fit max-h-fit">
+                    <RiEditLine size={20} className="visible" />
                   </div>
                 </Link>
-
               )}
-
             </div>
           </div>
-
-
-
         </div>
       </div>
       <Modal open={open} onClose={() => setOpen(false)}>
@@ -144,9 +129,7 @@ function Post({ post }) {
             </h3>
             <div className="text-sm text-gray-400 mt-4">
               <p>Are you sure you want to delete </p>
-              <span className="text-ultraViolet dark:text-seashell">
-                ?
-              </span>
+              <span className="text-ultraViolet dark:text-seashell">?</span>
             </div>
           </div>
           <div className="flex gap-4 w-96 text-seashell dark:text-grey">
@@ -166,17 +149,10 @@ function Post({ post }) {
         </div>
       </Modal>
     </div>
-
   );
 }
 
-
-
 export default Post;
-
-
-
-
 
 // <div class="block p-6 rounded-lg shadow-lg bg-gray-100 ml-auto mr-auto w-200">
 //     <div class="w-200">
@@ -223,7 +199,6 @@ export default Post;
 //     </div>
 //     </div>
 
-
 // import React from 'react'
 // import { BiDotsHorizontalRounded } from "react-icons/bi";
 // import { AiOutlineHeart } from "react-icons/ai";
@@ -233,19 +208,12 @@ export default Post;
 // import { AiOutlineComment } from "react-icons/ai";
 // import { BiShare } from "react-icons/bi";
 
-
-
-
-
 // import { Link } from "react-router-dom";
-
-
 
 // function Post({post}) {
 
 //     const liked = false;
 //     const [likeList, setLikeList] = useState([]);
-
 
 //     const getLikes = () => {
 //         http.get(`/likes/${post.postID}`).then((res) => {
@@ -256,7 +224,6 @@ export default Post;
 //     useEffect(() => {
 //     getLikes();
 //     }, []);
-
 
 //   return (
 //     <div class="block p-6 rounded-lg shadow-lg bg-gray-100 ml-auto mr-auto w-200">
@@ -282,8 +249,6 @@ export default Post;
 //             </div>
 //         </div>
 //     </div>
-
-
 
 // <div class = "shadow-xs bg-slate-300 rounded-md overflow-x-auto" >
 //     <div class = "p-5">
@@ -324,7 +289,8 @@ export default Post;
 
 // export default Post
 
-{/* <h3 class="text-2xl text-gray-700 font-bold mb-6 ml-3">Latest News</h3>
+{
+  /* <h3 class="text-2xl text-gray-700 font-bold mb-6 ml-3">Latest News</h3>
 
 <ol >
   <li class="border-l-2 border-purple-600">
@@ -381,4 +347,5 @@ export default Post;
       </div>
     </div>
   </li>
-</ol> */}
+</ol> */
+}

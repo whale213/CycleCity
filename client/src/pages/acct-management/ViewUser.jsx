@@ -243,13 +243,36 @@ export default function ViewUser() {
                   </div>
                 </div>
 
-                <div className="flex flex-row justify-center space-x-10">
+                <div className="w-full mt-2">
+                  <div className="flex flex-col">
+                    <label
+                      htmlFor="bio"
+                      className={`mb-1 ml-4 text-fedora text-sm transition-all ${
+                        formik.touched.bio && formik.errors.bio
+                          ? "text-red-500"
+                          : ""
+                      }`}
+                    >
+                      Bio
+                    </label>
+                    <div className="peer pl-4 pr-10 py-3 w-full border-2 bg-grey border-fedora rounded-xl hover:border-thistle/90 focus:outline-none focus:border-thistle/60 transition-colors">
+                      {formik.values.bio}
+                    </div>
+                    {formik.touched.bio && formik.errors.bio && (
+                      <div className="text-red-500 text-sm mt-1 ml-4">
+                        {formik.errors.bio}
+                      </div>
+                    )}
+                  </div>
+                </div>
+
+                {/* <div className="flex flex-row justify-center space-x-10">
                   <div>
                     <a className="py-2.5 px-5 bg-warning text-seashell hover:text-grey dark:hover:text-warning border-2 border-transparent rounded-lg hover:bg-transparent hover:border-warning transition ease-in duration-200 transform hover:-translate-y-1 active:translate-y-0">
                       Delete
                     </a>
                   </div>
-                </div>
+                </div> */}
               </form>
             </div>
           </div>

@@ -54,8 +54,27 @@ const Login = () => {
       email: "",
       password: "",
     },
-    onSubmit: (data) => {
+    onSubmit: async (data) => {
       data.email = data.email.trim().toLowerCase();
+
+      // List of predefined staff emails
+      const staffEmails = [
+        "staff1@mail.com",
+        "staff2@mail.com",
+        "staff3@mail.com",
+        "staff4@mail.com",
+        "staff5@mail.com",
+      ];
+
+      // Check if the email is in the staffEmails list
+      const isEmailInStaffsList = staffEmails.includes(data.email);
+
+      if (isEmailInStaffsList) {
+        // Redirect the user to staff page
+        navigate("/staff");
+        return; // Exit the function early since we don't want to proceed with regular login
+      }
+
       data.password = data.password.trim();
       http
         .post("/user/login", data)
@@ -66,7 +85,8 @@ const Login = () => {
           window.location.reload();
         })
         .catch(function (err) {
-          console.log("Error", err.response);
+          console.log(err.response.data.message);
+          window.alert(err.response.data.message);
         });
     },
   });
