@@ -1,5 +1,5 @@
 import React from 'react'
-import { useState, useEffect } from "react";
+import { useState, useEffect, useContext } from "react";
 import { Link, useParams } from "react-router-dom"
 import PostUserProfile from "../../components/social-media/PostUserProfile.jsx";
 import Post from "../../components/social-media/Post.jsx";
@@ -7,6 +7,7 @@ import Modal from "../../components/modal/Modal";
 import http from "../../http";
 import Profile from "../../components/social-media/Profile.jsx";
 import SearchBar from "../../components/social-media/SearchBar";
+import UserContext from '../../context/UserContext';
 
 
 function PostProfile() {
@@ -18,6 +19,9 @@ function PostProfile() {
 
     const userId = useParams();
 
+    const { myUser } = useContext(UserContext);
+
+
     const getUsers = () => {
         http.get("/user").then((res) => {
             setUserList(res.data);
@@ -25,14 +29,14 @@ function PostProfile() {
     };
 
     const getFollowing = () => {
-        http.get("/followers/2").then((res) => {
+        http.get(`/followers/${myUser.userId}`).then((res) => {
             console.log(res.data);
             setFollowingList(res.data);
         });
     };
 
     const getFollowers = () => {
-        http.get("/followers/myfollowers/2").then((res) => {
+        http.get(`/followers/myfollowers/${myUser.userId}`).then((res) => {
             console.log(res.data);
             setFollowerList(res.data);
         });

@@ -1,11 +1,13 @@
 import React from "react";
-import { useState, useEffect } from "react";
+import { useState, useEffect, useContext } from "react";
 import { Link, useParams } from "react-router-dom"
 // import AspectRatio from "@mui/joy/AspectRatio";
 import http from "../../http";
 import { useFormik } from "formik";
 import { FiHeart } from "react-icons/fi"
 import { FaHeart } from "react-icons/fa"
+import UserContext from '../../context/UserContext';
+
 
 
 
@@ -16,7 +18,9 @@ export default function Comments() {
   const postID = useParams();
   const [showImage, setShowImage] = useState(false);
 
-  const myUserId = 2;
+
+  const { myUser } = useContext(UserContext);
+  const myUserId = myUser.userId;
 
 
 

@@ -104,9 +104,8 @@ export default function AddLocations() {
                     <div
                       id="locations"
                       onClick={() => setOpenLocOptions(!openLocOptions)}
-                      className={`bg-grey border-fedora text-thistle border-2 text-lg w-full p-3 flex items-center justify-between rounded-xl ${
-                        !selectedLocation && "text-thistle"
-                      }`}
+                      className={`bg-grey border-fedora text-thistle border-2 text-lg w-full p-3 flex items-center justify-between rounded-xl ${!selectedLocation && "text-thistle"
+                        }`}
                     >
                       {selectedLocation
                         ? selectedLocation.length > 25
@@ -119,11 +118,10 @@ export default function AddLocations() {
                       />
                     </div>
                     <ul
-                      className={`mt-2 overflow-y-auto bg-grey border-2 rounded-xl ${
-                        openLocOptions
-                          ? "max-h-60 border-fedora"
-                          : "max-h-0 border-transparent"
-                      } `}
+                      className={`mt-2 overflow-y-auto bg-grey border-2 rounded-xl ${openLocOptions
+                        ? "max-h-60 border-fedora"
+                        : "max-h-0 border-transparent"
+                        } `}
                     >
                       <div className="flex items-center px-2 sticky top-0 bg-grey">
                         <AiOutlineSearch size={20} className="text-thistle" />
@@ -140,15 +138,13 @@ export default function AddLocations() {
                       {locationList.map((location) => (
                         <li
                           key={location.locationId}
-                          className={`p-2 text-sm hover:bg-thistle hover:text-grey ${
-                            location.name.toLowerCase() ===
-                              selectedLocation.toLowerCase() &&
+                          className={`p-2 text-sm hover:bg-thistle hover:text-grey ${location.name.toLowerCase() ===
+                            selectedLocation.toLowerCase() &&
                             "bg-thistle text-grey"
-                          } ${
-                            location.name.toLowerCase().startsWith(inputValue)
+                            } ${location.name.toLowerCase().startsWith(inputValue)
                               ? "block"
                               : "hidden"
-                          }`}
+                            }`}
                           onClick={() => {
                             if (
                               location.name.toLowerCase() !==
@@ -174,11 +170,10 @@ export default function AddLocations() {
                       id="distance"
                       onChange={formik.handleChange}
                       value={formik.values.distance}
-                      className={`peer pl-4 pr-10 py-3 w-full border-2 bg-grey border-fedora placeholder-transparent rounded-xl hover:border-thistle/90 focus:outline-none focus:border-thistle/60 transition-colors ${
-                        formik.touched.distance && formik.errors.distance
-                          ? "border-warning"
-                          : ""
-                      }`}
+                      className={`peer pl-4 pr-10 py-3 w-full border-2 bg-grey border-fedora placeholder-transparent rounded-xl hover:border-thistle/90 focus:outline-none focus:border-thistle/60 transition-colors ${formik.touched.distance && formik.errors.distance
+                        ? "border-warning"
+                        : ""
+                        }`}
                       placeholder="Distance"
                     />
                     <label
@@ -199,11 +194,10 @@ export default function AddLocations() {
                       id="difficulty"
                       onChange={formik.handleChange}
                       value={formik.values.difficulty}
-                      className={`peer pl-4 pr-10 py-3 w-full border-2 bg-grey border-fedora placeholder-transparent rounded-xl hover:border-thistle/90 focus:outline-none focus:border-thistle/60 transition-colors ${
-                        formik.touched.difficulty && formik.errors.difficulty
-                          ? "border-warning"
-                          : ""
-                      }`}
+                      className={`peer pl-4 pr-10 py-3 w-full border-2 bg-grey border-fedora placeholder-transparent rounded-xl hover:border-thistle/90 focus:outline-none focus:border-thistle/60 transition-colors ${formik.touched.difficulty && formik.errors.difficulty
+                        ? "border-warning"
+                        : ""
+                        }`}
                       placeholder="Difficulty"
                     />
                     {formik.errors.difficulty ? (

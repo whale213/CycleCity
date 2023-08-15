@@ -5,6 +5,7 @@ import SpotifyNavBar from "../../components/spotify/SpotifyNavBar.jsx";
 import PlaylistCard from "../../components/spotify/PlaylistCard.jsx";
 
 
+
 function SpotifyHome() {
     const [token, setToken] = useState("");
     const [pfpImage, setPfpImage] = useState("");

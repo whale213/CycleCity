@@ -42,6 +42,7 @@ import PostProfile from "./pages/social-media/PostProfile";
 //Spotify
 import SpotifyHome from "./pages/Spotify/SpotifyHome";
 // import SpotifyLibrary from "./pages/Spotify/SpotifyLibrary";
+import SpotifyPlayer from "./pages/Spotify/SpotifyPlayer";
 
 // achievements
 import Quests from "./pages/achievements-staff/Quests";
@@ -70,9 +71,13 @@ import PelotonsList from "./pages/peloton/PelotonsList";
 import PelotonsListStaff from "./pages/peloton/PelotonsListStaff";
 
 // layouts
-import Itinerary from "./layouts/Itinerary";
+import UserItinerary from "./layouts/UserItinerary";
+import StaffItinerary from "./layouts/Itinerary";
 import Profiles from "./layouts/Profiles";
 import Achievements from "./layouts/Achievements";
+
+import Map from "./pages/itinerary-user/Map";
+import Directions from "./pages/itinerary-user/Directions";
 
 const router = createBrowserRouter(
   createRoutesFromElements(
@@ -86,7 +91,6 @@ const router = createBrowserRouter(
         <Route path="profile" element={<UserProfile />} />
         <Route path="profile/edit" element={<UserEditProfile />} />
         <Route path="profile/edit/password" element={<UserChangePassword />} />
-
         // peloton
         <Route path="peloton" element={<Peloton />}>
           <Route path="add" element={<AddPeloton />}></Route>
@@ -94,7 +98,8 @@ const router = createBrowserRouter(
           <Route path="join" element={<PelotonJoin />}></Route>
           <Route path="list" element={<PelotonsList />}></Route>
         </Route>
-
+        {/* <Route path="profile/edit" element={<UserEditProfile />} /> */}
+        <Route path="itinerary" element={<UserItinerary />}></Route>
         // social media
         <Route path="comments/:id" element={<Comments />} />
         <Route path="addpost" element={<AddPost />} />
@@ -102,12 +107,15 @@ const router = createBrowserRouter(
         <Route path="userpost" element={<Posts />} />
         <Route path="postprofile/:id" element={<PostProfile />} />
         {/* spotify */}
-        <Route path="spotify" element={<SpotifyHome />}></Route>
+        <Route path="spotify" element={<SpotifyHome />} />
+        <Route path="spotify/player" element={<SpotifyPlayer />} />
         {/* <Route path="library" element={<SpotifyLibrary />} /> */}
       </Route>
+      <Route path="user/itinerary/map" element={<Map />} />
+      <Route path="user/itinerary/directions" element={<Directions />} />
 
       <Route path="staff" element={<StaffSidebar />}>
-        <Route path="itinerary" element={<Itinerary />}>
+        <Route path="itinerary" element={<StaffItinerary />}>
           <Route path="locations" element={<Locations />} />
           <Route path="attractions" element={<Attractions />} />
         </Route>

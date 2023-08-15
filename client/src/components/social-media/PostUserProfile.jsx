@@ -1,15 +1,16 @@
-import React, { useState, useEffect } from 'react'
+import React, { useState, useEffect, useContext } from 'react'
 import http from "../../http";
+import UserContext from '../../context/UserContext';
 
 function PostUserProfile({ userId }) {
     const [followerList, setFollowerList] = useState([])
     const [followingList, setFollowingList] = useState([])
     const [myFollowingList, setMyFollowingList] = useState([])
     const [postList, setPostList] = useState([])
-    const [user, setUser] = useState("")
+    // const [user, setUser] = useState("")
 
-    const myUserID = 2;
-
+    // const myUserID = 2;
+    const { myUserID } = useContext(UserContext);
 
     const getFollowers = () => {
         http.get(`/followers/myfollowers/${userId.id}`).then((res) => {
@@ -36,7 +37,7 @@ function PostUserProfile({ userId }) {
     }
 
     const getMyFollowing = () => {
-        http.get(`/followers/${myUserID}`).then((res) => {
+        http.get(`/followers/${myUserID.userId}`).then((res) => {
             setMyFollowingList(res.data);
         });
     };
@@ -52,7 +53,7 @@ function PostUserProfile({ userId }) {
 
     const handleFollow = () => {
         const data = {}
-        data.followeruserID = myUserID
+        data.followeruserID = myUserID.userId
         data.followeduserID = user.userId
         http.post("/followers", data).then((res) => {
             console.log(res.data)

@@ -14,7 +14,7 @@ export const userIcons = [
     id: 2,
     icon: <HiOutlineMap />,
     text: "Map",
-    href: "/user",
+    href: "/user/itinerary",
   },
   {
     id: 3,

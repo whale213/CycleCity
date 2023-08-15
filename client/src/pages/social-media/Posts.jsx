@@ -1,5 +1,5 @@
 import React from "react";
-import { useState, useEffect } from "react";
+import { useState, useEffect, useContext } from "react";
 // import AspectRatio from "@mui/joy/AspectRatio";
 import http from "../../http";
 import Post from "../../components/social-media/Post.jsx";
@@ -11,6 +11,7 @@ import Profile from "../../components/social-media/Profile.jsx";
 import { LuSearch } from "react-icons/lu";
 import { RxCross2 } from "react-icons/rx";
 import SearchBar from "../../components/social-media/SearchBar";
+import UserContext from '../../context/UserContext';
 
 
 
@@ -24,6 +25,10 @@ const Posts = () => {
   const [open, setOpen] = useState(false);
   const [userList, setUserList] = useState([]);
   const [search, setSearch] = useState("");
+  const { myUser } = useContext(UserContext);
+
+  console.log(myUser)
+
 
   // useEffect(() => {
   //     http.get('/userpost').then((res) => {
@@ -49,21 +54,21 @@ const Posts = () => {
   };
 
   const getPosts = () => {
-    http.get("/userpost/2").then((res) => {
+    http.get(`/userpost/${myUser.userId}`).then((res) => {
       console.log(res.data);
       setPostList(res.data);
     });
   };
 
   const getFollowing = () => {
-    http.get("/followers/2").then((res) => {
+    http.get(`/followers/${myUser.userId}`).then((res) => {
       console.log(res.data);
       setFollowingList(res.data);
     });
   };
 
   const getFollowers = () => {
-    http.get("/followers/myfollowers/2").then((res) => {
+    http.get(`/followers/myfollowers/${myUser.userId}`).then((res) => {
       console.log(res.data);
       setFollowerList(res.data);
     });
@@ -107,6 +112,7 @@ const Posts = () => {
               </div>
             </div>
             <div class="pb-2 lg:pb-0 w-full lg:max-w-sm px-3 flex flex-row lg:flex-col flex-wrap lg:flex-nowrap">
+              <div></div>
               <div class="text-seashell bg-ultraViolet w-full min-h-fit min-w-0 mb-4 rounded-lg p-4">
                 My Friends
                 <ul>
