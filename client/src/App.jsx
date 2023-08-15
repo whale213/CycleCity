@@ -61,9 +61,13 @@ import EditLeagues from "./pages/achievements-staff/EditLeagues";
 import Error from "./components/Error";
 
 // layouts
-import Itinerary from "./layouts/Itinerary";
+import UserItinerary from "./layouts/UserItinerary";
+import StaffItinerary from "./layouts/Itinerary";
 import Profiles from "./layouts/Profiles";
 import Achievements from "./layouts/Achievements";
+
+import Map from "./pages/itinerary-user/Map";
+import Directions from "./pages/itinerary-user/Directions";
 
 const router = createBrowserRouter(
   createRoutesFromElements(
@@ -76,6 +80,8 @@ const router = createBrowserRouter(
         // user profile
         <Route path="profile" element={<UserProfile />} />
         {/* <Route path="profile/edit" element={<UserEditProfile />} /> */}
+
+        <Route path="itinerary" element={<UserItinerary />}></Route>
 
         // social media
         <Route path="comments/:id" element={<Comments />} />
@@ -91,9 +97,11 @@ const router = createBrowserRouter(
 
         {/* <Route path="library" element={<SpotifyLibrary />} /> */}
       </Route>
+      <Route path="user/itinerary/map" element={<Map />} />
+      <Route path="user/itinerary/directions" element={<Directions />} />
 
       <Route path="staff" element={<StaffSidebar />}>
-        <Route path="itinerary" element={<Itinerary />}>
+        <Route path="itinerary" element={<StaffItinerary />}>
           <Route path="locations" element={<Locations />} />
           <Route path="attractions" element={<Attractions />} />
         </Route>

@@ -19,7 +19,7 @@ router.get("/", async (req, res) => {
     include: {
       model: Location,
       as: "location",
-      attributes: ["name", "postalCode", "address"],
+      attributes: ["name", "postalCode", "address", "imageFile", "latitude", "longitude"],
     },
   });
   res.json(list);

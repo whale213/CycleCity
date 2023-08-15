@@ -68,15 +68,15 @@ export default function UsersStaff() {
   return (
     // <div className="text-grey dark:text-seashell m-6">
     //   <h1 className="text-2xl mb-4">Users</h1>
-    //   <div class="flex flex-col items-center justify-center w-full min-h-full">
-    //     <h1 class="text-lg text-gray-400 font-medium">Users</h1>
-    //     <div class="w-full mx-auto p-2 text-gray-800 dark:text-seashell/90 relative overflow-hidden min-w-80 max-w-3xl">
-    //       <div class="relative flex gap-2">
+    //   <div className="flex flex-col items-center justify-center w-full min-h-full">
+    //     <h1 className="text-lg text-gray-400 font-medium">Users</h1>
+    //     <div className="w-full mx-auto p-2 text-gray-800 dark:text-seashell/90 relative overflow-hidden min-w-80 max-w-3xl">
+    //       <div className="relative flex gap-2">
     //         <div className="grid place-items-center h-full w-12"></div>
     //         <input
     //           type="text"
     //           id="password"
-    //           class="w-full pl-3 pr-10 py-2 border-2 bg-orange-100 dark:bg-fedora border-transparent rounded-xl hover:border-gray-400 focus:outline-none focus:border-ultraViolet dark:focus:border-thistle/60 transition-colors"
+    //           className="w-full pl-3 pr-10 py-2 border-2 bg-orange-100 dark:bg-fedora border-transparent rounded-xl hover:border-gray-400 focus:outline-none focus:border-ultraViolet dark:focus:border-thistle/60 transition-colors"
     //           value={search}
     //           placeholder="Search"
     //           onChange={onSearchChange}
@@ -90,43 +90,43 @@ export default function UsersStaff() {
     //         </button>
     //       </div>
     //     </div>
-    //     <div class="flex flex-col mt-6 shadow-lg">
-    //       <div class="-my-2 overflow-x-auto sm:-mx-6 lg:-mx-8">
-    //         <div class="py-2 align-middle inline-block min-w-full sm:px-6 lg:px-8">
-    //           <div class="shadow overflow-hidden sm:rounded-lg">
-    //             <table class="min-w-full text-sm text-gray-400 divide-y-2 divide-ultraViolet dark:divide-thistle">
-    //               <thead class="bg-orange-100 dark:bg-black dark:bg-opacity-20 text-sm uppercase font-medium">
+    //     <div className="flex flex-col mt-6 shadow-lg">
+    //       <div className="-my-2 overflow-x-auto sm:-mx-6 lg:-mx-8">
+    //         <div className="py-2 align-middle inline-block min-w-full sm:px-6 lg:px-8">
+    //           <div className="shadow overflow-hidden sm:rounded-lg">
+    //             <table className="min-w-full text-sm text-gray-400 divide-y-2 divide-ultraViolet dark:divide-thistle">
+    //               <thead className="bg-orange-100 dark:bg-black dark:bg-opacity-20 text-sm uppercase font-medium">
     //                 <tr>
     //                   <th></th>
-    //                   <th class="px-12 py-3 text-left tracking-wider">Name</th>
-    //                   <th class="px-12 py-3 text-left tracking-wider">Email</th>
-    //                   <th class="px-12 py-3 text-left tracking-wider">
+    //                   <th className="px-12 py-3 text-left tracking-wider">Name</th>
+    //                   <th className="px-12 py-3 text-left tracking-wider">Email</th>
+    //                   <th className="px-12 py-3 text-left tracking-wider">
     //                     Phone Number
     //                   </th>
-    //                   <th class="px-12 py-3 text-left tracking-wider"></th>
+    //                   <th className="px-12 py-3 text-left tracking-wider"></th>
     //                 </tr>
     //               </thead>
-    //               <tbody class="divide-y divide-thistle dark:divide-fedora">
+    //               <tbody className="divide-y divide-thistle dark:divide-fedora">
     //                 {userList.map((User, id) => (
     //                   <tr
-    //                     class="hover:bg-orange-100 dark:hover:bg-onyx group"
+    //                     className="hover:bg-orange-100 dark:hover:bg-onyx group"
     //                     key={id}
     //                   >
-    //                     <td class="pl-4">{User.userId}</td>
-    //                     <td class="flex px-12 py-4 whitespace-nowrap">
-    //                       <span class="ml-2 font-medium text-ultraViolet dark:text-thistle">
+    //                     <td className="pl-4">{User.userId}</td>
+    //                     <td className="flex px-12 py-4 whitespace-nowrap">
+    //                       <span className="ml-2 font-medium text-ultraViolet dark:text-thistle">
     //                         {User.name}
     //                       </span>
     //                     </td>
-    //                     <td class="px-12 py-4 whitespace-nowrap text-fedora dark:text-seashell">
+    //                     <td className="px-12 py-4 whitespace-nowrap text-fedora dark:text-seashell">
     //                       <div className="flex flex-col-2 space-x-1 pl-1">
     //                         {User.email}
     //                       </div>
     //                     </td>
-    //                     <td class="px-12 py-4 whitespace-nowrap">
+    //                     <td className="px-12 py-4 whitespace-nowrap">
     //                       {User.phoneNumber}
     //                     </td>
-    //                     <td class="px-10 py-2 whitespace-nowrap">
+    //                     <td className="px-10 py-2 whitespace-nowrap">
     //                       <div
     //                         onClick={() => {
     //                           setIdToDelete(User.userId);

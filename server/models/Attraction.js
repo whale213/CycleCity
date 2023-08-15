@@ -24,7 +24,7 @@ module.exports = (sequelize, DataTypes) => {
       foreignKey: {
         name: "locationId",
         allowNull: false,
-        onDelete: "RESTRICT", // Prevent deletion if referenced
+        // onDelete: "RESTRICT", // Prevent deletion if referenced
       },
       as: "location",
     });
