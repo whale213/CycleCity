@@ -9,6 +9,8 @@ router.get("/", async (req, res) => {
   if (search) {
     condition[Sequelize.Op.or] = [
       { name: { [Sequelize.Op.like]: `%${search}%` } },
+      { email: { [Sequelize.Op.like]: `%${search}%` } },
+      { phoneNumber: { [Sequelize.Op.like]: `%${search}%` } },
     ];
   }
 
@@ -102,7 +104,7 @@ router.put("/:id", async (req, res) => {
         "Password must contain at least one lowercase letter, one uppercase letter, one number, and one symbol."
       )
       .required("Please enter a password."),
-    bio: yup.string().trim().min(6).max(1000).required(),
+    // bio: yup.string().trim().min(6).max(1000).required(),
   });
 
   try {

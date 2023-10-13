@@ -20,18 +20,18 @@ export const userIcons = [
     id: 3,
     icon: <HiOutlineUserGroup />,
     text: "Pelotons",
-    href: "/user",
+    href: "/user/peloton",
   },
   {
     id: 4,
     icon: <FaRegCompass />,
     text: "Feed",
-    href: "/user",
+    href: "/user/userpost",
   },
   {
     id: 5,
     icon: <AiOutlineUser />,
     text: "Profile",
-    href: "/user",
+    href: "/user/profile",
   },
 ];

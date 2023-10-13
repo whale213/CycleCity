@@ -2,7 +2,7 @@ module.exports = (sequelize, DataTypes) => {
   const League = sequelize.define(
     "League",
     {
-      id: {
+      leagueId: {
         type: DataTypes.INTEGER,
         autoIncrement: true,
         primaryKey: true,
@@ -11,9 +11,12 @@ module.exports = (sequelize, DataTypes) => {
         type: DataTypes.STRING,
         allowNull: false,
       },
-      expLimit: {
+      explimit: {
         type: DataTypes.INTEGER,
         allowNull: false,
+      },
+      imageFile: {
+        type: DataTypes.STRING,
       },
     },
     { timestamps: false }

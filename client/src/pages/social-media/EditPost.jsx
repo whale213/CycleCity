@@ -1,7 +1,8 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useContext } from "react";
 import { useParams, Link, useNavigate } from "react-router-dom";
 import http from "../../http";
 import { useFormik } from "formik";
+import UserContext from '../../context/UserContext';
 
 
 
@@ -18,11 +19,13 @@ export default function EditPost() {
 
     console.log(postID)
 
+    const { myUser } = useContext(UserContext);
+
 
     const formik = useFormik({
         initialValues: {
             caption: "",
-            userId: 2
+            userId: myUser.userId
         },
         onSubmit: (data) => {
             if (postFile) {

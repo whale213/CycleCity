@@ -15,7 +15,7 @@ export default function AddLeagues() {
 
   const validationSchema = yup.object().shape({
     name: yup.string().max(100).trim().required(),
-    explimit: yup.number().integer().min(0).max(3000).required(),
+    explimit: yup.number().integer().positive().max(3000).required(),
   });
 
   const formik = useFormik({

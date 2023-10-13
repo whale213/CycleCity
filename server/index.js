@@ -29,6 +29,10 @@ app.use("/attraction", attractionRoute);
 const userRoute = require("./routes/user");
 app.use("/user", userRoute);
 
+// Account Management
+const staffRoute = require("./routes/staff");
+app.use("/staff", staffRoute);
+
 // Achievements/Missions
 const criteriaRoute = require("./routes/Criteria");
 app.use("/criteria", criteriaRoute);
@@ -51,6 +55,21 @@ app.use("/UserQuest", userQuestRoute);
 // Pelotons
 const pelotonRoute = require("./routes/peloton");
 app.use("/peloton", pelotonRoute);
+
+const UserPostRoutes = require("./routes/UserPost.js");
+app.use("/userpost", UserPostRoutes)
+
+const CommentsRoutes = require('./routes/Comments.js');
+app.use("/comments", CommentsRoutes)
+
+const FollowersRoutes = require('./routes/Followers.js');
+app.use("/followers", FollowersRoutes)
+
+const LikesRoutes = require('./routes/Likes.js');
+app.use("/likes", LikesRoutes)
+
+const postRoutes = require('./routes/Post.js');
+app.use("/post", postRoutes)
 
 // synchronizes data models with db tables
 const db = require("./models");

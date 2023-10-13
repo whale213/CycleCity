@@ -1,6 +1,5 @@
 import { RxDashboard } from "react-icons/rx";
-import { HiOutlineMap } from "react-icons/hi";
-import { BsCalendarWeek } from "react-icons/bs";
+import { HiOutlineMap, HiOutlineUserGroup } from "react-icons/hi";
 import { FiUsers } from "react-icons/fi";
 import { TbMedal } from "react-icons/tb";
 
@@ -19,9 +18,9 @@ export const adminIcons = [
   },
   {
     id: 3,
-    icon: <BsCalendarWeek />,
-    text: "Events",
-    href: "/staff",
+    icon: <HiOutlineUserGroup />,
+    text: "Pelotons",
+    href: "/staff/peloton",
   },
   {
     id: 4,
@@ -33,6 +32,6 @@ export const adminIcons = [
     id: 5,
     icon: <TbMedal />,
     text: "Achievements",
-    href: "/staff",
+    href: "/staff/achievements/quests",
   },
 ];

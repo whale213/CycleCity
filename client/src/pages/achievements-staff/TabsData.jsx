@@ -1,7 +1,6 @@
 import { GiTiedScroll } from "react-icons/gi";
 import { TbTargetArrow } from "react-icons/tb";
 import { FiEdit } from "react-icons/fi";
-import { GiPodium } from "react-icons/gi";
 
 export const TabsData = [
   {
@@ -24,14 +23,8 @@ export const TabsData = [
   },
   {
     id: 4,
-    icon: <GiPodium size={24} />,
+    icon: <FiEdit size={24} />,
     label: "Leagues",
     href: "/staff/achievements/leagues",
-  },
-  {
-    id: 5,
-    icon: <GiTiedScroll size={24} />,
-    label: "UserQuest",
-    href: "/staff/achievements/userQuest",
   },
 ];

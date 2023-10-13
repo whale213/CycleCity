@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import ToastProvider from "../../components/toast/ToastProvider";
 import { Link } from "react-router-dom";
 import { useNavigate } from "react-router-dom";
 import http from "../../http";
@@ -8,9 +9,11 @@ import * as yup from "yup";
 import DarkModeLogo from "../../assets/logoDarkMode.png";
 import { BsEyeSlash, BsEye } from "react-icons/bs";
 import { RxArrowLeft } from "react-icons/rx";
-import { BsImage } from "react-icons/bs";
 
-import { MdOutlineKeyboardDoubleArrowRight } from "react-icons/md";
+import { useToast } from "../../components/toast/ToastService";
+
+import { BsImage } from "react-icons/bs";
+import { FiAlertCircle } from "react-icons/fi";
 
 const Register = () => {
   const [showPassword, setShowPassword] = useState(false);
@@ -31,6 +34,7 @@ const Register = () => {
 
   const [imageFile, setImageFile] = useState(null);
   const navigate = useNavigate();
+  const toast = useToast();
 
   const validationSchema = yup.object().shape({
     name: yup.string().trim().min(3).required("Name is required"),
@@ -50,7 +54,7 @@ const Register = () => {
     password: yup
       .string()
       .min(8, "Password must have at least 8 characters.")
-      .max(50)
+      .max(200)
       .matches(
         /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*\W)/,
         "Password must contain at least one lowercase letter, one uppercase letter, one number, and one symbol."
@@ -87,10 +91,17 @@ const Register = () => {
       if (imageFile) {
         data.profileImage = imageFile;
       }
-      http.post("/user", data).then((res) => {
-        console.log(res.data);
-        navigate("/login");
-      });
+      http
+        .post("/user", data)
+        .then((res) => {
+          console.log(res.data);
+          navigate("/login");
+          window.alert("Account registration successful!");
+        })
+        .catch(function (err) {
+          console.log(err.response.data.message);
+          window.alert(err.response.data.message);
+        });
     },
   });
 
@@ -196,20 +207,18 @@ const Register = () => {
                     onChange={formik.handleChange}
                     onBlur={formik.handleBlur}
                     value={formik.values.name}
-                    className={`peer pl-4 pr-10 py-3 w-full border-2 bg-grey border-fedora placeholder-transparent rounded-xl hover:border-thistle/90 focus:outline-none focus:border-thistle/60 transition-colors ${
-                      formik.touched.name && formik.errors.name
+                    className={`peer pl-4 pr-10 py-3 w-full border-2 bg-grey border-fedora placeholder-transparent rounded-xl hover:border-thistle/90 focus:outline-none focus:border-thistle/60 transition-colors ${formik.touched.name && formik.errors.name
                         ? "border-red-500"
                         : ""
-                    }`}
+                      }`}
                     placeholder="Name"
                   />
                   <label
                     htmlFor="name"
-                    className={`absolute left-0 ml-4 px-1 rounded -top-2.5 text-fedora bg-grey text-sm transition-all peer-placeholder-shown:text-base peer-placeholder-shown:text-gray-400 peer-placeholder-shown:top-3.5 peer-focus:-top-2.5 peer-focus:text-thistle/80 peer-hover:text-thistle peer-focus:text-sm ${
-                      formik.touched.name && formik.errors.name
+                    className={`absolute left-0 ml-4 px-1 rounded -top-2.5 text-fedora bg-grey text-sm transition-all peer-placeholder-shown:text-base peer-placeholder-shown:text-gray-400 peer-placeholder-shown:top-3.5 peer-focus:-top-2.5 peer-focus:text-thistle/80 peer-hover:text-thistle peer-focus:text-sm ${formik.touched.name && formik.errors.name
                         ? "text-red-500"
                         : ""
-                    }`}
+                      }`}
                   >
                     Name
                   </label>
@@ -230,20 +239,18 @@ const Register = () => {
                     onChange={formik.handleChange}
                     onBlur={formik.handleBlur}
                     value={formik.values.email}
-                    className={`peer pl-4 pr-10 py-3 w-full border-2 bg-grey border-fedora placeholder-transparent rounded-xl hover:border-thistle/90 focus:outline-none focus:border-thistle/60 transition-colors ${
-                      formik.touched.email && formik.errors.email
+                    className={`peer pl-4 pr-10 py-3 w-full border-2 bg-grey border-fedora placeholder-transparent rounded-xl hover:border-thistle/90 focus:outline-none focus:border-thistle/60 transition-colors ${formik.touched.email && formik.errors.email
                         ? "border-red-500"
                         : ""
-                    }`}
+                      }`}
                     placeholder="Email"
                   />
                   <label
                     htmlFor="email"
-                    className={`absolute left-0 ml-4 px-1 rounded -top-2.5 text-fedora bg-grey text-sm transition-all peer-placeholder-shown:text-base peer-placeholder-shown:text-gray-400 peer-placeholder-shown:top-3.5 peer-focus:-top-2.5 peer-focus:text-thistle/80 peer-hover:text-thistle peer-focus:text-sm ${
-                      formik.touched.email && formik.errors.email
+                    className={`absolute left-0 ml-4 px-1 rounded -top-2.5 text-fedora bg-grey text-sm transition-all peer-placeholder-shown:text-base peer-placeholder-shown:text-gray-400 peer-placeholder-shown:top-3.5 peer-focus:-top-2.5 peer-focus:text-thistle/80 peer-hover:text-thistle peer-focus:text-sm ${formik.touched.email && formik.errors.email
                         ? "text-red-500"
                         : ""
-                    }`}
+                      }`}
                   >
                     Email
                   </label>
@@ -264,20 +271,18 @@ const Register = () => {
                     onChange={formik.handleChange}
                     onBlur={formik.handleBlur}
                     value={formik.values.phoneNumber}
-                    className={`peer pl-4 pr-10 py-3 w-full border-2 bg-grey border-fedora placeholder-transparent rounded-xl hover:border-thistle/90 focus:outline-none focus:border-thistle/60 transition-colors ${
-                      formik.touched.phoneNumber && formik.errors.phoneNumber
+                    className={`peer pl-4 pr-10 py-3 w-full border-2 bg-grey border-fedora placeholder-transparent rounded-xl hover:border-thistle/90 focus:outline-none focus:border-thistle/60 transition-colors ${formik.touched.phoneNumber && formik.errors.phoneNumber
                         ? "border-red-500"
                         : ""
-                    }`}
+                      }`}
                     placeholder="Phone Number"
                   />
                   <label
                     htmlFor="phoneNumber"
-                    className={`absolute left-0 ml-4 px-1 rounded -top-2.5 text-fedora bg-grey text-sm transition-all peer-placeholder-shown:text-base peer-placeholder-shown:text-gray-400 peer-placeholder-shown:top-3.5 peer-focus:-top-2.5 peer-focus:text-thistle/80 peer-hover:text-thistle peer-focus:text-sm ${
-                      formik.touched.phoneNumber && formik.errors.phoneNumber
+                    className={`absolute left-0 ml-4 px-1 rounded -top-2.5 text-fedora bg-grey text-sm transition-all peer-placeholder-shown:text-base peer-placeholder-shown:text-gray-400 peer-placeholder-shown:top-3.5 peer-focus:-top-2.5 peer-focus:text-thistle/80 peer-hover:text-thistle peer-focus:text-sm ${formik.touched.phoneNumber && formik.errors.phoneNumber
                         ? "text-red-500"
                         : ""
-                    }`}
+                      }`}
                   >
                     Phone Number
                   </label>
@@ -298,20 +303,18 @@ const Register = () => {
                     onChange={formik.handleChange}
                     onBlur={formik.handleBlur}
                     value={formik.values.password}
-                    className={`peer pl-4 pr-16 py-3 w-full border-2 bg-grey border-fedora placeholder-transparent rounded-xl hover:border-thistle/90 focus:outline-none focus:border-thistle/60 transition-colors ${
-                      formik.touched.password && formik.errors.password
+                    className={`peer pl-4 pr-16 py-3 w-full border-2 bg-grey border-fedora placeholder-transparent rounded-xl hover:border-thistle/90 focus:outline-none focus:border-thistle/60 transition-colors ${formik.touched.password && formik.errors.password
                         ? "border-red-500"
                         : ""
-                    }`}
+                      }`}
                     placeholder="Password"
                   />
                   <label
                     htmlFor="password"
-                    className={`absolute left-0 ml-4 px-1 rounded -top-2.5 text-fedora bg-grey text-sm transition-all peer-placeholder-shown:text-base peer-placeholder-shown:text-gray-400 peer-placeholder-shown:top-3.5 peer-focus:-top-2.5 peer-focus:text-thistle/80 peer-hover:text-thistle peer-focus:text-sm ${
-                      formik.touched.password && formik.errors.password
+                    className={`absolute left-0 ml-4 px-1 rounded -top-2.5 text-fedora bg-grey text-sm transition-all peer-placeholder-shown:text-base peer-placeholder-shown:text-gray-400 peer-placeholder-shown:top-3.5 peer-focus:-top-2.5 peer-focus:text-thistle/80 peer-hover:text-thistle peer-focus:text-sm ${formik.touched.password && formik.errors.password
                         ? "text-red-500"
                         : ""
-                    }`}
+                      }`}
                   >
                     Password
                   </label>
@@ -339,22 +342,20 @@ const Register = () => {
                     onChange={formik.handleChange}
                     onBlur={formik.handleBlur}
                     value={formik.values.passwordConfirmation}
-                    className={`peer pl-4 pr-10 py-3 w-full border-2 bg-grey border-fedora placeholder-transparent rounded-xl hover:border-thistle/90 focus:outline-none focus:border-thistle/60 transition-colors ${
-                      formik.touched.passwordConfirmation &&
-                      formik.errors.passwordConfirmation
+                    className={`peer pl-4 pr-10 py-3 w-full border-2 bg-grey border-fedora placeholder-transparent rounded-xl hover:border-thistle/90 focus:outline-none focus:border-thistle/60 transition-colors ${formik.touched.passwordConfirmation &&
+                        formik.errors.passwordConfirmation
                         ? "border-red-500"
                         : ""
-                    }`}
+                      }`}
                     placeholder="Confirm Password"
                   />
                   <label
                     htmlFor="passwordConfirmation"
-                    className={`absolute left-0 ml-4 px-1 rounded -top-2.5 text-fedora bg-grey text-sm transition-all peer-placeholder-shown:text-base peer-placeholder-shown:text-gray-400 peer-placeholder-shown:top-3.5 peer-focus:-top-2.5 peer-focus:text-thistle/80 peer-hover:text-thistle peer-focus:text-sm ${
-                      formik.touched.passwordConfirmation &&
-                      formik.errors.passwordConfirmation
+                    className={`absolute left-0 ml-4 px-1 rounded -top-2.5 text-fedora bg-grey text-sm transition-all peer-placeholder-shown:text-base peer-placeholder-shown:text-gray-400 peer-placeholder-shown:top-3.5 peer-focus:-top-2.5 peer-focus:text-thistle/80 peer-hover:text-thistle peer-focus:text-sm ${formik.touched.passwordConfirmation &&
+                        formik.errors.passwordConfirmation
                         ? "text-red-500"
                         : ""
-                    }`}
+                      }`}
                   >
                     Confirm Password
                   </label>
@@ -382,20 +383,18 @@ const Register = () => {
                     onChange={formik.handleChange}
                     onBlur={formik.handleBlur}
                     value={formik.values.bio}
-                    className={`peer pl-4 pr-10 py-3 w-full border-2 bg-grey border-fedora placeholder-transparent rounded-xl hover:border-thistle/90 focus:outline-none focus:border-thistle/60 transition-colors ${
-                      formik.touched.bio && formik.errors.bio
+                    className={`peer pl-4 pr-10 py-3 w-full border-2 bg-grey border-fedora placeholder-transparent rounded-xl hover:border-thistle/90 focus:outline-none focus:border-thistle/60 transition-colors ${formik.touched.bio && formik.errors.bio
                         ? "border-red-500"
                         : ""
-                    }`}
+                      }`}
                     placeholder="Bio"
                   ></textarea>
                   <label
                     htmlFor="bio"
-                    className={`absolute left-0 ml-4 px-1 rounded -top-2.5 text-fedora bg-grey text-sm transition-all peer-placeholder-shown:text-base peer-placeholder-shown:text-gray-400 peer-placeholder-shown:top-3.5 peer-focus:-top-2.5 peer-focus:text-thistle/80 peer-hover:text-thistle peer-focus:text-sm ${
-                      formik.touched.bio && formik.errors.bio
+                    className={`absolute left-0 ml-4 px-1 rounded -top-2.5 text-fedora bg-grey text-sm transition-all peer-placeholder-shown:text-base peer-placeholder-shown:text-gray-400 peer-placeholder-shown:top-3.5 peer-focus:-top-2.5 peer-focus:text-thistle/80 peer-hover:text-thistle peer-focus:text-sm ${formik.touched.bio && formik.errors.bio
                         ? "text-red-500"
                         : ""
-                    }`}
+                      }`}
                   >
                     Bio
                   </label>
@@ -418,12 +417,12 @@ const Register = () => {
                     </button>
                   </div>
                   {/* <div>
-                      <Link to={"/"}>
-                        <button className="py-2.5 px-5 bg-warning text-seashell hover:text-grey dark:hover:text-warning border-2 border-transparent rounded-lg hover:bg-transparent hover:border-warning">
-                          Back
-                        </button>
-                      </Link>
-                    </div> */}
+                        <Link to={"/"}>
+                          <button className="py-2.5 px-5 bg-warning text-seashell hover:text-grey dark:hover:text-warning border-2 border-transparent rounded-lg hover:bg-transparent hover:border-warning">
+                            Back
+                          </button>
+                        </Link>
+                      </div> */}
                 </div>
               </form>
             </div>
@@ -434,4 +433,10 @@ const Register = () => {
   );
 };
 
-export default Register;
+const RegisterWithToast = () => (
+  <ToastProvider>
+    <Register />
+  </ToastProvider>
+);
+
+export default RegisterWithToast;

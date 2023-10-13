@@ -15,7 +15,7 @@ export default function EditLeagues() {
 
   const validationSchema = yup.object().shape({
     name: yup.string().max(100).trim().required(),
-    explimit: yup.number().integer().min(0).max(3000).required(),
+    explimit: yup.number().integer().positive().max(3000).required(),
   });
 
   const [imageFile, setImageFile] = useState("");
@@ -24,11 +24,17 @@ export default function EditLeagues() {
     explimit: "",
   });
 
+  const deleteLeague = () => {
+    http.delete(`/league/${id}`).then((res) => {
+      console.log(res.data);
+      navigate("/staff/achievements/leagues");
+    });
+  };
+
   useEffect(() => {
     http.get(`/league/${id}`).then((res) => {
       setLeague(res.data);
       setImageFile(res.data.imageFile);
-      console.log(res.data);
     });
   }, []);
 
@@ -88,9 +94,9 @@ export default function EditLeagues() {
             {formik.values.name}{" "}
           </Link>
         </div>
-        <div className="overflow-hidden ">
+        <div className="overflow-hidden">
           <img
-            alt=""
+            alt="Rank"
             src={`${import.meta.env.VITE_FILE_BASE_URL}${imageFile}`}
             className="h-40 w-full object-cover"
           />

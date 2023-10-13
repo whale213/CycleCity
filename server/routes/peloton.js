@@ -36,10 +36,10 @@ router.post("/", async (req, res) => {
   let data = req.body;
 
   let validationSchema = yup.object().shape({
-    pelotonId: yup.number().integer().positive().min(1).required(),
+    //pelotonId: yup.number().integer().positive().min(1).required(),
     name: yup.string().min(3).trim().required(),
-    type: yup.string().trim().required(),
-    owner: yup.number().integer().required(),
+    //type: yup.string().trim().required(),
+    //owner: yup.number().integer().required(),
     bio: yup.string().min(10).required(),
   });
 
@@ -51,7 +51,7 @@ router.post("/", async (req, res) => {
     return;
   }
   data.name = data.name.trim();
-  data.type = data.type.trim();
+  //data.type = data.type.trim();
   data.bio = data.bio.trim();
 
   let result = await Peloton.create(data);

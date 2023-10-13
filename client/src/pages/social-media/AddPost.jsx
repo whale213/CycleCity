@@ -1,12 +1,17 @@
-import React, { useState, useContext } from "react";
-import { Link, useNavigate } from "react-router-dom";
+import React, { useState, useEffect, useContext } from "react";
+import { useParams, Link, useNavigate } from "react-router-dom";
 import http from "../../http";
 import { useFormik } from "formik";
-import UserContext from "../../context/UserContext";
+import UserContext from '../../context/UserContext';
+
+
+
+
 
 // icons
 import { MdOutlineKeyboardDoubleArrowRight } from "react-icons/md";
 import { BsImage } from "react-icons/bs";
+import { LuClock4 } from "react-icons/lu";
 
 export default function AddPost() {
   const navigate = useNavigate();
@@ -14,10 +19,11 @@ export default function AddPost() {
 
   const { myUserID } = useContext(UserContext);
 
+
   const formik = useFormik({
     initialValues: {
       caption: "",
-      userId: myUserID.userId,
+      userId: myUserID.userId
     },
     onSubmit: (data) => {
       if (postFile) {
@@ -56,7 +62,10 @@ export default function AddPost() {
     <div class="min-w-max ">
       <div className="m-12 xl:w-[110%]">
         <div className="flex space-x-1 text-md md:text-xl pl-8 pb-2 text-thistle dark:text-fedora">
-          <Link to={"/user/userpost"} className="text-grey dark:text-thistle">
+          <Link
+            to={"/user/userpost"}
+            className="text-grey dark:text-thistle"
+          >
             Post
           </Link>
           <div className="flex">
@@ -70,10 +79,7 @@ export default function AddPost() {
           <div className="overflow-hidden min-w-max grow">
             <div className="bg-seashell dark:bg-grey p-4 sm:p-6 md:h-[500px] min-w-min">
               <div className="w-full mt-4 flex justify-center text-grey dark:text-seashell h-full overflow-auto ">
-                <form
-                  className="w-3/4 space-y-8 "
-                  onSubmit={formik.handleSubmit}
-                >
+                <form className="w-3/4 space-y-8 " onSubmit={formik.handleSubmit}>
                   <div className="w-full relative mt-2 ">
                     <input
                       type="text"
@@ -147,16 +153,15 @@ export default function AddPost() {
 
           <div className="flex items-center justify-center min-w-max ml-5 mr-5">
             <div className="max-w-lg">
-              <h1 className="text-thistle dark:text-thistle text-xl">
-                Preview
-              </h1>
+              <h1 className="text-thistle dark:text-thistle text-xl">Preview</h1>
               <img
                 src={`${import.meta.env.VITE_FILE_BASE_URL}${postFile}`}
                 alt=""
-                class="object-center rounded-md mx-auto my-4"
-              />
+                class="object-center rounded-md mx-auto my-4" />
             </div>
           </div>
+
+
         </div>
       </div>
     </div>

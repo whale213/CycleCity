@@ -14,7 +14,7 @@ export default function AddCriterias() {
 
   const validationSchema = yup.object().shape({
     type: yup.string().max(50).trim().required(),
-    value: yup.string().max(50).trim().required(),
+    value: yup.string().min(10).max(50).required(),
   });
 
   const formik = useFormik({
@@ -67,7 +67,7 @@ export default function AddCriterias() {
                     for="name"
                     className="absolute left-0 ml-4 px-1 rounded -top-2.5 text-fedora bg-grey text-sm transition-all peer-placeholder-shown:text-base peer-placeholder-shown:text-gray-400 peer-placeholder-shown:top-3.5 peer-focus:-top-2.5 peer-focus:text-thistle/80 peer-hover:text-thistle peer-focus:text-sm"
                   >
-                    Type
+                    type
                   </label>
                 </div>
                 <div className="w-full relative">
@@ -83,10 +83,41 @@ export default function AddCriterias() {
                     for="value"
                     className="absolute left-0 ml-4 px-1 rounded -top-2.5 text-fedora bg-grey text-sm transition-all peer-placeholder-shown:text-base peer-placeholder-shown:text-gray-400 peer-placeholder-shown:top-3.5 peer-focus:-top-2.5 peer-focus:text-thistle/80 peer-hover:text-thistle peer-focus:text-sm"
                   >
-                    Value
+                    value
                   </label>
                 </div>
-
+                {/* <div className="flex justify-center w-full mx-auto">
+                  <div className="flex flex-col items-center justify-center w-full h-auto">
+                    <div className="mt-4 mb-4 text-center">
+                      <h2 className="text-2xl font-semibold mb-2">Upload Image</h2>
+                      <p className="text-xs text-gray-500">
+                        File should be of .jpg or .png format
+                      </p>
+                    </div>
+                    <div className="relative w-full h-56 mb-4 border-2 border-fedora border-dashed rounded-xl shadow-inner hover:border-thistle/90 focus:outline-none focus:border-thistle/60 transition-colors">
+                      <input
+                        type="file"
+                        id="file-upload"
+                        className="hidden"
+                        // onChange={formik.handleChange}
+                        // value={formik.values.imageFile}
+                        // multiple
+                        // accept=".png .jpeg"
+                      />
+                      <label
+                        for="file-upload"
+                        className="z-20 flex flex-col-reverse items-center justify-center w-full h-full cursor-pointer"
+                      >
+                        <p className="z-10 text-xs font-light text-center text-gray-500">
+                          Click to upload or drag and drop
+                        </p>
+                        <div className="text-grey dark:text-seashell mb-2">
+                          <BsImage size={60} />
+                        </div>
+                      </label>
+                    </div>
+                  </div>
+                </div> */}
                 <div className="flex flex-row justify-center space-x-10">
                   <div>
                     <button

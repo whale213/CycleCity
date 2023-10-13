@@ -1,8 +1,13 @@
-import React, { useEffect, useContext } from "react";
-import { Link } from "react-router-dom";
+import React, { useState, useEffect, useContext } from "react";
+import { Link, useNavigate } from "react-router-dom";
 import UserContext from "../../context/UserContext";
-
 import { FiEdit } from "react-icons/fi";
+import { BiLogOut } from "react-icons/bi";
+import { MdDeleteForever } from "react-icons/md";
+import Modal from "../../components/modal/Modal";
+import { BsExclamationCircle } from "react-icons/bs";
+import http from "../../http";
+import { MdOutlineKeyboardDoubleArrowRight } from "react-icons/md";
 
 export default function UserProfile() {
   if (
@@ -17,6 +22,19 @@ export default function UserProfile() {
 
   const { user } = useContext(UserContext);
 
+  const [modalOpen, setModalOpen] = useState(false); // State to manage modal visibility
+  const navigate = useNavigate();
+
+  const [idToDelete, setIdToDelete] = useState(0);
+  const [nameToDelete, setNameToDelete] = useState("");
+
+  const deleteAccount = () => {
+    http.delete(`/user/${user.id}`).then((res) => {
+      console.log(res.data);
+      navigate("/");
+    });
+  };
+
   useEffect(() => {
     console.log(user);
   }, [user]);
@@ -24,12 +42,13 @@ export default function UserProfile() {
   const logout = () => {
     localStorage.clear();
     window.location = "/";
+    window.alert("Logging out...");
   };
 
   return (
-    <div>
+    <div className="flex flex-col mt-0 shadow-lg h-screen overflow-y-auto">
       {user ? (
-        <div className="w-full h-full p-8 overflow-auto">
+        <div className="w-full p-8">
           <Link
             to={"/user"}
             className="p-4 text-md md:text-3xl text-thistle dark:text-thistle"
@@ -65,7 +84,7 @@ export default function UserProfile() {
                 <FiEdit size={20} color="white" />
               </Link>
             </div>
-            <div className="w-full h-full border-2 border-fedora text-silver m-10 p-20">
+            <div className="w-full border-2 border-fedora text-silver m-10 p-20">
               Quests
             </div>
           </div>
@@ -77,13 +96,71 @@ export default function UserProfile() {
             </div>
           </div>
 
-          <div style={{ marginTop: "100px", marginLeft: "40px" }}>
-            <button onClick={logout}>
-              <a className="py-2.5 px-5 bg-warning text-seashell hover:text-grey dark:hover:text-warning border-2 border-transparent rounded-lg hover:bg-transparent hover:border-warning transition ease-in duration-200 transform hover:-translate-y-1 active:translate-y-0">
-                Log Out
-              </a>
+          <br></br>
+          <br></br>
+          <br></br>
+          <br></br>
+
+          <div style={{ marginTop: "10px", marginLeft: "40px" }}>
+            <button
+              onClick={logout}
+              className="flex items-center py-2.5 px-8 bg-warning text-seashell hover:text-grey dark:hover:text-warning border-2 border-transparent rounded-lg hover:bg-transparent hover:border-warning transition ease-in duration-200 transform hover:-translate-y-1 active:translate-y-0"
+            >
+              <BiLogOut size={20} className="mr-2" />
+              <a>Log Out</a>
             </button>
           </div>
+
+          <br></br>
+          <br></br>
+          <hr></hr>
+          <br></br>
+          <br></br>
+
+          <div style={{ marginTop: "10px", marginLeft: "40px" }}>
+            <button
+              onClick={(event) => {
+                event.stopPropagation();
+                setIdToDelete(user.userId);
+                setNameToDelete(user.name);
+                setModalOpen(true);
+              }}
+              className="flex items-center py-2.5 px-2 bg-warning text-seashell hover:text-grey dark:hover:text-warning border-2 border-transparent rounded-lg hover:bg-transparent hover:border-warning transition ease-in duration-200 transform hover:-translate-y-1 active:translate-y-0"
+            >
+              <MdDeleteForever size={20} className="mr-2" />
+              Delete Account
+            </button>
+          </div>
+
+          <Modal open={modalOpen} onClose={() => setModalOpen(false)}>
+            <div className="text-center w-96">
+              <BsExclamationCircle size={50} className="mx-auto text-warning" />
+              <div className="mx-auto my-4 w-60">
+                <h3 className="text-lg text-grey dark:text-seashell">
+                  Delete Account
+                </h3>
+                <div className="text-sm text-gray-400 mt-4">
+                  <p>
+                    Are you sure you want to delete your account {nameToDelete}?{" "}
+                  </p>
+                </div>
+              </div>
+              <div className="flex gap-4 w-96 text-seashell dark:text-grey">
+                <button
+                  onClick={() => setModalOpen(false)}
+                  className="border border-fedora hover:bg-fedora text-grey dark:text-seashell hover:text-seashell w-full rounded-lg p-1"
+                >
+                  Cancel
+                </button>
+                <button
+                  onClick={() => deleteAccount()}
+                  className="bg-warning hover:bg-transparent border border-transparent hover:border-warning hover:text-warning dark:text-seashell dark:hover:text-warning w-full rounded-lg p-1"
+                >
+                  Delete
+                </button>
+              </div>
+            </div>
+          </Modal>
         </div>
       ) : (
         <div>hi ms li</div>

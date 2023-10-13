@@ -11,7 +11,11 @@ import Profile from "../../components/social-media/Profile.jsx";
 import { LuSearch } from "react-icons/lu";
 import { RxCross2 } from "react-icons/rx";
 import SearchBar from "../../components/social-media/SearchBar";
-import UserContext from "../../context/UserContext";
+import UserContext from '../../context/UserContext';
+
+
+
+
 
 const Posts = () => {
   const [postList, setPostList] = useState([]);
@@ -23,7 +27,8 @@ const Posts = () => {
   const [search, setSearch] = useState("");
   const { myUser } = useContext(UserContext);
 
-  console.log(myUser);
+  console.log(myUser)
+
 
   // useEffect(() => {
   //     http.get('/userpost').then((res) => {
@@ -76,7 +81,7 @@ const Posts = () => {
     getFollowers();
   }, []);
 
-  console.log(postList);
+  console.log(postList)
 
   return (
     <section class="h-screen w-[75%] flex flex-col-reverse sm:flex-row min-h-0 min-w-0 mx-auto ml-6">
@@ -89,51 +94,46 @@ const Posts = () => {
                 <div className="flex flex-col space-y-4 w-full h-64 place-items-center min-w-fit">
                   <div className="flex items-center place-content-center">
                     <SearchBar placeholder="Search user" data={userList} />
-                    <Link
-                      to="http://localhost:5173/user/addpost"
-                      className="ml-10"
-                    >
+                    <Link to="http://localhost:5173/user/addpost" className="ml-10">
                       <button class="group relative h-12 w-48 overflow-hidden rounded-lg bg-white text-lg shadow">
                         <div class="absolute inset-0 w-3 bg-ultraViolet transition-all duration-[250ms] ease-out group-hover:w-full"></div>
-                        <span class="relative text-black group-hover:text-white">
-                          Add Post
-                        </span>
+                        <span class="relative text-black group-hover:text-white">Add Post</span>
                       </button>
                     </Link>
                   </div>
-                  {postList.map((post, i) => (
+                  {postList.map((post, i) =>
                     <Post
                       post={post}
                       key={post.postID}
                       class="mx-auto min-w-full"
                     />
-                  ))}
+                  )}
                 </div>
               </div>
             </div>
             <div class="pb-2 lg:pb-0 w-full lg:max-w-sm px-3 flex flex-row lg:flex-col flex-wrap lg:flex-nowrap">
+              <div></div>
               <div class="text-seashell bg-ultraViolet w-full min-h-fit min-w-0 mb-4 rounded-lg p-4">
                 My Friends
                 <ul>
                   {followingList.map((following, i) => {
-                    const follower = followerList.find(
-                      (follower) =>
-                        follower.followeruserID === following.followeduserID
-                    );
+                    const follower = followerList.find(follower => follower.followeruserID === following.followeduserID);
 
                     if (follower) {
                       return (
                         <div key={i}>
-                          <Profile
-                            follower={follower}
-                            key={follower.followerID}
-                          />
+
+                          <Profile follower={follower} key={follower.followerID} />
+
                         </div>
                       );
                     } else {
                       return null;
                     }
                   })}
+
+
+
                 </ul>
               </div>
               <div class="text-grey bg-thistle w-full h-24 min-h-0 min-w-0 mb-4 rounded-lg p-4">
@@ -141,11 +141,17 @@ const Posts = () => {
               </div>
             </div>
           </div>
-          <Modal></Modal>
+          <Modal>
+
+          </Modal>
+
         </section>
       </main>
     </section>
-  );
+
+
+
+  )
 };
 
 export default Posts;

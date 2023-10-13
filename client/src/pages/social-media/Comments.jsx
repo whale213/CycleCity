@@ -1,12 +1,15 @@
 import React from "react";
 import { useState, useEffect, useContext } from "react";
-import { Link, useParams } from "react-router-dom";
+import { Link, useParams } from "react-router-dom"
 // import AspectRatio from "@mui/joy/AspectRatio";
 import http from "../../http";
 import { useFormik } from "formik";
-import { FiHeart } from "react-icons/fi";
-import { FaHeart } from "react-icons/fa";
-import UserContext from "../../context/UserContext";
+import { FiHeart } from "react-icons/fi"
+import { FaHeart } from "react-icons/fa"
+import UserContext from '../../context/UserContext';
+
+
+
 
 export default function Comments() {
   const [commentsList, setCommentsList] = useState([]);
@@ -15,14 +18,17 @@ export default function Comments() {
   const postID = useParams();
   const [showImage, setShowImage] = useState(false);
 
+
   const { myUser } = useContext(UserContext);
   const myUserId = myUser.userId;
+
+
 
   const formik = useFormik({
     initialValues: {
       comment: "",
       userId: myUserId,
-      postID: postID.id,
+      postID: postID.id
     },
     onSubmit: (data) => {
       data.comment = data.comment.trim();
@@ -34,10 +40,14 @@ export default function Comments() {
     },
   });
 
+
+
+
+
   const getComments = () => {
     http.get(`/comments/${postID.id}`).then((res) => {
       console.log(res.data);
-      console.log(postID);
+      console.log(postID)
       setCommentsList(res.data);
     });
   };
@@ -63,8 +73,9 @@ export default function Comments() {
     getPost();
   }, []);
 
+
   const handleDislike = (idToDislike) => {
-    console.log("DISLIKE", idToDislike);
+    console.log("DISLIKE", idToDislike)
     http.delete(`/likes/${idToDislike}`).then((res) => {
       console.log(res.data);
     });
@@ -72,7 +83,7 @@ export default function Comments() {
   };
 
   const handleLike = () => {
-    const data = {};
+    const data = {}
     data.userId = myUserId;
     data.postID = Post.postID;
     http.post(`/likes/`, data).then((res) => {
@@ -81,7 +92,9 @@ export default function Comments() {
     window.location.reload(true);
   };
 
-  console.log("HELLO", Post);
+  console.log("HELLO", Post)
+
+
 
   useEffect(() => {
     // Other useEffect code...
@@ -95,7 +108,8 @@ export default function Comments() {
     return () => clearTimeout(timer);
   }, []);
 
-  const isLiked = likeList.some((item) => item.userId === myUserId);
+  const isLiked = likeList.some(item => item.userId === myUserId);
+
 
   return (
     <div className="w-screen h-full">
@@ -116,26 +130,19 @@ export default function Comments() {
               className="cursor-pointer py-4 flex items-center text-sm outline-none focus:outline-none focus:border-gray-300 transition duration-150 ease-in-out"
             >
               <img
-                src={`${import.meta.env.VITE_FILE_BASE_URL}${
-                  Post?.user_post_desc.profileImage
-                }`}
+                src={`${import.meta.env.VITE_FILE_BASE_URL}${Post?.user_post_desc.profileImage}`}
                 className="h-9 w-9 rounded-full object-cover"
                 alt="user"
               />
               {Post?.user_post_desc?.name && (
-                <p className="block ml-2 font-semibold text-thistle">
-                  {Post.user_post_desc.name}
-                </p>
+                <p className="block ml-2 font-semibold text-thistle">{Post.user_post_desc.name}</p>
               )}
             </Link>
           </header>
           <div className="overflow-y-auto h-[60%]">
             <div className="p-3">
               {commentsList.map((comment, i) => (
-                <div
-                  key={comment.commentID}
-                  className="text-sm mb-2 flex flex-start items-center"
-                >
+                <div key={comment.commentID} className="text-sm mb-2 flex flex-start items-center">
                   <div>
                     <Link
                       to="#"
@@ -143,9 +150,7 @@ export default function Comments() {
                     >
                       <img
                         className="h-8 w-8 rounded-full object-cover"
-                        src={`${import.meta.env.VITE_FILE_BASE_URL}${
-                          comment.user_comment_desc.profileImage
-                        }`}
+                        src={`${import.meta.env.VITE_FILE_BASE_URL}${comment.user_comment_desc.profileImage}`}
                         alt=""
                       />
                     </Link>
@@ -168,23 +173,14 @@ export default function Comments() {
                 <div className="flex items-center">
                   <span className="mr-3 inline-flex items-center cursor-pointer text-silver">
                     {isLiked ? (
-                      <FaHeart
-                        size={30}
-                        onClick={() =>
-                          handleDislike(
-                            likeList.find((item) => item.userId === myUserId)
-                              .likeID
-                          )
-                        }
-                      />
+                      <FaHeart size={30} onClick={() => handleDislike(likeList.find(item => item.userId === myUserId).likeID)} />
                     ) : (
                       <FiHeart size={30} onClick={() => handleLike()} />
                     )}
+
                   </span>
                 </div>
-                <span className="text-gray-400 text-sm">
-                  {likeList.length} Likes
-                </span>
+                <span className="text-gray-400 text-sm">{likeList.length} Likes</span>
               </div>
               <span className="block ml-2 text-xs text-gray-600"></span>
             </div>
@@ -208,5 +204,5 @@ export default function Comments() {
         </div>
       </div>
     </div>
-  );
-}
+  )
+};

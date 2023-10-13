@@ -25,7 +25,7 @@ module.exports = (sequelize, DataTypes) => {
       },
       bio: {
         type: DataTypes.TEXT,
-        allowNull: false,
+        allowNull: true,
       },
       role: {
         type: DataTypes.STRING,
@@ -55,13 +55,13 @@ module.exports = (sequelize, DataTypes) => {
     { timestamps: false }
   );
 
-  User.associate = (models) => {
-    User.belongsTo(models.Peloton, {
-      foreignKey: "pelotonId",
-      as: "peloton",
-      allowNull: false,
-    });
-  };
+  // User.associate = (models) => {
+  //   User.belongsTo(models.Peloton, {
+  //     foreignKey: "pelotonId",
+  //     as: "peloton",
+  //     allowNull: true,
+  //   });
+  // };
 
   return User;
 };

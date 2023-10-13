@@ -2,9 +2,9 @@ module.exports = (sequelize, DataTypes) => {
   const Quest = sequelize.define(
     "Quest",
     {
-      id: {
+      questId: {
         type: DataTypes.INTEGER,
-        allowNull: false,
+        autoIncrement: true,
         primaryKey: true,
       },
       name: {
@@ -19,9 +19,9 @@ module.exports = (sequelize, DataTypes) => {
     { timestamps: false }
   );
   Quest.associate = (models) => {
-    Quest.belongsTo(models.Criterias, {
-      foreignKey: "criteriasId",
-      as: "criterias",
+    Quest.belongsTo(models.Criteria, {
+      foreignKey: "criteriaId",
+      as: "criteria",
       allowNull: false,
     });
   };

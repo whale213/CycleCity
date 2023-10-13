@@ -6,6 +6,8 @@ import * as yup from "yup";
 
 // icons
 import { MdOutlineKeyboardDoubleArrowRight } from "react-icons/md";
+import { BsImage } from "react-icons/bs";
+import { LuClock4 } from "react-icons/lu";
 
 export default function EditCriterias() {
   const { id } = useParams();
@@ -13,13 +15,20 @@ export default function EditCriterias() {
 
   const validationSchema = yup.object().shape({
     type: yup.string().max(50).trim().required(),
-    value: yup.string().max(50).trim().required(),
+    value: yup.string().min(10).max(50).required(),
   });
 
   const [criteria, setCriteria] = useState({
     type: "",
     value: "",
   });
+
+  const deleteCriteria = () => {
+    http.delete(`/criteria/${id}`).then((res) => {
+      console.log(res.data);
+      navigate("/staff/achievements/criterias");
+    });
+  };
 
   useEffect(() => {
     http.get(`/criteria/${id}`).then((res) => {
@@ -57,7 +66,7 @@ export default function EditCriterias() {
           </div>
 
           <Link className="text-grey dark:text-thistle">
-            {formik.values.criteriaId}
+            {formik.values.name}
           </Link>
         </div>
         <div className="overflow-hidden">
@@ -69,7 +78,7 @@ export default function EditCriterias() {
                     type="text"
                     id="type"
                     onChange={formik.handleChange}
-                    value={formik.values.type}
+                    value={formik.values.name}
                     className="peer pl-4 pr-10 py-3 w-full border-2 bg-grey border-fedora placeholder-transparent rounded-xl hover:border-thistle/90 focus:outline-none focus:border-thistle/60 transition-colors"
                     placeholder="Name"
                   />
@@ -85,7 +94,7 @@ export default function EditCriterias() {
                     type="text"
                     id="value"
                     onChange={formik.handleChange}
-                    value={formik.values.value}
+                    value={formik.values.exp}
                     className="peer pl-4 pr-10 py-3 w-full border-2 bg-grey border-fedora placeholder-transparent rounded-xl hover:border-thistle/90 focus:outline-none focus:border-thistle/60 transition-colors"
                     placeholder="Exp"
                   />
