@@ -93,7 +93,7 @@ const Login = () => {
 
   return (
     <>
-      <div class="md:flex md:items-center md:gap-12">
+      <div className="md:flex md:items-center md:gap-12">
         <a href="/">
           <img
             src={DarkModeLogo}
@@ -139,20 +139,18 @@ const Login = () => {
                   onBlur={formik.handleBlur}
                   value={formik.values.email}
                   style={{ color: "seashell" }}
-                  className={`peer pl-4 pr-10 py-3 w-full border-2 bg-grey border-fedora placeholder-transparent rounded-xl hover:border-thistle/90 focus:outline-none focus:border-thistle/60 transition-colors ${
-                    formik.touched.email && formik.errors.email
+                  className={`peer pl-4 pr-10 py-3 w-full border-2 bg-grey border-fedora placeholder-transparent rounded-xl hover:border-thistle/90 focus:outline-none focus:border-thistle/60 transition-colors ${formik.touched.email && formik.errors.email
                       ? "border-red-500"
                       : ""
-                  }`}
+                    }`}
                   placeholder="Email"
                 />
                 <label
                   htmlFor="emaiL"
-                  className={`absolute left-0 ml-4 px-1 rounded -top-2.5 text-fedora bg-grey text-sm transition-all peer-placeholder-shown:text-base peer-placeholder-shown:text-gray-400 peer-placeholder-shown:top-3.5 peer-focus:-top-2.5 peer-focus:text-thistle/80 peer-hover:text-thistle peer-focus:text-sm ${
-                    formik.touched.email && formik.errors.email
+                  className={`absolute left-0 ml-4 px-1 rounded -top-2.5 text-fedora bg-grey text-sm transition-all peer-placeholder-shown:text-base peer-placeholder-shown:text-gray-400 peer-placeholder-shown:top-3.5 peer-focus:-top-2.5 peer-focus:text-thistle/80 peer-hover:text-thistle peer-focus:text-sm ${formik.touched.email && formik.errors.email
                       ? "text-red-500"
                       : ""
-                  }`}
+                    }`}
                 >
                   Email
                 </label>
@@ -175,21 +173,19 @@ const Login = () => {
                   onBlur={formik.handleBlur}
                   value={formik.values.name}
                   style={{ color: "seashell" }}
-                  className={`peer pl-4 pr-10 py-3 w-full border-2 bg-grey border-fedora placeholder-transparent rounded-xl hover:border-thistle/90 focus:outline-none focus:border-thistle/60 transition-colors ${
-                    formik.touched.password && formik.errors.password
+                  className={`peer pl-4 pr-10 py-3 w-full border-2 bg-grey border-fedora placeholder-transparent rounded-xl hover:border-thistle/90 focus:outline-none focus:border-thistle/60 transition-colors ${formik.touched.password && formik.errors.password
                       ? "border-red-500"
                       : ""
-                  }`}
+                    }`}
                   placeholder="Password"
                 />
 
                 <label
                   htmlFor="password"
-                  className={`absolute left-0 ml-4 px-1 rounded -top-2.5 text-fedora bg-grey text-sm transition-all peer-placeholder-shown:text-base peer-placeholder-shown:text-gray-400 peer-placeholder-shown:top-3.5 peer-focus:-top-2.5 peer-focus:text-thistle/80 peer-hover:text-thistle peer-focus:text-sm ${
-                    formik.touched.password && formik.errors.password
+                  className={`absolute left-0 ml-4 px-1 rounded -top-2.5 text-fedora bg-grey text-sm transition-all peer-placeholder-shown:text-base peer-placeholder-shown:text-gray-400 peer-placeholder-shown:top-3.5 peer-focus:-top-2.5 peer-focus:text-thistle/80 peer-hover:text-thistle peer-focus:text-sm ${formik.touched.password && formik.errors.password
                       ? "text-red-500"
                       : ""
-                  }`}
+                    }`}
                 >
                   Password
                 </label>

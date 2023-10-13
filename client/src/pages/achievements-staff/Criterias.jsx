@@ -71,28 +71,28 @@ export default function Criterias() {
 
   return (
     <div className="text-grey dark:text-seashell m-6">
-      <div class="flex flex-col items-center justify-center w-full min-h-full">
-        <div class="w-full mx-auto p-2 text-gray-800 dark:text-seashell/90 relative overflow-hidden min-w-full max-w-3xl">
+      <div className="flex flex-col items-center justify-center w-full min-h-full">
+        <div className="w-full mx-auto p-2 text-gray-800 dark:text-seashell/90 relative overflow-hidden min-w-full max-w-3xl">
           <div className="flex space-x-4 align-items-center justify-center">
-            <div class="relative mt-1 w-full">
+            <div className="relative mt-1 w-full">
               <input
                 type="search"
                 id="search"
-                class="w-full pl-12 pr-10 py-2 border-2 bg-grey border-fedora rounded-xl hover:border-thistle/90 focus:outline-none focus:border-thistle/60 transition-colors"
+                className="w-full pl-12 pr-10 py-2 border-2 bg-grey border-fedora rounded-xl hover:border-thistle/90 focus:outline-none focus:border-thistle/60 transition-colors"
                 value={search}
                 placeholder="Search"
                 onChange={onSearchChange}
                 onKeyDown={onSearchKeyDown}
               />
               <button
-                class="block w-7 h-7 pl-4 text-center text-xl leading-0 absolute top-2 right-2 text-gray-400 focus:outline-none hover:text-thistle/90 transition-colors"
+                className="block w-7 h-7 pl-4 text-center text-xl leading-0 absolute top-2 right-2 text-gray-400 focus:outline-none hover:text-thistle/90 transition-colors"
                 onClick={onClickSearch}
               >
                 <LuSearch size={24} />
               </button>
             </div>
             {/* <button
-              class="block w-7 h-7 text-center text-xl leading-0 absolute top-2 left-2 text-gray-400 focus:outline-none hover:text-thistle/90 transition-colors"
+              className="block w-7 h-7 text-center text-xl leading-0 absolute top-2 left-2 text-gray-400 focus:outline-none hover:text-thistle/90 transition-colors"
               onClick={onClickSearch}
             >
               <RxCross2 size={24} />
@@ -106,29 +106,29 @@ export default function Criterias() {
             </div>
           </div>
         </div>
-        <div class="flex flex-col mt-6 shadow-lg">
-          <div class="-my-2 overflow-x-auto h-[320px] sm:-mx-6 lg:-mx-8">
-            <div class="py-2 align-middle inline-block min-w-full sm:px-6 lg:px-8">
-              <div class="shadow overflow-auto sm:rounded-lg">
-                <table class="min-w-full text-sm text-gray-400 divide-y-2 divide-ultraViolet dark:divide-thistle">
-                  <thead class="bg-orange-100 dark:bg-black dark:bg-opacity-20 text-sm uppercase font-medium">
+        <div className="flex flex-col mt-6 shadow-lg">
+          <div className="-my-2 overflow-x-auto h-[320px] sm:-mx-6 lg:-mx-8">
+            <div className="py-2 align-middle inline-block min-w-full sm:px-6 lg:px-8">
+              <div className="shadow overflow-auto sm:rounded-lg">
+                <table className="min-w-full text-sm text-gray-400 divide-y-2 divide-ultraViolet dark:divide-thistle">
+                  <thead className="bg-orange-100 dark:bg-black dark:bg-opacity-20 text-sm uppercase font-medium">
                     <tr>
                       <th></th>
-                      <th class="px-10 py-3 text-left tracking-wider"> Type</th>
-                      <th class="px-10 py-3 text-left tracking-wider">
+                      <th className="px-10 py-3 text-left tracking-wider"> Type</th>
+                      <th className="px-10 py-3 text-left tracking-wider">
                         {" "}
                         Value
                       </th>
-                      {/* <th class="px-10 py-3 text-left tracking-wider">
+                      {/* <th className="px-10 py-3 text-left tracking-wider">
                         CriteriaID
                       </th> */}
-                      <th class="px-10 py-3 text-left tracking-wider"></th>
+                      <th className="px-10 py-3 text-left tracking-wider"></th>
                     </tr>
                   </thead>
-                  <tbody class="divide-y divide-thistle dark:divide-fedora">
+                  <tbody className="divide-y divide-thistle dark:divide-fedora">
                     {criteriaList.map((criteria, id) => (
                       <tr
-                        class="hover:bg-orange-100 dark:hover:bg-onyx group cursor-pointer"
+                        className="hover:bg-orange-100 dark:hover:bg-onyx group cursor-pointer"
                         key={id}
                         onClick={() => {
                           navigate(
@@ -136,20 +136,20 @@ export default function Criterias() {
                           );
                         }}
                       >
-                        <td class="pl-4">{criteria.criteriaId}</td>
-                        <td class="flex px-10 py-4 whitespace-nowrap">
-                          <span class="ml-0 font-medium text-ultraViolet dark:text-thistle">
+                        <td className="pl-4">{criteria.criteriaId}</td>
+                        <td className="flex px-10 py-4 whitespace-nowrap">
+                          <span className="ml-0 font-medium text-ultraViolet dark:text-thistle">
                             {criteria.type}
                           </span>
                         </td>
                         {
-                          <td class="px-10 py-4 whitespace-nowrap text-fedora dark:text-seashell">
+                          <td className="px-10 py-4 whitespace-nowrap text-fedora dark:text-seashell">
                             <div className="flex flex-col-2 space-x-1 pl-1">
                               <div>{criteria.value}</div>
                             </div>
                           </td>
                         }
-                        <td class="px-8 py-2 whitespace-nowrap">
+                        <td className="px-8 py-2 whitespace-nowrap">
                           <div
                             onClick={(event) => {
                               event.stopPropagation();

@@ -44,9 +44,9 @@ function SpotifyHome() {
     return (
         <div>
             {token ? (
-                <div class='w-screen h-screen overflow-y-auto'>
+                <div className='w-screen h-screen overflow-y-auto'>
                     <div><SpotifyNavBar pfpurl={pfpImage} name={userName} /></div>
-                    <h1 class="text-2xl sm:text-5xl md:text-5xl font-bold text-seashell m-5">Playlists</h1>
+                    <h1 className="text-2xl sm:text-5xl md:text-5xl font-bold text-seashell m-5">Playlists</h1>
 
                     <div className='m-5 flex flex-wrap'>
                         {playlists?.map(playlist => (

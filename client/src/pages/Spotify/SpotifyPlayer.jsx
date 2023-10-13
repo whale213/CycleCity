@@ -149,9 +149,9 @@ function SpotifyPlayer() {
     console.log("current", currentTrack)
 
     return (
-        <div class='w-screen h-screen overflow-y-auto'>
+        <div className='w-screen h-screen overflow-y-auto'>
             <div><SpotifyNavBar pfpurl={pfpImage} name={userName} /></div>
-            <div class="mr-20">
+            <div className="mr-20">
                 <div className='mb-5 flex justify-center items-center'>
                     <h1 className='text-gray-400'>Currently Playing</h1>
                 </div>

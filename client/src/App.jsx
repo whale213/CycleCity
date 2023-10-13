@@ -89,7 +89,7 @@ const router = createBrowserRouter(
       <Route path="user" element={<UserSidebar />}>
         // user profile
         <Route path="profile" element={<UserProfile />} />
-        <Route path="profile/edit" element={<UserEditProfile />} />
+        {/* <Route path="profile/edit" element={<EditProfile />} /> */}
         <Route path="profile/edit/password" element={<UserChangePassword />} />
         // peloton
         <Route path="peloton" element={<Peloton />}>

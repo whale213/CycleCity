@@ -61,7 +61,7 @@ export default function EditPost() {
     };
 
     return (
-        <div class="min-w-full">
+        <div className="min-w-full">
             <div className="m-12 xl:w-[110%]">
                 <div className="flex space-x-1 text-md md:text-xl pl-8 pb-2 text-thistle dark:text-fedora">
                     <Link

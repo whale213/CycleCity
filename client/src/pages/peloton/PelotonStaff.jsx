@@ -8,4 +8,4 @@ export default function Peloton() {
     </div>
   );
 }
-//<div class="w-full mx-auto p-2 text-gray-800 dark:text-seashell/90 relative overflow-hidden min-w-full max-w-3xl"></div>;
+//<div className="w-full mx-auto p-2 text-gray-800 dark:text-seashell/90 relative overflow-hidden min-w-full max-w-3xl"></div>;

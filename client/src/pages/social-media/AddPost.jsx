@@ -59,7 +59,7 @@ export default function AddPost() {
   };
 
   return (
-    <div class="min-w-max ">
+    <div className="min-w-max ">
       <div className="m-12 xl:w-[110%]">
         <div className="flex space-x-1 text-md md:text-xl pl-8 pb-2 text-thistle dark:text-fedora">
           <Link
@@ -157,7 +157,7 @@ export default function AddPost() {
               <img
                 src={`${import.meta.env.VITE_FILE_BASE_URL}${postFile}`}
                 alt=""
-                class="object-center rounded-md mx-auto my-4" />
+                className="object-center rounded-md mx-auto my-4" />
             </div>
           </div>
 
