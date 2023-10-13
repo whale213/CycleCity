@@ -132,11 +132,10 @@ export default function AddLocations() {
                     id="name"
                     onChange={formik.handleChange}
                     value={formik.values.name}
-                    className={`peer pl-4 pr-10 py-3 w-full border-2 bg-grey border-fedora placeholder-transparent rounded-xl hover:border-thistle/90 focus:outline-none focus:border-thistle/60 transition-colors ${
-                      formik.touched.name && formik.errors.name
-                        ? "border-warning"
-                        : ""
-                    }`}
+                    className={`peer pl-4 pr-10 py-3 w-full border-2 bg-grey border-fedora placeholder-transparent rounded-xl hover:border-thistle/90 focus:outline-none focus:border-thistle/60 transition-colors ${formik.touched.name && formik.errors.name
+                      ? "border-warning"
+                      : ""
+                      }`}
                     placeholder="Name"
                     error={formik.touched.name && Boolean(formik.errors.name)}
                     helperText={formik.touched.name && formik.errors.name}
@@ -159,11 +158,10 @@ export default function AddLocations() {
                     id="address"
                     onChange={formik.handleChange}
                     value={formik.values.address}
-                    className={`peer pl-4 pr-10 py-3 w-full border-2 bg-grey border-fedora placeholder-transparent rounded-xl hover:border-thistle/90 focus:outline-none focus:border-thistle/60 transition-colors ${
-                      formik.touched.address && formik.errors.address
-                        ? "border-warning"
-                        : ""
-                    }`}
+                    className={`peer pl-4 pr-10 py-3 w-full border-2 bg-grey border-fedora placeholder-transparent rounded-xl hover:border-thistle/90 focus:outline-none focus:border-thistle/60 transition-colors ${formik.touched.address && formik.errors.address
+                      ? "border-warning"
+                      : ""
+                      }`}
                     placeholder="Address"
                   />
                   {formik.errors.address ? (
@@ -185,11 +183,10 @@ export default function AddLocations() {
                       id="postalCode"
                       onChange={formik.handleChange}
                       value={formik.values.postalCode}
-                      className={`peer pl-4 pr-10 py-3 w-full border-2 bg-grey border-fedora placeholder-transparent rounded-xl hover:border-thistle/90 focus:outline-none focus:border-thistle/60 transition-colors ${
-                        formik.touched.postalCode && formik.errors.postalCode
-                          ? "border-warning"
-                          : ""
-                      }`}
+                      className={`peer pl-4 pr-10 py-3 w-full border-2 bg-grey border-fedora placeholder-transparent rounded-xl hover:border-thistle/90 focus:outline-none focus:border-thistle/60 transition-colors ${formik.touched.postalCode && formik.errors.postalCode
+                        ? "border-warning"
+                        : ""
+                        }`}
                       placeholder="Postal Code"
                     />
                     {formik.errors.postalCode ? (
@@ -210,11 +207,10 @@ export default function AddLocations() {
                       id="longitude"
                       onChange={formik.handleChange}
                       value={formik.values.longitude}
-                      className={`peer pl-4 pr-10 py-3 w-full border-2 bg-grey border-fedora placeholder-transparent rounded-xl hover:border-thistle/90 focus:outline-none focus:border-thistle/60 transition-colors ${
-                        formik.touched.longitude && formik.errors.longitude
-                          ? "border-warning"
-                          : ""
-                      }`}
+                      className={`peer pl-4 pr-10 py-3 w-full border-2 bg-grey border-fedora placeholder-transparent rounded-xl hover:border-thistle/90 focus:outline-none focus:border-thistle/60 transition-colors ${formik.touched.longitude && formik.errors.longitude
+                        ? "border-warning"
+                        : ""
+                        }`}
                       placeholder="Longitude"
                     />
                     {formik.errors.longitude ? (
@@ -235,11 +231,10 @@ export default function AddLocations() {
                       id="latitude"
                       onChange={formik.handleChange}
                       value={formik.values.latitude}
-                      className={`peer pl-4 pr-10 py-3 w-full border-2 bg-grey border-fedora placeholder-transparent rounded-xl hover:border-thistle/90 focus:outline-none focus:border-thistle/60 transition-colors ${
-                        formik.touched.latitude && formik.errors.latitude
-                          ? "border-warning"
-                          : ""
-                      }`}
+                      className={`peer pl-4 pr-10 py-3 w-full border-2 bg-grey border-fedora placeholder-transparent rounded-xl hover:border-thistle/90 focus:outline-none focus:border-thistle/60 transition-colors ${formik.touched.latitude && formik.errors.latitude
+                        ? "border-warning"
+                        : ""
+                        }`}
                       placeholder="Latitude"
                     />
                     {formik.errors.latitude ? (
